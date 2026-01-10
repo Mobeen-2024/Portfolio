@@ -1,15 +1,13 @@
 const HERO_CONTENT = {
   executive: {
-    title: "Maximize Your Marketing ROI with High-Integrity Data.",
-    subtitle:
-      "Clean strategy starts with clean inputs. I bridge the gap between marketing spend and boardroom results.",
-    label: "EXECUTIVE_VIEW",
+    label: "Strategy & ROI",
+    title: "Turning Marketing Chaos into Board-Room Clarity.", // Option A
+    subtitle: "20 years of marketing leadership meets high-integrity data strategy."
   },
   architect: {
-    title: "Building Automated Pipelines for 100% Attribution Accuracy.",
-    subtitle:
-      "Deduplicating, sanitizing, and visualizing CRM data at scale with Python-driven automation.",
-    label: "SYSTEM_ARCHITECT",
+    label: "// DATA_ENGINEER_MODE",
+    title: "Standardizing Messy Datasets with Python-Driven Precision.", // Option A
+    subtitle: "Building automated pipelines and C++ algorithms for 100% attribution accuracy."
   },
 };
 

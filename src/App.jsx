@@ -15,7 +15,7 @@ function App() {
   const [isSoundEnabled, setIsSoundEnabled] = useState(false);
 
   // Determine active content
-  const active = isGodMode ? HERO_CONTENT.architect : HERO_CONTENT.executive;
+  const activeHero = isGodMode ? HERO_CONTENT.architect : HERO_CONTENT.executive;
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isGodMode);
@@ -28,7 +28,7 @@ function App() {
       <BackgroundEffects isGodMode={isGodMode} />
 
       <Navigation
-        activeLabel={active.label}
+        activeLabel={activeHero.label}
         isGodMode={isGodMode}
         onToggleMode={() => setIsGodMode(!isGodMode)}
         isSoundEnabled={isSoundEnabled}
@@ -52,8 +52,8 @@ function App() {
       <main className="relative z-10 pt-32 pb-20 px-6 max-w-5xl mx-auto flex flex-col items-center space-y-32">
         
         <Hero 
-          title={active.title} 
-          subtitle={active.subtitle} 
+          title={activeHero.title} 
+          subtitle={activeHero.subtitle} 
           isGodMode={isGodMode} 
         />
 
