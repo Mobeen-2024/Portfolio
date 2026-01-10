@@ -14,8 +14,9 @@ function App() {
   const [isGodMode, setIsGodMode] = useState(false);
   const [isSoundEnabled, setIsSoundEnabled] = useState(false);
 
-  // Determine active content
+  // Pick the correct object based on the mode
   const activeHero = isGodMode ? HERO_CONTENT.architect : HERO_CONTENT.executive;
+  const activeAbout = isGodMode ? ABOUT_CONTENT.architect : ABOUT_CONTENT.executive;
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isGodMode);
@@ -58,9 +59,9 @@ function App() {
         />
 
         <About
-          title={isGodMode ? ABOUT_CONTENT.architect.title : ABOUT_CONTENT.executive.title}
-          bio={isGodMode ? ABOUT_CONTENT.architect.bio : ABOUT_CONTENT.executive.bio}
-          metrics={isGodMode ? ABOUT_CONTENT.architect.metrics : ABOUT_CONTENT.executive.metrics}
+          title={activeAbout.title}
+          bio={activeAbout.bio}
+          metrics={activeAbout.metrics}
           isGodMode={isGodMode}
           label={isGodMode ? "// ROOT_LOG" : "The Background"}
         />
