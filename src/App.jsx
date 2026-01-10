@@ -1,0 +1,76 @@
+import ABOUT_CONTENT from "./content/About_me";
+import HERO_CONTENT from "./content/Hero_content";
+import { useState, useEffect } from "react";
+import Navigation from "./Navigation";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import CTA from "./CTA";
+import BackgroundEffects from "./BackgroundEffects";
+import FooterTerminal from "./FooterTerminal";
+
+// ... imports ...
+
+function App() {
+  const [isGodMode, setIsGodMode] = useState(false);
+  const [isSoundEnabled, setIsSoundEnabled] = useState(false);
+
+  // Determine active content
+  const active = isGodMode ? HERO_CONTENT.architect : HERO_CONTENT.executive;
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isGodMode);
+  }, [isGodMode]);
+
+  return (
+    <div className={`min-h-screen relative overflow-x-hidden transition-all duration-700 
+      ${isGodMode ? "bg-black text-green-500 font-mono" : "bg-slate-50 text-slate-900 font-sans"}`}>
+      
+      <BackgroundEffects isGodMode={isGodMode} />
+
+      <Navigation
+        activeLabel={active.label}
+        isGodMode={isGodMode}
+        onToggleMode={() => setIsGodMode(!isGodMode)}
+        isSoundEnabled={isSoundEnabled}
+        onToggleSound={() => {
+          const newMuteState = !isSoundEnabled;
+          setIsSoundEnabled(newMuteState);
+          
+          // This helps "unlock" audio on mobile/browsers without creating new contexts constantly
+          if (newMuteState && (window.AudioContext || window.webkitAudioContext)) {
+             const ctx = new (window.AudioContext || window.webkitAudioContext)();
+             if (ctx.state === 'suspended') ctx.resume();
+          }
+        }}
+      />
+
+      {/* PROFESSIONAL LAYOUT: 
+          1. Removed h-[85vh] to allow scrolling.
+          2. Added pt-32 (padding-top) so content clears the fixed navbar.
+          3. Added space-y-24 to separate Hero, About, and CTA properly.
+      */}
+      <main className="relative z-10 pt-32 pb-20 px-6 max-w-5xl mx-auto flex flex-col items-center space-y-32">
+        
+        <Hero 
+          title={active.title} 
+          subtitle={active.subtitle} 
+          isGodMode={isGodMode} 
+        />
+
+        <About
+          title={isGodMode ? ABOUT_CONTENT.architect.title : ABOUT_CONTENT.executive.title}
+          bio={isGodMode ? ABOUT_CONTENT.architect.bio : ABOUT_CONTENT.executive.bio}
+          metrics={isGodMode ? ABOUT_CONTENT.architect.metrics : ABOUT_CONTENT.executive.metrics}
+          isGodMode={isGodMode}
+          label={isGodMode ? "// ROOT_LOG" : "The Background"}
+        />
+
+        <CTA isGodMode={isGodMode} />
+      </main>
+
+      <FooterTerminal isGodMode={isGodMode} />
+    </div>
+  );
+}
+
+export default App;
