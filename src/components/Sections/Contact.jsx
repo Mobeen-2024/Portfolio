@@ -24,7 +24,7 @@ export default function Contact({ isGodMode }) {
     };
 
     // 3. Send! Notice the publicKey is the 4th argument
-    emailjs.send(serviceID, templateID, templateParams, publicKey)
+    emailjs.send(serviceID, templateID, templateParams, publicKey,)
       .then((result) => {
         console.log('SUCCESS:', result.text);
         setStatus('SUCCESS');
