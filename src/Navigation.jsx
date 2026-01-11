@@ -2,6 +2,25 @@ import React from 'react';
 import BiometricScanner from './components/BiometricScanner';
 
 export default function Navigation({ isGodMode, isScanning, onScan, activeLabel }) {
+  
+  // The scroll function
+  const scrollTo = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      // Offset for the fixed navbar (approx 80px)
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 border-b ${
       isGodMode 
@@ -29,15 +48,28 @@ export default function Navigation({ isGodMode, isScanning, onScan, activeLabel 
 
         {/* Menu & Scanner */}
         <div className="flex items-center gap-8">
-          <ul className={`hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest ${
-            isGodMode ? "text-green-500/50" : "text-slate-500"
+          <ul className={`hidden md:flex gap-8 ${
+            isGodMode ? "text-green-500" : "text-slate-500"
           }`}>
-            <li className="hover:text-current cursor-pointer transition-colors">About</li>
-            <li className="hover:text-current cursor-pointer transition-colors">Experience</li>
+            <li>
+              <button onClick={() => scrollTo('about')} className="hover:opacity-100 opacity-70 transition-all uppercase text-xs font-bold tracking-widest">
+                About
+              </button>
+            </li>
+            <li>
+              <button onClick={() => scrollTo('projects')} className="hover:opacity-100 opacity-70 transition-all uppercase text-xs font-bold tracking-widest">
+                Projects
+              </button>
+            </li>
+            <li>
+              <button onClick={() => scrollTo('contact')} className="hover:opacity-100 opacity-70 transition-all uppercase text-xs font-bold tracking-widest">
+                Contact
+              </button>
+            </li>
           </ul>
-          
+
           <BiometricScanner isScanning={isScanning} isGodMode={isGodMode} onScan={onScan} />
-        </div>
+        </div> 
       </div>
     </nav>
   );

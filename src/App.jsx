@@ -1,16 +1,24 @@
+import { useState, useEffect } from "react";
+import emailjs from '@emailjs/browser';
+
+// Content & Data
 import ABOUT_CONTENT from "./content/About_me";
 import HERO_CONTENT from "./content/Hero_content";
-import { useState, useEffect } from "react";
+import { PROJECTS } from "./content/projects";
+
+// Components
 import Navigation from "./Navigation";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import CTA from "./CTA";
+import Contact from "./components/sections/Contact";
+import ProjectCard from "./components/sections/ProjectCard";
 import BackgroundEffects from "./components/BackgroundEffects";
 import FooterTerminal from "./FooterTerminal";
 import ScanOverlay from "./components/ScanOverlay";
 import IdentityStatus from "./components/IdentityStatus";
-import { PROJECTS } from "./content/projects";
-import ProjectCard from "./components/Sections/ProjectCard";
+
+// This runs once when the app starts
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 // ... imports ...
 
@@ -27,11 +35,13 @@ function App() {
   }, [isGodMode]);
 
   const handleAuthentication = () => {
+    if (isScanning) return; // Prevent double-triggering
+
     setIsScanning(true);
 
     // Switch the mode halfway through the laser sweep
     setTimeout(() => {
-      setIsGodMode(!isGodMode);
+      setIsGodMode((prev) => !prev);
     }, 800);
 
     // End scan state
@@ -58,13 +68,8 @@ function App() {
         activeLabel={activeHero.label}
       />
 
-      {/* PROFESSIONAL LAYOUT: 
-          1. Removed h-[85vh] to allow scrolling.
-          2. Added pt-32 (padding-top) so content clears the fixed navbar.
-          3. Added space-y-24 to separate Hero, About, and CTA properly.
-      */}
       <main className={`relative z-10 pt-32 pb-20 px-8 md:px-12 max-w-[1400px] mx-auto flex flex-col items-center space-y-32 transition-all duration-500 ${
-        isScanning ? "blur-md scale-[0.98]" : "blur-0 scale-100"
+        isScanning ? "blur-md opacity-50 scale-[0.98]" : "blur-0 opacity-100 scale-100"
       }`}>
         
         <Hero 
@@ -81,15 +86,17 @@ function App() {
           label={isGodMode ? "// ROOT_LOG" : "The Background"}
         />
 
-        <section className="w-full py-20">
-          <div className="flex flex-col items-center mb-16">
-            <h2 className="text-sm font-bold tracking-[0.4em] uppercase opacity-40 mb-4">
-              {isGodMode ? "// EXECUTED_PROJECTS" : "Featured Case Studies"}
+        <section id="projects" className="w-full py-20">
+          <div className="flex flex-col items-center mb-16 space-y-4">
+            <h2 className={`text-xs font-bold tracking-[0.5em] uppercase transition-colors duration-500 ${
+              isGodMode ? "text-green-500/50" : "text-blue-600/50"
+            }`}>
+              {isGodMode ? "// SYSTEM_OUTPUT: CASE_STUDIES" : "Featured Strategic Success"}
             </h2>
-            <div className={`h-1 w-24 rounded-full ${isGodMode ? "bg-green-500" : "bg-blue-600"}`} />
+            <div className={`h-[2px] w-20 transition-all duration-500 ${isGodMode ? "bg-green-500" : "bg-blue-600"}`} />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {PROJECTS.map((project) => (
               <ProjectCard 
                 key={project.id} 
@@ -100,7 +107,7 @@ function App() {
           </div>
         </section>
 
-        <CTA isGodMode={isGodMode} />
+        <Contact isGodMode={isGodMode} />
       </main>
 
       <FooterTerminal isGodMode={isGodMode} />
