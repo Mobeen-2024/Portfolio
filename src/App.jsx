@@ -11,6 +11,10 @@ import ScanOverlay from "./components/ScanOverlay";
 import IdentityStatus from "./components/IdentityStatus";
 import { PROJECTS } from "./content/projects";
 import ProjectCard from "./components/Sections/ProjectCard";
+import emailjs from '@emailjs/browser';
+
+// This runs once when the app starts
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 // ... imports ...
 
