@@ -10,7 +10,7 @@ import { PROJECTS } from "./content/projects";
 import Navigation from "./Navigation";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import Contact from "./components/sections/Contact";
+import Contact from "./components/sections/Contact"
 import ProjectCard from "./components/sections/ProjectCard";
 import BackgroundEffects from "./components/BackgroundEffects";
 import FooterTerminal from "./FooterTerminal";
