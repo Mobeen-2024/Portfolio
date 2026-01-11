@@ -59,7 +59,7 @@ function App() {
           2. Added pt-32 (padding-top) so content clears the fixed navbar.
           3. Added space-y-24 to separate Hero, About, and CTA properly.
       */}
-      <main className={`relative z-10 pt-32 pb-20 px-6 max-w-5xl mx-auto flex flex-col items-center space-y-32 transition-all duration-500 ${
+      <main className={`relative z-10 pt-32 pb-20 px-8 md:px-12 max-w-[1400px] mx-auto flex flex-col items-center space-y-32 transition-all duration-500 ${
         isScanning ? "blur-md scale-[0.98]" : "blur-0 scale-100"
       }`}>
         
