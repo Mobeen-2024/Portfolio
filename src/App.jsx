@@ -7,12 +7,16 @@ import About from "./components/About";
 import CTA from "./CTA";
 import BackgroundEffects from "./components/BackgroundEffects";
 import FooterTerminal from "./FooterTerminal";
+import ScanOverlay from "./components/ScanOverlay";
+import IdentityStatus from "./components/IdentityStatus";
+import { PROJECTS } from "./content/projects";
+import ProjectCard from "./components/Sections/ProjectCard";
 
 // ... imports ...
 
 function App() {
   const [isGodMode, setIsGodMode] = useState(false);
-  const [isSoundEnabled, setIsSoundEnabled] = useState(false);
+  const [isScanning, setIsScanning] = useState(false);
 
   // Pick the correct object based on the mode
   const activeHero = isGodMode ? HERO_CONTENT.architect : HERO_CONTENT.executive;
@@ -22,6 +26,20 @@ function App() {
     document.documentElement.classList.toggle("dark", isGodMode);
   }, [isGodMode]);
 
+  const handleAuthentication = () => {
+    setIsScanning(true);
+
+    // Switch the mode halfway through the laser sweep
+    setTimeout(() => {
+      setIsGodMode(!isGodMode);
+    }, 800);
+
+    // End scan state
+    setTimeout(() => {
+      setIsScanning(false);
+    }, 1800);
+  };
+
   return (
     <div className={`min-h-screen relative overflow-x-hidden transition-all duration-700 
       ${isGodMode 
@@ -30,22 +48,14 @@ function App() {
       
       {/* This sits behind your text content */}
       <BackgroundEffects isGodMode={isGodMode} />
+      <ScanOverlay isScanning={isScanning} />
+      <IdentityStatus isScanning={isScanning} isGodMode={isGodMode} />
 
-      <Navigation
+      <Navigation 
+        isGodMode={isGodMode} 
+        isScanning={isScanning} 
+        onScan={handleAuthentication}
         activeLabel={activeHero.label}
-        isGodMode={isGodMode}
-        onToggleMode={() => setIsGodMode(!isGodMode)}
-        isSoundEnabled={isSoundEnabled}
-        onToggleSound={() => {
-          const newMuteState = !isSoundEnabled;
-          setIsSoundEnabled(newMuteState);
-          
-          // This helps "unlock" audio on mobile/browsers without creating new contexts constantly
-          if (newMuteState && (window.AudioContext || window.webkitAudioContext)) {
-             const ctx = new (window.AudioContext || window.webkitAudioContext)();
-             if (ctx.state === 'suspended') ctx.resume();
-          }
-        }}
       />
 
       {/* PROFESSIONAL LAYOUT: 
@@ -53,7 +63,9 @@ function App() {
           2. Added pt-32 (padding-top) so content clears the fixed navbar.
           3. Added space-y-24 to separate Hero, About, and CTA properly.
       */}
-      <main className="relative z-10 pt-32 pb-20 px-6 max-w-5xl mx-auto flex flex-col items-center space-y-32">
+      <main className={`relative z-10 pt-32 pb-20 px-8 md:px-12 max-w-[1400px] mx-auto flex flex-col items-center space-y-32 transition-all duration-500 ${
+        isScanning ? "blur-md scale-[0.98]" : "blur-0 scale-100"
+      }`}>
         
         <Hero 
           title={activeHero.title} 
@@ -68,6 +80,25 @@ function App() {
           isGodMode={isGodMode}
           label={isGodMode ? "// ROOT_LOG" : "The Background"}
         />
+
+        <section className="w-full py-20">
+          <div className="flex flex-col items-center mb-16">
+            <h2 className="text-sm font-bold tracking-[0.4em] uppercase opacity-40 mb-4">
+              {isGodMode ? "// EXECUTED_PROJECTS" : "Featured Case Studies"}
+            </h2>
+            <div className={`h-1 w-24 rounded-full ${isGodMode ? "bg-green-500" : "bg-blue-600"}`} />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {PROJECTS.map((project) => (
+              <ProjectCard 
+                key={project.id} 
+                project={project} 
+                isGodMode={isGodMode} 
+              />
+            ))}
+          </div>
+        </section>
 
         <CTA isGodMode={isGodMode} />
       </main>
