@@ -24,7 +24,9 @@ function App() {
 
   return (
     <div className={`min-h-screen relative overflow-x-hidden transition-all duration-700 
-      ${isGodMode ? "bg-black text-green-500 font-mono" : "bg-slate-50 text-slate-900 font-sans"}`}>
+      ${isGodMode 
+        ? "bg-black text-green-500 font-mono selection:bg-green-500 selection:text-black" 
+        : "bg-slate-50 text-slate-900 font-sans selection:bg-slate-200 selection:text-slate-900"}`}>
       
       {/* This sits behind your text content */}
       <BackgroundEffects isGodMode={isGodMode} />
