@@ -14,6 +14,15 @@ export default {
         'matrix-black': '#000000',
         'matrix-green': '#22c55e',
       },
+      keyframes: {
+        'scan-line': {
+          '0%': { top: '0%' },
+          '100%': { top: '100%' },
+        }
+      },
+      animation: {
+        'scan-line': 'scan-line 1.5s linear forwards',
+      },
     },
   },
   plugins: [],
