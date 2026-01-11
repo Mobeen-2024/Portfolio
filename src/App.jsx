@@ -5,7 +5,7 @@ import Navigation from "./Navigation";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import CTA from "./CTA";
-import BackgroundEffects from "./BackgroundEffects";
+import BackgroundEffects from "./components/BackgroundEffects";
 import FooterTerminal from "./FooterTerminal";
 
 // ... imports ...
@@ -26,6 +26,7 @@ function App() {
     <div className={`min-h-screen relative overflow-x-hidden transition-all duration-700 
       ${isGodMode ? "bg-black text-green-500 font-mono" : "bg-slate-50 text-slate-900 font-sans"}`}>
       
+      {/* This sits behind your text content */}
       <BackgroundEffects isGodMode={isGodMode} />
 
       <Navigation
