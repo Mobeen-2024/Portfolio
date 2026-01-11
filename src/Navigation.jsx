@@ -2,6 +2,15 @@ import React from 'react';
 import BiometricScanner from './components/BiometricScanner';
 
 export default function Navigation({ isGodMode, isScanning, onScan, activeLabel }) {
+  
+  // Optional: Smooth scroll helper
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 border-b ${
       isGodMode 
@@ -32,8 +41,24 @@ export default function Navigation({ isGodMode, isScanning, onScan, activeLabel 
           <ul className={`hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest ${
             isGodMode ? "text-green-500/50" : "text-slate-500"
           }`}>
-            <li className="hover:text-current cursor-pointer transition-colors">About</li>
-            <li className="hover:text-current cursor-pointer transition-colors">Experience</li>
+            <li 
+              onClick={() => scrollToSection('about')}
+              className="hover:text-current cursor-pointer transition-colors hover:opacity-100"
+            >
+              About
+            </li>
+            <li 
+              onClick={() => scrollToSection('projects')}
+              className="hover:text-current cursor-pointer transition-colors hover:opacity-100"
+            >
+              Projects
+            </li>
+            <li 
+              onClick={() => scrollToSection('contact')}
+              className="hover:text-current cursor-pointer transition-colors hover:opacity-100"
+            >
+              Contact
+            </li>
           </ul>
           
           <BiometricScanner isScanning={isScanning} isGodMode={isGodMode} onScan={onScan} />

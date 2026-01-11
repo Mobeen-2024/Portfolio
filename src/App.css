@@ -73,3 +73,7 @@
 .animate-pulse {
   animation: blink 1s step-end infinite;
 } 
+
+.html {
+  scroll-behavior: smooth;
+}
