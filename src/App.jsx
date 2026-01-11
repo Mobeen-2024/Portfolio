@@ -80,14 +80,16 @@ function App() {
         />
 
         <section className="w-full py-20">
-          <div className="flex flex-col items-center mb-16">
-            <h2 className="text-sm font-bold tracking-[0.4em] uppercase opacity-40 mb-4">
-              {isGodMode ? "// EXECUTED_PROJECTS" : "Featured Case Studies"}
+          <div className="flex flex-col items-center mb-16 space-y-4">
+            <h2 className={`text-xs font-bold tracking-[0.5em] uppercase transition-colors duration-500 ${
+              isGodMode ? "text-green-500/50" : "text-blue-600/50"
+            }`}>
+              {isGodMode ? "// SYSTEM_OUTPUT: CASE_STUDIES" : "Featured Strategic Success"}
             </h2>
-            <div className={`h-1 w-24 rounded-full ${isGodMode ? "bg-green-500" : "bg-blue-600"}`} />
+            <div className={`h-[2px] w-20 transition-all duration-500 ${isGodMode ? "bg-green-500" : "bg-blue-600"}`} />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {PROJECTS.map((project) => (
               <ProjectCard 
                 key={project.id} 
