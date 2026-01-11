@@ -37,7 +37,7 @@ export default function Contact({ isGodMode }) {
   };
 
   return (
-    <section className="w-full py-24 max-w-4xl mx-auto">
+    <section id="contact" className="w-full py-20">
       <div className="flex flex-col items-center mb-12">
         <h2 className={`text-xs font-bold tracking-[0.5em] uppercase mb-4 ${
           isGodMode ? "text-green-500/50" : "text-blue-600/50"

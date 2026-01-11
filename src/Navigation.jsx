@@ -3,11 +3,21 @@ import BiometricScanner from './components/BiometricScanner';
 
 export default function Navigation({ isGodMode, isScanning, onScan, activeLabel }) {
   
-  // Optional: Smooth scroll helper
-  const scrollToSection = (id) => {
+  // The scroll function
+  const scrollTo = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Offset for the fixed navbar (approx 80px)
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -38,26 +48,23 @@ export default function Navigation({ isGodMode, isScanning, onScan, activeLabel 
 
         {/* Menu & Scanner */}
         <div className="flex items-center gap-8">
-          <ul classNameName={`hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest ${
-            isGodMode ? "text-green-500/50" : "text-slate-500"
+          <ul className={`hidden md:flex gap-8 ${
+            isGodMode ? "text-green-500" : "text-slate-500"
           }`}>
-            <li
-              onClick={() => scrollToSection('about')}
-              classNameName="hover:text-current cursor-pointer transition-colors hover:opacity-100"
-            >
-              About
+            <li>
+              <button onClick={() => scrollTo('about')} className="hover:opacity-100 opacity-70 transition-all uppercase text-xs font-bold tracking-widest">
+                About
+              </button>
             </li>
-            <li
-              onClick={() => scrollToSection('projects')}
-              classNameName="hover:text-current cursor-pointer transition-colors hover:opacity-100"
-            >
-              Projects
+            <li>
+              <button onClick={() => scrollTo('projects')} className="hover:opacity-100 opacity-70 transition-all uppercase text-xs font-bold tracking-widest">
+                Projects
+              </button>
             </li>
-            <li 
-              onClick={() => scrollToSection('contact')}
-              className="hover:text-current cursor-pointer transition-colors hover:opacity-100"
-            >
-              Contact 
+            <li>
+              <button onClick={() => scrollTo('contact')} className="hover:opacity-100 opacity-70 transition-all uppercase text-xs font-bold tracking-widest">
+                Contact
+              </button>
             </li>
           </ul>
 

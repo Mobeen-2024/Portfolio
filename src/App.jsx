@@ -10,8 +10,8 @@ import { PROJECTS } from "./content/projects";
 import Navigation from "./Navigation";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import Contact from "./components/Sections/Contact";
-import ProjectCard from "./components/Sections/ProjectCard";
+import Contact from "./components/sections/Contact";
+import ProjectCard from "./components/sections/ProjectCard";
 import BackgroundEffects from "./components/BackgroundEffects";
 import FooterTerminal from "./FooterTerminal";
 import ScanOverlay from "./components/ScanOverlay";
@@ -67,7 +67,7 @@ function App() {
       />
 
       <main className={`relative z-10 pt-32 pb-20 px-8 md:px-12 max-w-[1400px] mx-auto flex flex-col items-center space-y-32 transition-all duration-500 ${
-        isScanning ? "blur-md scale-[0.98]" : "blur-0 scale-100"
+        isScanning ? "blur-md opacity-50 scale-[0.98]" : "blur-0 opacity-100 scale-100"
       }`}>
         
         <Hero 
@@ -84,7 +84,7 @@ function App() {
           label={isGodMode ? "// ROOT_LOG" : "The Background"}
         />
 
-        <section className="w-full py-20">
+        <section id="projects" className="w-full py-20">
           <div className="flex flex-col items-center mb-16 space-y-4">
             <h2 className={`text-xs font-bold tracking-[0.5em] uppercase transition-colors duration-500 ${
               isGodMode ? "text-green-500/50" : "text-blue-600/50"
