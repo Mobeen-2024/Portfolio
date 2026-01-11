@@ -10,7 +10,7 @@ import FooterTerminal from "./FooterTerminal";
 import ScanOverlay from "./components/ScanOverlay";
 import IdentityStatus from "./components/IdentityStatus";
 import { PROJECTS } from "./content/projects";
-import ProjectCard from "./components/sections/ProjectCard";
+import ProjectCard from "./components/Sections/ProjectCard";
 
 // ... imports ...
 
