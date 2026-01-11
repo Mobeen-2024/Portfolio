@@ -7,7 +7,7 @@ export default function About({ title, bio, metrics, isGodMode, label }) {
 
   return (
     <section className="py-20 px-6 max-w-6xl mx-auto">
-      <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className="grid md:grid-cols-2 gap-16 lg:gap-24 items-start w-full">
         <div className="text-left space-y-6">
           <h3 className={`text-sm tracking-widest uppercase font-bold ${
             isGodMode ? "text-green-500/60" : "text-blue-600"
