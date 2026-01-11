@@ -1,17 +1,21 @@
+import { useState, useEffect } from "react";
+import emailjs from '@emailjs/browser';
+
+// Content & Data
 import ABOUT_CONTENT from "./content/About_me";
 import HERO_CONTENT from "./content/Hero_content";
-import { useState, useEffect } from "react";
+import { PROJECTS } from "./content/projects";
+
+// Components
 import Navigation from "./Navigation";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import CTA from "./CTA";
+import Contact from "./components/Sections/Contact";
+import ProjectCard from "./components/Sections/ProjectCard";
 import BackgroundEffects from "./components/BackgroundEffects";
 import FooterTerminal from "./FooterTerminal";
 import ScanOverlay from "./components/ScanOverlay";
 import IdentityStatus from "./components/IdentityStatus";
-import { PROJECTS } from "./content/projects";
-import ProjectCard from "./components/Sections/ProjectCard";
-import emailjs from '@emailjs/browser';
 
 // This runs once when the app starts
 emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
@@ -31,11 +35,13 @@ function App() {
   }, [isGodMode]);
 
   const handleAuthentication = () => {
+    if (isScanning) return; // Prevent double-triggering
+
     setIsScanning(true);
 
     // Switch the mode halfway through the laser sweep
     setTimeout(() => {
-      setIsGodMode(!isGodMode);
+      setIsGodMode((prev) => !prev);
     }, 800);
 
     // End scan state
@@ -60,11 +66,6 @@ function App() {
         activeLabel={activeHero.label}
       />
 
-      {/* PROFESSIONAL LAYOUT: 
-          1. Removed h-[85vh] to allow scrolling.
-          2. Added pt-32 (padding-top) so content clears the fixed navbar.
-          3. Added space-y-24 to separate Hero, About, and CTA properly.
-      */}
       <main className={`relative z-10 pt-32 pb-20 px-8 md:px-12 max-w-[1400px] mx-auto flex flex-col items-center space-y-32 transition-all duration-500 ${
         isScanning ? "blur-md scale-[0.98]" : "blur-0 scale-100"
       }`}>
@@ -104,7 +105,7 @@ function App() {
           </div>
         </section>
 
-        <CTA isGodMode={isGodMode} />
+        <Contact isGodMode={isGodMode} />
       </main>
 
       <FooterTerminal isGodMode={isGodMode} />

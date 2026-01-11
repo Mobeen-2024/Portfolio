@@ -38,18 +38,18 @@ export default function Navigation({ isGodMode, isScanning, onScan, activeLabel 
 
         {/* Menu & Scanner */}
         <div className="flex items-center gap-8">
-          <ul className={`hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest ${
+          <ul classNameName={`hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest ${
             isGodMode ? "text-green-500/50" : "text-slate-500"
           }`}>
-            <li 
+            <li
               onClick={() => scrollToSection('about')}
-              className="hover:text-current cursor-pointer transition-colors hover:opacity-100"
+              classNameName="hover:text-current cursor-pointer transition-colors hover:opacity-100"
             >
               About
             </li>
-            <li 
+            <li
               onClick={() => scrollToSection('projects')}
-              className="hover:text-current cursor-pointer transition-colors hover:opacity-100"
+              classNameName="hover:text-current cursor-pointer transition-colors hover:opacity-100"
             >
               Projects
             </li>
@@ -57,12 +57,12 @@ export default function Navigation({ isGodMode, isScanning, onScan, activeLabel 
               onClick={() => scrollToSection('contact')}
               className="hover:text-current cursor-pointer transition-colors hover:opacity-100"
             >
-              Contact
+              Contact 
             </li>
           </ul>
-          
+
           <BiometricScanner isScanning={isScanning} isGodMode={isGodMode} onScan={onScan} />
-        </div>
+        </div> 
       </div>
     </nav>
   );
