@@ -59,12 +59,38 @@ export default function Contact({ isGodMode }) {
           }`}
         >
           {status === 'SUCCESS' ? (
-            <div className="py-20 text-center animate-in zoom-in">
-              <ShieldCheck className="w-16 h-16 mx-auto mb-6 text-green-500" />
-              <h4 className="text-2xl font-bold mb-2">
-                {isGodMode ? "DATA_TRANSMITTED_SUCCESSFULLY" : "Message Received Safely"}
-              </h4>
-              <p className="opacity-60">I will respond within 24 hours.</p>
+            <div className={`py-16 px-8 text-center animate-in fade-in zoom-in duration-500 rounded-2xl border-2 ${
+              isGodMode 
+                ? "bg-green-500/5 border-green-500/30 text-green-500 font-mono" 
+                : "bg-blue-50/50 border-blue-100 text-slate-800"
+            }`}>
+              <div className="flex flex-col items-center gap-6">
+                {/* Icon with mode-specific glow */}
+                <div className={`p-4 rounded-full ${
+                  isGodMode ? "bg-green-500/20 shadow-[0_0_20px_rgba(34,197,94,0.4)]" : "bg-blue-600 text-white shadow-lg"
+                }`}>
+                  <ShieldCheck className="w-12 h-12" />
+                </div>
+
+                <div className="space-y-2">
+                  <h4 className={`text-3xl font-black tracking-tighter ${isGodMode ? "uppercase" : ""}`}>
+                    {isGodMode ? "TRANSMISSION_COMPLETE" : "Strategy Request Received"}
+                  </h4>
+                  <p className={`text-sm opacity-70 max-w-xs mx-auto ${isGodMode ? "font-mono" : "font-light italic"}`}>
+                    {isGodMode 
+                      ? "> Packet_ID: #7721 verified. Standby for callback." 
+                      : "Your message is secure. I will personally review and respond within 24 hours."}
+                  </p>
+                </div>
+
+                {/* Action to go back */}
+                <button 
+                  onClick={() => setStatus('IDLE')}
+                  className={`mt-4 text-[10px] font-bold uppercase tracking-[0.3em] hover:opacity-100 opacity-50 transition-opacity underline underline-offset-8`}
+                >
+                  {isGodMode ? "[ RE_INITIALIZE_GATEWAY ]" : "Send another message"}
+                </button>
+              </div>
             </div>
           ) : (
             <div className="space-y-6">
