@@ -1,39 +1,48 @@
 import React, { useState } from 'react';
 import { Send, Terminal, ShieldCheck } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 
 export default function Contact({ isGodMode }) {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('IDLE'); // IDLE, SENDING, SUCCESS
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('SENDING');
 
-    // 1. Pull IDs from your .env file
-    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-    // 2. Prepare the data to match your EmailJS Template
-    const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
+    // Prepare the data packet
+    const data = {
+      name: formData.name,
+      email: formData.email,
       message: formData.message,
-      mode: isGodMode ? 'ARCHITECT' : 'EXECUTIVE'
+      // Formspree automatically collects these extra fields
+      reality_mode: isGodMode ? 'ARCHITECT' : 'EXECUTIVE',
+      sent_at: new Date().toLocaleString()
     };
 
-    // 3. Send! Notice the publicKey is the 4th argument
-    emailjs.send(serviceID, templateID, templateParams, publicKey,)
-      .then((result) => {
-        console.log('SUCCESS:', result.text);
-        setStatus('SUCCESS');
-      })
-      .catch((error) => {
-        console.error('ERROR:', error);
-        setStatus('IDLE');
-        alert("System Error: Data packet lost. Please try again.");
+    try {
+      const response = await fetch("https://formspree.io/f/xkoonpjk", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(data)
       });
+
+      if (response.ok) {
+        console.log("TRANSMISSION SUCCESSFUL");
+        setStatus('SUCCESS');
+        // Clear form after success
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        const errorData = await response.json();
+        console.error("FORMSPREE ERROR:", errorData);
+        setStatus('ERROR');
+      }
+    } catch (err) {
+      console.error("NETWORK CRITICAL FAILURE:", err);
+      setStatus('ERROR');
+    }
   };
 
   return (

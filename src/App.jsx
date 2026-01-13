@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import emailjs from '@emailjs/browser';
 
 // Content & Data
 import ABOUT_CONTENT from "./content/About_me";
@@ -10,15 +9,12 @@ import { PROJECTS } from "./content/projects";
 import Navigation from "./Navigation";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import Contact from "./components/sections/Contact"
-import ProjectCard from "./components/sections/ProjectCard";
+import Contact from "./components/Sections/Contact"
+import ProjectCard from "./components/Sections/ProjectCard";
 import BackgroundEffects from "./components/BackgroundEffects";
 import FooterTerminal from "./FooterTerminal";
 import ScanOverlay from "./components/ScanOverlay";
 import IdentityStatus from "./components/IdentityStatus";
-
-// This runs once when the app starts
-emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 // ... imports ...
 
