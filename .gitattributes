@@ -1,0 +1,7 @@
+# Force LF for the husky script so it never breaks on Windows
+.husky/* text eol=lf
+
+# Standardize line endings for all JS/JSX files
+*.js text eol=lf
+*.jsx text eol=lf
+package.json text eol=lf
