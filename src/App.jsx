@@ -31,7 +31,7 @@ function App() {
   // 2. Theme Configuration: Centralized logic to reduce JSX clutter
   const theme = {
     container: isGodMode
-      ? "bg-black text-green-500 font-mono selection:bg-green-500 selection:text-black"
+      ? "bg-transparent text-green-500 font-mono selection:bg-green-500 selection:text-black"
       : "bg-slate-50 text-slate-900 font-sans selection:bg-slate-200 selection:text-slate-900",
     heading: isGodMode ? "text-green-500/50" : "text-blue-600/50",
     separator: isGodMode ? "bg-green-500" : "bg-blue-600",
