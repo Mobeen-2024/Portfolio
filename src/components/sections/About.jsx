@@ -1,4 +1,4 @@
-import { useTypewriter } from "../hooks/useTypewriter";
+import { useTypewriter } from "../../hooks/useTypewriter";
 
 export default function About({ title, bio, metrics, isGodMode, label }) {
   // Pass only the bio and speed. Sound is no longer handled here.

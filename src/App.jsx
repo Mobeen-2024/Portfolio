@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 // Content & Data
 import ABOUT_CONTENT from "./content/About_me";
@@ -6,37 +6,27 @@ import HERO_CONTENT from "./content/Hero_content";
 import { PROJECTS } from "./content/projects";
 
 // Components
-import Navigation from "./Navigation";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Contact from "./components/Sections/Contact";
-import ProjectCard from "./components/Sections/ProjectCard";
-import BackgroundEffects from "./components/BackgroundEffects";
+import Navigation from "./components/Navigation";
+import Hero from "./components/sections/Hero";
+import About from "./components/sections/About";
+import Contact from "./components/sections/Contact";
+import ProjectCard from "./components/sections/ProjectCard";
+import BackgroundEffects from "./components/sections/BackgroundEffects";
 import FooterTerminal from "./FooterTerminal";
-import ScanOverlay from "./components/ScanOverlay";
-import IdentityStatus from "./components/IdentityStatus";
+import ScanOverlay from "./components/sections/ScanOverlay";
+import IdentityStatus from "./components/sections/IdentityStatus";
 
 function App() {
   const [isGodMode, setIsGodMode] = useState(false);
   const [isScanning, setIsScanning] = useState(false);
 
-  // Pick the correct object based on the mode
-  const activeHero = isGodMode ? HERO_CONTENT.architect : HERO_CONTENT.executive;
-  const activeAbout = isGodMode ? ABOUT_CONTENT.architect : ABOUT_CONTENT.executive;
+  // 1. Content Selection: Wrapped in useMemo for performance
+  const activeContent = useMemo(() => ({
+    hero: isGodMode ? HERO_CONTENT.architect : HERO_CONTENT.executive,
+    about: isGodMode ? ABOUT_CONTENT.architect : ABOUT_CONTENT.executive,
+  }), [isGodMode]);
 
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", isGodMode);
-  }, [isGodMode]);
-
-  const handleAuthentication = () => {
-    if (isScanning) return;
-    setIsScanning(true);
-    setTimeout(() => {
-      setIsGodMode(!isGodMode);
-      setIsScanning(false);
-    }, 1500);
-  };
-
+  // 2. Theme Configuration: Centralized logic to reduce JSX clutter
   const theme = {
     container: isGodMode
       ? "bg-black text-green-500 font-mono selection:bg-green-500 selection:text-black"
@@ -47,9 +37,26 @@ function App() {
     aboutLabel: isGodMode ? "// ROOT_LOG" : "The Background",
   };
 
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isGodMode);
+  }, [isGodMode]);
+
+  const handleAuthentication = () => {
+    if (isScanning) return;
+    setIsScanning(true);
+    
+    // 1.5s delay matches the ScanOverlay animation duration
+    setTimeout(() => {
+      setIsGodMode(prev => !prev);
+      setIsScanning(false);
+    }, 1500);
+  };
+
   return (
     <div className={`min-h-screen relative overflow-x-hidden transition-all duration-700 ${theme.container}`}>
-      <BackgroundEffects isGodMode={isGodMode} />
+      
+      {/* Visual Infrastructure */}
+      <BackgroundEffects isGodMode={isGodMode} isScanning={isScanning} />
       <ScanOverlay isScanning={isScanning} />
       <IdentityStatus isScanning={isScanning} isGodMode={isGodMode} />
 
@@ -57,34 +64,36 @@ function App() {
         isGodMode={isGodMode} 
         isScanning={isScanning} 
         onScan={handleAuthentication}
-        activeLabel={activeHero.label}
+        activeLabel={activeContent.hero.label}
       />
 
+      {/* Main Content Layer */}
       <main className={`relative z-10 pt-32 pb-20 px-8 md:px-12 max-w-[1400px] mx-auto flex flex-col items-center space-y-32 transition-all duration-500 ${
         isScanning ? "blur-md opacity-50 scale-[0.98]" : "blur-0 opacity-100 scale-100"
       }`}>
         
         <Hero 
-          title={activeHero.title} 
-          subtitle={activeHero.subtitle} 
+          title={activeContent.hero.title} 
+          subtitle={activeContent.hero.subtitle} 
           isGodMode={isGodMode} 
         />
 
         <About
-          title={activeAbout.title}
-          bio={activeAbout.bio}
-          metrics={activeAbout.metrics}
+          title={activeContent.about.title}
+          bio={activeContent.about.bio}
+          metrics={activeContent.about.metrics}
           isGodMode={isGodMode}
           label={theme.aboutLabel}
         />
 
+        {/* Projects Section */}
         <section id="projects" className="w-full py-20">
-          <div className="flex flex-col items-center mb-16 space-y-4">
+          <header className="flex flex-col items-center mb-16 space-y-4">
             <h2 className={`text-xs font-bold tracking-[0.5em] uppercase transition-colors duration-500 ${theme.heading}`}>
               {theme.projectTitle}
             </h2>
             <div className={`h-[2px] w-20 transition-all duration-500 ${theme.separator}`} />
-          </div>
+          </header>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {PROJECTS.map((project) => (

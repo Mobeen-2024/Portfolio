@@ -1,8 +1,7 @@
 import React from 'react';
-import BiometricScanner from './components/BiometricScanner';
+import BiometricScanner from './BiometricScanner';
 
 export default function Navigation({ isGodMode, isScanning, onScan, activeLabel }) {
-  
   // The scroll function
   const scrollTo = (id) => {
     const element = document.getElementById(id);
