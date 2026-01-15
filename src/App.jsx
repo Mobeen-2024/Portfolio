@@ -89,7 +89,7 @@ function App() {
         />
 
         {/* Projects Section */}
-        <section id="projects" className="w-full py-20">
+        <section id="projects" className="w-full py-12 md:py-24">
           <header className="flex flex-col items-center mb-16 space-y-4">
             <h2 className={`text-xs font-bold tracking-[0.5em] uppercase transition-colors duration-500 ${theme.heading}`}>
               {theme.projectTitle}

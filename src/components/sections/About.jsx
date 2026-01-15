@@ -6,7 +6,7 @@ export default function About({ title, bio, metrics, isGodMode, label }) {
   const animatedBio = useTypewriter(bio, typingSpeed);
 
   return (
-    <section id="about" className="py-20 px-6 max-w-6xl mx-auto scroll-mt-24">
+    <section id="about" className="py-12 md:py-24 px-6 max-w-6xl mx-auto scroll-mt-24">
       <div className="grid md:grid-cols-2 gap-16 lg:gap-24 items-start w-full">
         <div className="text-left space-y-6">
           <h3 className={`text-sm tracking-widest uppercase font-bold ${

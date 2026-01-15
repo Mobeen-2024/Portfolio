@@ -21,12 +21,12 @@ export default function Navigation({ isGodMode, isScanning, onScan, activeLabel 
   };
 
   return (
-    <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 border-b ${
+    <nav className={`fixed top-0 w-full z-[100] h-16 md:h-20 transition-all duration-500 border-b ${
       isGodMode 
-        ? "bg-black/60 border-green-500/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.8)]" 
-        : "bg-white/60 border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]"
-    } backdrop-blur-xl`}>
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        ? "bg-black/80 border-green-500/20" 
+        : "bg-white/80 border-white/20"
+    } backdrop-blur-md`}>
+      <div className="max-w-7xl mx-auto px-4 md:px-6 h-full flex items-center justify-between">
         
         {/* Logo Section - Professional Sizing */}
         <div className="flex items-center gap-4">
@@ -46,8 +46,8 @@ export default function Navigation({ isGodMode, isScanning, onScan, activeLabel 
         </div>
 
         {/* Menu & Scanner */}
-        <div className="flex items-center gap-8">
-          <ul className={`hidden md:flex gap-8 ${
+        <div className="flex items-center gap-3 md:gap-8">
+          <ul className={`hidden lg:flex gap-8 ${
             isGodMode ? "text-green-500" : "text-slate-500"
           }`}>
             <li>
@@ -67,7 +67,9 @@ export default function Navigation({ isGodMode, isScanning, onScan, activeLabel 
             </li>
           </ul>
 
-          <BiometricScanner isScanning={isScanning} isGodMode={isGodMode} onScan={onScan} />
+          <div className="scale-90 md:scale-100">
+            <BiometricScanner isScanning={isScanning} isGodMode={isGodMode} onScan={onScan} />
+          </div>
         </div> 
       </div>
     </nav>
