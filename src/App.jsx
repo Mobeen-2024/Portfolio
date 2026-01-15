@@ -5,16 +5,18 @@ import ABOUT_CONTENT from "./content/About_me";
 import HERO_CONTENT from "./content/Hero_content";
 import { PROJECTS } from "./content/projects";
 
-// Components
-import Navigation from "./components/Navigation";
+// NEW PATHS: Layout Components
+import Navigation from "./components/layout/Navigation";
+import BackgroundEffects from "./components/layout/BackgroundEffects";
+import ScanOverlay from "./components/layout/ScanOverlay";
+import IdentityStatus from "./components/layout/IdentityStatus";
+import FooterTerminal from "./components/layout/FooterTerminal";
+
+// NEW PATHS: Section Components
 import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
 import Contact from "./components/sections/Contact";
-import ProjectCard from "./components/sections/ProjectCard";
-import BackgroundEffects from "./components/sections/BackgroundEffects";
-import FooterTerminal from "./FooterTerminal";
-import ScanOverlay from "./components/sections/ScanOverlay";
-import IdentityStatus from "./components/sections/IdentityStatus";
+import ProjectCard from "./components/ui/ProjectCard"; // Moved to UI
 
 function App() {
   const [isGodMode, setIsGodMode] = useState(false);
