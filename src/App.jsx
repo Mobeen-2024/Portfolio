@@ -16,7 +16,7 @@ import FooterTerminal from "./components/layout/FooterTerminal";
 import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
 import Contact from "./components/sections/Contact";
-import ProjectCard from "./components/ui/ProjectCard"; // Moved to UI
+import ProjectCard from "./components/ui/ProjectCard"; 
 
 function App() {
   const [isGodMode, setIsGodMode] = useState(false);
