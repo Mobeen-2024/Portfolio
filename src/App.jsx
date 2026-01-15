@@ -33,17 +33,14 @@ function App() {
   const handleAuthentication = () => {
     if (isScanning) return; // Prevent double-triggering
 
-    setIsScanning(true);
+    setIsScanning(true); // Trigger the CSS laser
 
-    // Switch the mode halfway through the laser sweep
-    setTimeout(() => {
-      setIsGodMode((prev) => !prev);
-    }, 800);
+    // Play a "beep" or "scan" sound here if you have one
 
-    // End scan state
     setTimeout(() => {
+      setIsGodMode(!isGodMode);
       setIsScanning(false);
-    }, 1800);
+    }, 1500); // Matches the CSS animation duration
   };
 
   return (
