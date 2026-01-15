@@ -9,14 +9,12 @@ import { PROJECTS } from "./content/projects";
 import Navigation from "./Navigation";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import Contact from "./components/Sections/Contact"
+import Contact from "./components/Sections/Contact";
 import ProjectCard from "./components/Sections/ProjectCard";
 import BackgroundEffects from "./components/BackgroundEffects";
 import FooterTerminal from "./FooterTerminal";
 import ScanOverlay from "./components/ScanOverlay";
 import IdentityStatus from "./components/IdentityStatus";
-
-// ... imports ...
 
 function App() {
   const [isGodMode, setIsGodMode] = useState(false);
@@ -31,25 +29,26 @@ function App() {
   }, [isGodMode]);
 
   const handleAuthentication = () => {
-    if (isScanning) return; // Prevent double-triggering
-
-    setIsScanning(true); // Trigger the CSS laser
-
-    // Play a "beep" or "scan" sound here if you have one
-
+    if (isScanning) return;
+    setIsScanning(true);
     setTimeout(() => {
       setIsGodMode(!isGodMode);
       setIsScanning(false);
-    }, 1500); // Matches the CSS animation duration
+    }, 1500);
+  };
+
+  const theme = {
+    container: isGodMode
+      ? "bg-black text-green-500 font-mono selection:bg-green-500 selection:text-black"
+      : "bg-slate-50 text-slate-900 font-sans selection:bg-slate-200 selection:text-slate-900",
+    heading: isGodMode ? "text-green-500/50" : "text-blue-600/50",
+    separator: isGodMode ? "bg-green-500" : "bg-blue-600",
+    projectTitle: isGodMode ? "// SYSTEM_OUTPUT: CASE_STUDIES" : "Featured Strategic Success",
+    aboutLabel: isGodMode ? "// ROOT_LOG" : "The Background",
   };
 
   return (
-    <div className={`min-h-screen relative overflow-x-hidden transition-all duration-700 
-      ${isGodMode 
-        ? "bg-black text-green-500 font-mono selection:bg-green-500 selection:text-black" 
-        : "bg-slate-50 text-slate-900 font-sans selection:bg-slate-200 selection:text-slate-900"}`}>
-      
-      {/* This sits behind your text content */}
+    <div className={`min-h-screen relative overflow-x-hidden transition-all duration-700 ${theme.container}`}>
       <BackgroundEffects isGodMode={isGodMode} />
       <ScanOverlay isScanning={isScanning} />
       <IdentityStatus isScanning={isScanning} isGodMode={isGodMode} />
@@ -76,17 +75,15 @@ function App() {
           bio={activeAbout.bio}
           metrics={activeAbout.metrics}
           isGodMode={isGodMode}
-          label={isGodMode ? "// ROOT_LOG" : "The Background"}
+          label={theme.aboutLabel}
         />
 
         <section id="projects" className="w-full py-20">
           <div className="flex flex-col items-center mb-16 space-y-4">
-            <h2 className={`text-xs font-bold tracking-[0.5em] uppercase transition-colors duration-500 ${
-              isGodMode ? "text-green-500/50" : "text-blue-600/50"
-            }`}>
-              {isGodMode ? "// SYSTEM_OUTPUT: CASE_STUDIES" : "Featured Strategic Success"}
+            <h2 className={`text-xs font-bold tracking-[0.5em] uppercase transition-colors duration-500 ${theme.heading}`}>
+              {theme.projectTitle}
             </h2>
-            <div className={`h-[2px] w-20 transition-all duration-500 ${isGodMode ? "bg-green-500" : "bg-blue-600"}`} />
+            <div className={`h-[2px] w-20 transition-all duration-500 ${theme.separator}`} />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
