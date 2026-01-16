@@ -70,10 +70,19 @@ export default function BackgroundEffects({ isGodMode }) {
         isGodMode ? "opacity-100" : "opacity-0"
       }`}
     >
-      <canvas 
-        ref={canvasRef} 
-        className="w-full h-full bg-black"
-      />
+      {/* The Rain Canvas */}
+      <canvas ref={canvasRef} className="w-full h-full bg-black" />
+
+      {/* NEW: CRT Scanline Overlay */}
+      {isGodMode && (
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-[0.03]"
+          style={{
+            background: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))',
+            backgroundSize: '100% 4px, 3px 100%'
+          }}
+        />
+      )}
     </div>
   );
 }
