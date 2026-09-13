@@ -22,16 +22,20 @@ export default {
         'executive-light': '#f8fafc',
       },
       fontFamily: {
-        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
-        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+        display: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
       },
       boxShadow: {
         'cyber': '0 0 25px rgba(34, 197, 94, 0.25)',
         'cyber-lg': '0 0 40px rgba(34, 197, 94, 0.35)',
         'cyber-border': '0 0 15px rgba(34, 197, 94, 0.3), inset 0 0 15px rgba(34, 197, 94, 0.1)',
+        'cyber-glow': '0 0 25px rgba(16, 185, 129, 0.35), 0 0 50px rgba(16, 185, 129, 0.15)',
         'executive': '0 20px 40px -15px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(15, 23, 42, 0.04)',
         'executive-lg': '0 30px 60px -20px rgba(37, 99, 235, 0.15), 0 0 1px 1px rgba(37, 99, 235, 0.1)',
         'executive-card': '0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(226, 232, 240, 0.8)',
+        'luxury-glass': '0 20px 40px -15px rgba(15, 23, 42, 0.07), 0 0 0 1px rgba(226, 232, 240, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.9)',
+        'luxury-hover': '0 25px 50px -12px rgba(37, 99, 235, 0.18), 0 0 0 1px rgba(59, 130, 246, 0.25)',
       },
       keyframes: {
         'scan-line': {

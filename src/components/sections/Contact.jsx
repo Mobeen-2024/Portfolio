@@ -15,7 +15,7 @@ export default function Contact({ isGodMode }) {
   const topics = isGodMode ? [
     "// HARDWARE_DIAGNOSTICS_&_BMS",
     "// NETWORK_&_CCTV_SETUP",
-    "// FULL_STACK_DEV_FASTIFY",
+    "// FULL_STACK_REACT_EXPRESS",
     "// IT_SUPPORT_ROLE_ENGAGEMENT"
   ] : [
     "IT Support & Systems Engineering",

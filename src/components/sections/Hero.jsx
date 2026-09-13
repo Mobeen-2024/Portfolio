@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Terminal, Sparkles, ChevronRight } from 'lucide-react';
+import { ArrowRight, Terminal, Sparkles, ChevronRight, Activity } from 'lucide-react';
 import { playClick } from '../../utils/audio';
 
 export default function Hero({ title, subtitle, isGodMode, onOpenAgentConsole, ctaPrimary, ctaSecondary }) {
@@ -18,13 +18,13 @@ export default function Hero({ title, subtitle, isGodMode, onOpenAgentConsole, c
 
   const kpis = isGodMode ? [
     { label: "HARDWARE DIAGNOSTICS", value: "Component-Level" },
-    { label: "STREAM LATENCY", value: "< 50ms WSS" },
-    { label: "CABLING SPEC", value: "Cat6 T568B" },
-    { label: "EMBEDDED LOGIC", value: "Arduino / Relays" }
+    { label: "EXECUTION LATENCY", value: "Sub-Millisecond" },
+    { label: "CABLING STANDARD", value: "Cat6 T568B" },
+    { label: "EMBEDDED FIRMWARE", value: "Arduino / C++" }
   ] : [
     { label: "TARGET CERTIFICATION", value: "CompTIA A+" },
     { label: "WORK AUTHORIZATION", value: "UK Full Rights" },
-    { label: "BATTERY INTEGRATION", value: "+100% BMS" },
+    { label: "POWER ENGINEERING", value: "+100% BMS Li-ion" },
     { label: "MULTILINGUAL", value: "4 Languages" }
   ];
 
@@ -32,36 +32,41 @@ export default function Hero({ title, subtitle, isGodMode, onOpenAgentConsole, c
   const secondaryBtnText = ctaSecondary || (isGodMode ? "Launch Terminal Co-Pilot" : "Consult Systems AI");
 
   return (
-    <section className="relative min-h-[80vh] flex flex-col justify-center items-center px-4 sm:px-6 pt-12 md:pt-8 w-full">
+    <section className="relative min-h-[82vh] flex flex-col justify-center items-center px-4 sm:px-6 pt-12 md:pt-8 w-full">
       <div className="w-full max-w-5xl text-center space-y-7 md:space-y-9">
         
-        {/* Top Status Badge */}
+        {/* Top Status Radar Pill */}
         <div className="inline-flex items-center justify-center">
-          <div className={`inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border text-xs font-semibold backdrop-blur-md transition-all duration-500 ${
+          <div className={`inline-flex items-center gap-2.5 px-4 sm:px-5 py-2 rounded-full border text-xs font-semibold backdrop-blur-xl transition-all duration-500 shadow-sm ${
             isGodMode 
-              ? "bg-green-950/40 border-green-500/40 text-green-400 font-mono shadow-[0_0_15px_rgba(34,197,94,0.2)]" 
-              : "bg-white/90 border-slate-200 text-slate-700 shadow-sm font-sans"
+              ? "bg-[#060a08]/85 border-green-500/40 text-green-300 font-mono shadow-[0_0_20px_rgba(34,197,94,0.18)]" 
+              : "bg-white/90 border-slate-200/90 text-slate-800 shadow-slate-200/50 font-sans"
           }`}>
-            <span className={`w-2 h-2 rounded-full ${
-              isGodMode ? "bg-green-400 animate-pulse" : "bg-blue-600"
-            }`} />
-            <span>
+            <span className="relative flex h-2.5 w-2.5">
+              <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
+                isGodMode ? "bg-green-400" : "bg-emerald-400"
+              }`} />
+              <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${
+                isGodMode ? "bg-green-500" : "bg-emerald-500"
+              }`} />
+            </span>
+            <span className="tracking-wide">
               {isGodMode 
-                ? "root@hardware-kernel: active_diagnostics_telemetry" 
+                ? "root@systems-kernel: hardware_diagnostics_&_trading_engines" 
                 : "Available for IT Support, Hardware & Systems Roles (London, UK)"}
             </span>
-            <ChevronRight className="w-3.5 h-3.5 opacity-50" />
+            <ChevronRight className="w-3.5 h-3.5 opacity-40" />
           </div>
         </div>
 
-        {/* Dynamic High-Impact Headline */}
-        <div className="space-y-4">
+        {/* High-Impact Master Headline */}
+        <div className="space-y-5">
           <h1 
             key={title} 
-            className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.12] transition-all duration-700 ${
+            className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.1] transition-all duration-700 ${
               isGodMode 
-                ? "text-green-400 font-mono drop-shadow-[0_0_25px_rgba(34,197,94,0.45)] text-glow-green" 
-                : "text-slate-900 font-sans tracking-tight"
+                ? "text-green-400 font-mono drop-shadow-[0_0_30px_rgba(34,197,94,0.45)] text-glow-green" 
+                : "text-slate-900 font-display tracking-tight"
             }`}
           >
             {title}
@@ -70,33 +75,33 @@ export default function Hero({ title, subtitle, isGodMode, onOpenAgentConsole, c
           <p 
             key={subtitle}
             className={`text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed transition-all duration-700 ${
-              isGodMode ? "text-green-400/80 font-mono" : "text-slate-600 font-normal"
+              isGodMode ? "text-green-300/80 font-mono" : "text-slate-600 font-normal"
             }`}
           >
             {subtitle}
           </p>
         </div>
 
-        {/* Action CTAs */}
+        {/* Action CTAs with Specular Glow */}
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
           <button
             onClick={scrollToProjects}
-            className={`px-8 py-4 rounded-xl font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 flex items-center gap-2.5 group shadow-xl active:scale-95 cursor-pointer ${
+            className={`px-8 py-4 rounded-2xl font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 flex items-center gap-2.5 group shadow-xl active:scale-95 cursor-pointer ${
               isGodMode
-                ? "bg-green-500 text-black hover:bg-green-400 hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] font-mono"
-                : "bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 hover:shadow-blue-300"
+                ? "bg-green-500 text-black hover:bg-green-400 hover:shadow-[0_0_35px_rgba(34,197,94,0.55)] font-mono"
+                : "bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white hover:from-blue-700 hover:to-indigo-800 hover:shadow-2xl hover:shadow-blue-500/25"
             }`}
           >
             <span>{primaryBtnText}</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
 
           <button
             onClick={handleConsoleClick}
-            className={`px-7 py-4 rounded-xl font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 flex items-center gap-2.5 border active:scale-95 cursor-pointer ${
+            className={`px-7 py-4 rounded-2xl font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 flex items-center gap-2.5 border active:scale-95 cursor-pointer backdrop-blur-xl ${
               isGodMode
-                ? "bg-black/60 border-green-500/50 text-green-400 hover:bg-green-500/15 hover:border-green-400 shadow-[0_0_20px_rgba(34,197,94,0.15)] font-mono"
-                : "bg-white/80 border-slate-300 text-slate-800 hover:bg-white hover:border-slate-400 shadow-sm"
+                ? "bg-black/70 border-green-500/50 text-green-400 hover:bg-green-500/15 hover:border-green-400 shadow-[0_0_20px_rgba(34,197,94,0.15)] font-mono"
+                : "bg-white/85 border-slate-300/80 text-slate-800 hover:bg-white hover:border-slate-400 shadow-md shadow-slate-200/40"
             }`}
           >
             {isGodMode ? <Terminal className="w-4 h-4 text-green-400" /> : <Sparkles className="w-4 h-4 text-blue-600" />}
@@ -104,22 +109,22 @@ export default function Hero({ title, subtitle, isGodMode, onOpenAgentConsole, c
           </button>
         </div>
 
-        {/* Quick Credentials & KPI Ribbon */}
+        {/* Quick Credentials & KPI Glass Ribbon */}
         <div className="pt-8 sm:pt-10 w-full max-w-4xl mx-auto">
-          <div className={`grid grid-cols-2 md:grid-cols-4 gap-3 p-4 sm:p-5 rounded-2xl border transition-all duration-500 ${
+          <div className={`grid grid-cols-2 md:grid-cols-4 gap-3 p-4 sm:p-5 rounded-3xl border transition-all duration-500 ${
             isGodMode 
-              ? "bg-[#050806]/80 border-green-500/25 backdrop-blur-xl shadow-[0_0_25px_rgba(0,0,0,0.8)]" 
-              : "bg-white/70 border-slate-200/80 backdrop-blur-xl shadow-lg shadow-slate-200/30"
+              ? "bg-[#050806]/85 border-green-500/30 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.85)]" 
+              : "bg-white/80 border-slate-200/90 backdrop-blur-2xl shadow-xl shadow-slate-200/40"
           }`}>
             {kpis.map((kpi, index) => (
-              <div key={index} className="text-center px-2 py-1.5">
+              <div key={index} className="text-center px-2 py-2 rounded-2xl transition-colors hover:bg-inherit/40">
                 <p className={`text-base sm:text-lg md:text-xl font-black ${
-                  isGodMode ? "text-green-400 font-mono" : "text-slate-900 font-sans"
+                  isGodMode ? "text-green-400 font-mono" : "text-slate-900 font-display"
                 }`}>
                   {kpi.value}
                 </p>
-                <p className={`text-[10px] uppercase font-bold tracking-wider pt-0.5 ${
-                  isGodMode ? "text-green-500/60 font-mono" : "text-slate-500 font-sans"
+                <p className={`text-[10px] uppercase font-bold tracking-wider pt-1 ${
+                  isGodMode ? "text-green-500/70 font-mono" : "text-slate-500 font-sans"
                 }`}>
                   {kpi.label}
                 </p>

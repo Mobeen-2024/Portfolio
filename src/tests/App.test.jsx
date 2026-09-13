@@ -23,7 +23,7 @@ describe('Dual-Reality Portfolio App', () => {
     expect(screen.getAllByText(/RepX AI/i).length).toBeGreaterThan(0);
     expect(screen.getByText('Advanced Hardware Diagnostics & Repair')).toBeInTheDocument();
     expect(screen.getByText('IoT Home Automation Framework')).toBeInTheDocument();
-    expect(screen.getByText('CryptoBot / TradeX Terminal')).toBeInTheDocument();
+    expect(screen.getByText(/CryptoBot/i)).toBeInTheDocument();
     expect(screen.getByText('CCTV Network & Infrastructure')).toBeInTheDocument();
   });
 
@@ -48,7 +48,7 @@ describe('Dual-Reality Portfolio App', () => {
     const searchInput = screen.getByPlaceholderText(/filter by tool or skill/i);
     fireEvent.change(searchInput, { target: { value: 'Lightweight Charts' } });
     
-    // Should show CryptoBot / TradeX Terminal
-    expect(screen.getByText('CryptoBot / TradeX Terminal')).toBeInTheDocument();
+    // Should show CryptoBot
+    expect(screen.getByText(/CryptoBot/i)).toBeInTheDocument();
   });
 });

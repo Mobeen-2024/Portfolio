@@ -91,15 +91,15 @@ export default function Navigation({ isGodMode, isScanning, onScan, activeLabel 
 
           {/* Desktop Nav Links */}
           <div className="hidden lg:flex items-center gap-6 xl:gap-8">
-            <ul className="flex items-center gap-6 xl:gap-7">
+            <ul className="flex items-center gap-1 xl:gap-2">
               {navLinks.map((link) => (
                 <li key={link.id}>
                   <button 
                     onClick={() => scrollTo(link.id)} 
-                    className={`text-xs uppercase font-bold tracking-widest transition-all relative py-1 hover:opacity-100 ${
+                    className={`text-xs uppercase font-bold tracking-wider transition-all px-3.5 py-1.5 rounded-xl cursor-pointer ${
                       isGodMode 
-                        ? "text-green-500/70 hover:text-green-400 font-mono" 
-                        : "text-slate-600 hover:text-blue-600 font-sans"
+                        ? "text-green-400/70 hover:text-green-300 hover:bg-green-500/10 font-mono" 
+                        : "text-slate-600 hover:text-blue-600 hover:bg-blue-50/70 font-sans"
                     }`}
                   >
                     {link.label}

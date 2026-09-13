@@ -24,7 +24,7 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
   const [terminalHistory, setTerminalHistory] = useState([
     { type: 'system', lines: [
       '>> INITIALIZING SYS_ORCHESTRATOR v2.4 (HARDWARE_&_SYSTEMS_KERNEL)...',
-      '>> KERNEL LOADED: React 19.2 / Vite / CompTIA-A+ Ready / Fastify / Vue 3',
+      '>> KERNEL LOADED: React 19.2 / Vite / CompTIA A+ / Lightweight Charts / WebSockets / CCXT',
       '>> TYPE "help" FOR AVAILABLE COMMANDS OR CLICK SUGGESTIONS BELOW.'
     ]}
   ]);
