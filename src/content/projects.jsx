@@ -186,7 +186,7 @@ export const PROJECTS = [
       "/images/projects/cryptobot/CryptoBot4.png"
     ],
     executive: {
-      title: "CryptoBot / TradeX Terminal",
+      title: "CryptoBot ",
       tagline: "High-Frequency Dual-Account Terminal & AI Bot Pilot",
       description: "Institutional-grade cryptocurrency trading terminal and algorithmic execution engine styled after Binance Futures (#0B0E11). Engineered with sub-millisecond Master-to-Slave trade mirroring (scalable up to 20 accounts via CCXT and User Data Stream WebSockets), automated Delta-Neutral hedging (Delta Master & Voltron Straddle bots), multi-kernel Google Gemini/Gemma AI intelligence, TradingView Lightweight Charts canvas, and a zero-risk virtual paper trading sandbox (Shadow Mode) backed by SQLite.",
       impact: "Sub-Millisecond Mirroring & Delta Hedging",
