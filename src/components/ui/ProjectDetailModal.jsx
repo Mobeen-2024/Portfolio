@@ -42,11 +42,12 @@ export default function ProjectDetailModal({ project, isGodMode, onClose }) {
     >
       <div 
         onClick={(e) => e.stopPropagation()}
-        className={`w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl p-6 sm:p-10 border transition-all duration-300 ${
+        className={`w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl p-6 sm:p-10 border transition-all duration-300 no-scrollbar ${
           isArchitectView 
             ? "bg-[#060a08]/95 border-green-500/40 text-green-300 font-mono shadow-[0_0_60px_rgba(34,197,94,0.2)]" 
             : "bg-white/95 border-slate-200/90 text-slate-800 font-sans shadow-2xl shadow-slate-900/20"
         }`}
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {/* Top Control Bar: Category, Perspective Toggle, Close Button */}
         <div className="flex flex-wrap items-center justify-between gap-4 border-b pb-6 mb-6 border-current/15">

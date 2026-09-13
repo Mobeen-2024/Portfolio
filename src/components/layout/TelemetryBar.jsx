@@ -18,7 +18,10 @@ export default function TelemetryBar({ isGodMode }) {
   if (!isGodMode) return null;
 
   return (
-    <div className="w-full bg-black/90 border-b border-green-500/25 px-4 py-1.5 font-mono text-[10px] text-green-400/80 backdrop-blur-xl z-50 select-none flex items-center justify-between overflow-x-auto whitespace-nowrap shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
+    <div 
+      className="w-full bg-black/90 border-b border-green-500/25 px-4 py-1.5 font-mono text-[10px] text-green-400/80 backdrop-blur-xl z-50 select-none flex items-center justify-between overflow-x-auto whitespace-nowrap shadow-[0_4px_20px_rgba(0,0,0,0.8)] no-scrollbar"
+      style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+    >
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-1.5 text-green-400 font-bold">
           <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
