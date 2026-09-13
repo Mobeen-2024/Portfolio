@@ -18,17 +18,18 @@ export const AGENT_ROLES = {
     name: "SysOrchestrator v2.4",
     tagline: "Hardware Diagnostics, Network Telemetry & Real-Time Kernel",
     badge: "HARDWARE_KERNEL_STABLE",
-    description: "Low-level autonomous terminal agent providing system telemetry, circuit diagnostics logs, Fastify/Vue 3 architectures, and network cabling specs.",
+    description: "Low-level autonomous terminal agent providing system telemetry, circuit diagnostics logs, React/Express/CCXT trading architectures, and network cabling specs.",
     suggestedCommands: [
       "help",
       "status",
       "skills",
       "projects",
+      "cryptobot",
+      "repx",
+      "hisaab",
       "hardware",
       "network",
       "comptia",
-      "repx",
-      "hisaab",
       "contact"
     ]
   }
@@ -43,6 +44,7 @@ export const CLI_COMMANDS = {
       "  status      - Print real-time system diagnostics, UK work rights, and environment",
       "  skills      - Display verified hardware, networking, and software competencies",
       "  projects    - List all practical engineering projects and architecture specs",
+      "  cryptobot   - Inspect CryptoBot 1.0 dual-account terminal, delta hedging & AI matrix",
       "  repx        - Inspect RepX AI 3D WebGL, 600k Kaggle Polars pipeline & engine specs",
       "  hisaab      - Inspect Hisaab-Kitaab offline ledger, Dexie & Gemini vision specs",
       "  hardware    - Inspect component-level PCB repair and BMS battery mod details",
@@ -62,7 +64,7 @@ export const CLI_COMMANDS = {
       "  PRIMARY TARGET:   IT Support Specialist / Hardware Technician / Systems Engineer",
       "  CERTIFICATION:    CompTIA A+ (In Progress — Core 1 & 2 Domains)",
       "  LANGUAGES:        English (Fluent), Urdu (Native), Hindi (Fluent), Punjabi (Fluent)",
-      "  KERNEL STATUS:    Online (Vite 7 / React 19 / Fastify / Vue 3 / WebSockets)"
+      "  KERNEL STATUS:    Online (Vite 7 / React 19 / Express / Lightweight Charts / WebSockets / SQLite)"
     ]
   },
   skills: {
@@ -72,7 +74,7 @@ export const CLI_COMMANDS = {
       "  HARDWARE & REPAIR: Motherboard diagnostics, component soldering, circuit cleaning, Lithium-ion BMS, Arduino, relays",
       "  NETWORKING:        Router & LAN/WLAN config, CCTV deployment, structured cabling (Cat6 T568B), physical mounting",
       "  OS ADMINISTRATION: Windows 10/11 configuration & troubleshooting, Linux CLI basics, system recovery, hardware utilities",
-      "  SOFTWARE STACK:    TypeScript, JavaScript (ES6+), Vue 3, Fastify, WebSockets, HTML5, CSS3, REST APIs, modular DBs",
+      "  SOFTWARE STACK:    TypeScript, React 19, Express, WebSockets, Lightweight Charts, CCXT, SQLite, Tailwind CSS, REST APIs",
       "  AI WORKFLOWS:      AI-directed document parsing, receipt OCR, rapid prototyping, and automated testing"
     ]
   },
@@ -84,11 +86,24 @@ export const CLI_COMMANDS = {
       "  [02] RepX AI Gym Platform    :: 3D WebGL Anatomy / 600k Kaggle Polars Pipeline / Deterministic Scorer",
       "  [03] Advanced Hardware Mod   :: Component-level diagnostics on liquid damage / +100% BMS Li-ion runtime",
       "  [04] IoT Home Automation     :: Arduino microcontroller / Multi-channel relay logic / Voice assistant",
-      "  [05] CryptoBot / TradeX      :: Fastify / Vue 3 / WebSockets / Binance API live market ingestion",
+      "  [05] CryptoBot 1.0 Terminal  :: React 19 / CCXT / Gemini & Gemma AI / Delta-Neutral Hedging / Shadow Mode",
       "  [06] Appliance & CCTV Net    :: Physical hardware mounting / Cat6 structured cabling / NVR remote access",
       "  [07] DIY Appliance Setup     :: Kitchen extractor hood mounting / structural wall anchor modification",
       "",
-      "Type 'hisaab', 'repx', 'hardware' or 'network' for deep-dive physical specifications."
+      "Type 'cryptobot', 'hisaab', 'repx', 'hardware' or 'network' for deep-dive physical specifications."
+    ]
+  },
+  cryptobot: {
+    description: "Inspect CryptoBot 1.0 institutional trading terminal and algorithmic execution engine",
+    output: [
+      ">> CRYPTOBOT 1.0 ALGORITHMIC TRADING TERMINAL TELEMETRY:",
+      "  CORE PLATFORM:    Institutional Multi-Account Terminal styled after Binance Futures (#0B0E11)",
+      "  TRADE COPYING:    Zero-latency Master-to-Slave trade mirroring (up to 20 accounts via CCXT & WS)",
+      "  HEDGING ENGINES:  Delta Master (5 USDT buffer, break-even redeployment) & Voltron Straddle Harvester",
+      "  AI BOT PILOT:     Multi-kernel matrix: Gemini 3.1 Flash-Lite (sentiment), Gemma 3 27B (ATR/risk), Gemini Flash Live",
+      "  CHARTING ENGINE:  TradingView Lightweight Charts, live Binance WS, SuperTrend clouds, Alligator & OHLC HUD",
+      "  SHADOW MODE:      Zero-risk SQLite paper trading (trades.db & shadow_orders.db) with 1x-125x margin simulation",
+      "  SAFETY CONTROLS:  Global Panic Pause, Emergency Close All, TradingView authenticated webhook gateway"
     ]
   },
   hisaab: {
@@ -178,7 +193,12 @@ export const EXECUTIVE_ANSWERS = {
   projects: {
     title: "Featured Software & Engineering Projects",
     thoughtTrace: "Summarizing practical project portfolio...",
-    response: "Mobeen's key projects include: (1) Hisaab-Kitaab offline digital ledger (Khata) PWA with Dexie.js and Gemini 3.1 Flash voice assistant, (2) RepX AI cybernetic fitness intelligence platform featuring 3D WebGL anatomy, 600k Kaggle dataset normalization, and deterministic recommendation algorithms, (3) TradeX high-throughput crypto terminal using Fastify & Vue 3 WebSockets, (4) Arduino IoT home automation with opto-isolated relays, and (5) Advanced Hardware BMS power modifications."
+    response: "Mobeen's key projects include: (1) Hisaab-Kitaab offline digital ledger (Khata) PWA with Dexie.js and Gemini 3.1 Flash voice assistant, (2) RepX AI cybernetic fitness intelligence platform featuring 3D WebGL anatomy, 600k Kaggle dataset normalization, and deterministic recommendation algorithms, (3) CryptoBot 1.0 institutional crypto terminal with sub-millisecond Master-Slave trade mirroring, Delta-Neutral hedging, and multi-kernel Gemini/Gemma AI pilot, (4) Arduino IoT home automation with opto-isolated relays, and (5) Advanced Hardware BMS power modifications."
+  },
+  cryptobot: {
+    title: "CryptoBot 1.0 — High-Frequency Dual-Account Terminal & AI Bot Pilot",
+    thoughtTrace: "Retrieving CryptoBot 1.0 multi-account trade mirroring, delta hedging, and Gemini AI pilot specs...",
+    response: "CryptoBot 1.0 is an institutional-grade cryptocurrency trading terminal styled after Binance Futures (#0B0E11). It provides sub-millisecond Master-to-Slave trade copying for up to 20 accounts using CCXT and Binance User Data Streams, automated Delta-Neutral hedging architectures (Delta Master with 5 USDT buffer and Voltron Straddle engines), multi-kernel AI intelligence powered by Google Gemini 3.1 Flash-Lite and Gemma 3 27B, high-performance TradingView Lightweight Charts canvas, and an isolated SQLite paper trading sandbox (Shadow Mode)."
   },
   hisaab: {
     title: "Hisaab-Kitaab — Digital Ledger & Business Management PWA",
@@ -213,6 +233,9 @@ export function processExecutiveQuery(queryText) {
     };
   }
 
+  if (normalized.includes("crypto") || normalized.includes("tradex") || normalized.includes("trading") || normalized.includes("bot") || normalized.includes("binance") || normalized.includes("hedg")) {
+    return EXECUTIVE_ANSWERS.cryptobot;
+  }
   if (normalized.includes("hisaab") || normalized.includes("khata") || normalized.includes("ledger") || normalized.includes("udhaar") || normalized.includes("easypaisa") || normalized.includes("jazzcash")) {
     return EXECUTIVE_ANSWERS.hisaab;
   }
@@ -273,6 +296,14 @@ export function executeCliCommand(rawCmd) {
   }
 
   // Fuzzy match or fallback
+  if (sanitized.startsWith("crypto") || sanitized.startsWith("trade") || sanitized.startsWith("bot")) {
+    return {
+      type: "success",
+      command: "cryptobot",
+      lines: CLI_COMMANDS.cryptobot.output
+    };
+  }
+
   if (sanitized.startsWith("hisaab") || sanitized.startsWith("khata")) {
     return {
       type: "success",

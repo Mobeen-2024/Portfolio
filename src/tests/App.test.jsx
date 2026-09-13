@@ -46,7 +46,7 @@ describe('Dual-Reality Portfolio App', () => {
   it('filters projects using the search input', () => {
     render(<App />);
     const searchInput = screen.getByPlaceholderText(/filter by tool or skill/i);
-    fireEvent.change(searchInput, { target: { value: 'Fastify' } });
+    fireEvent.change(searchInput, { target: { value: 'Lightweight Charts' } });
     
     // Should show CryptoBot / TradeX Terminal
     expect(screen.getByText('CryptoBot / TradeX Terminal')).toBeInTheDocument();

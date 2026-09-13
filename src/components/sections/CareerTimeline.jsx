@@ -19,13 +19,13 @@ const TIMELINE_DATA = [
     architect: {
       role: "SYSTEMS_&_INFRASTRUCTURE_ENGINEER",
       company: "LABS_&_TECHNICAL_PROJECTS",
-      description: "Deploying high-throughput Fastify and Vue 3 WebSocket pipelines, modular relational databases, and AI-directed development workflows with deterministic data persistence.",
+      description: "Deploying high-frequency React/Express and WebSocket execution engines, modular relational databases, and multi-kernel AI trading architectures.",
       achievements: [
         "Built Three.js runtime spatial mesh splitting and GLSL Bio-Electric muscle charge shaders for RepX AI",
         "Implemented Dexie.js schema with live queries and client-side statement OCR for Hisaab-Kitaab",
-        "Constructed sub-50ms Binance WebSocket order-book aggregation and live feed ingestion for TradeX"
+        "Constructed sub-millisecond multi-account trade copying, Delta-Neutral hedging, and Binance WebSocket feeds for CryptoBot"
       ],
-      tags: ["Three.js", "Dexie.js", "WebSockets", "Fastify", "TypeScript"]
+      tags: ["React 19", "Lightweight Charts", "WebSockets", "CCXT", "TypeScript"]
     }
   },
   {

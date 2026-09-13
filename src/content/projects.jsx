@@ -187,37 +187,38 @@ export const PROJECTS = [
     ],
     executive: {
       title: "CryptoBot / TradeX Terminal",
-      tagline: "High-Frequency Market Data Engine",
-      description: "Developed a real-time market interface connecting directly to the Binance API for live data feed ingestion. Constructed a high-throughput Fastify backend and reactive Vue 3 frontend utilizing WebSockets for low-latency updates. Executed automated risk management and trade execution algorithms within live testing environments.",
-      impact: "Sub-50ms Market Telemetry",
-      techStack: ["Vue 3", "Fastify", "WebSockets", "Binance API", "TypeScript"],
+      tagline: "High-Frequency Dual-Account Terminal & AI Bot Pilot",
+      description: "Institutional-grade cryptocurrency trading terminal and algorithmic execution engine styled after Binance Futures (#0B0E11). Engineered with sub-millisecond Master-to-Slave trade mirroring (scalable up to 20 accounts via CCXT and User Data Stream WebSockets), automated Delta-Neutral hedging (Delta Master & Voltron Straddle bots), multi-kernel Google Gemini/Gemma AI intelligence, TradingView Lightweight Charts canvas, and a zero-risk virtual paper trading sandbox (Shadow Mode) backed by SQLite.",
+      impact: "Sub-Millisecond Mirroring & Delta Hedging",
+      techStack: ["React 19", "Lightweight Charts", "Node.js / Express", "WebSockets / Socket.IO", "Google Gemini & Gemma", "CCXT", "Better-SQLite3", "Tailwind CSS 4"],
       keyMetrics: [
-        { label: "Market Feed", value: "Binance API Live WSS" },
-        { label: "UI Reactivity", value: "Vue 3 Composition API" },
-        { label: "Update Rate", value: "Sub-50ms WebSockets" }
+        { label: "Execution Latency", value: "Sub-Millisecond Mirroring" },
+        { label: "AI Bot Matrix", value: "Gemini 3.1 + Gemma 3 27B" },
+        { label: "Hedge Engine", value: "Delta-Neutral & Auto-Recovery" }
       ],
-      strategicTakeaway: "Delivered instantaneous market visibility and automated order risk bounds, safeguarding capital against unexpected slippage during high-volatility spikes.",
-      businessChallenges: "Ingesting continuous order book ticker streams without causing main-thread frame drops or memory leaks in the client browser interface."
+      strategicTakeaway: "Eliminates execution slippage, latency asymmetry, and unhedged drawdowns across multi-account portfolios by coupling automated delta-neutral position hedging with real-time AI market regime classification and zero-risk paper trading simulation.",
+      businessChallenges: "Maintaining microsecond order execution parity across up to 20 accounts while handling WebSocket reconnection packet drops, dynamic ATR spread friction, and exchange rate-limit constraints during extreme volatility."
     },
     architect: {
-      title: "TRADEX_WEBSOCKET_CORE",
-      tagline: "Fastify / Vue 3 / Binance API / WSS",
-      description: "Asynchronous Fastify streaming backend bridging Binance WebSocket APIs with ring-buffer throttling, typed order execution structures, and reactive Vue 3 virtualized order books.",
-      impact: "Zero-Lag Order Book Diff",
-      techStack: ["Fastify", "Vue 3", "TypeScript", "WebSocket (WSS)", "Node.js"],
+      title: "CRYPTOBOT_MULTI_KERNEL_ENGINE",
+      tagline: "React 19 / Express / CCXT / Gemini AI / Lightweight Charts / SQLite",
+      description: "Event-driven algorithmic execution engine orchestrated via Node.js/Express and EventBus. Integrates Binance User Data Stream WebSockets, CCXT exchange abstraction, multi-kernel Google Gemini/Gemma AI pipelines, dynamic SuperTrend/Alligator canvas charting, and an isolated SQLite paper trading engine.",
+      impact: "Zero-Lag Mirroring & Hedge Parity",
+      techStack: ["React 19", "Lightweight Charts", "Node.js / Express", "WebSockets / Socket.IO", "Google Gemini & Gemma", "CCXT", "Better-SQLite3", "Tailwind CSS 4"],
       keyMetrics: [
-        { label: "Throughput", value: "5,000+ msgs/sec" },
-        { label: "Backend Engine", value: "Fastify Async I/O" },
-        { label: "Client Latency", value: "< 25ms Render" }
+        { label: "Multi-Account Sync", value: "Up to 20 Slave Accounts" },
+        { label: "AI Cadence", value: "5-Min Sentiment Loop & Live Kernel" },
+        { label: "Paper Engine", value: "Cross/Isolated Margin (1x–125x)" }
       ],
-      architectureDetails: "Stream aggregation pipeline with exponential backoff WebSocket reconnects, atomic trade execution validation against balance bounds, and Vue 3 ShallowRef optimizations.",
+      architectureDetails: "EventBus decision engine calculating real-time HedgeScore from drawdown, liquidity, and ATR friction. Binance WebSocket orderbook depth and User Data streams drive instant CCXT slave replication with HMAC signature validation, automated desync reconciliation modals, and isolated SQLite ledgers (trades.db, shadow_orders.db).",
       pipelineSteps: [
-        "Direct Binance WebSocket Ticker & Depth Stream Ingestion",
-        "Fastify Stream Sanitization & Risk Check Subroutine",
-        "WSS Broadcast to Authenticated Vue 3 Client",
-        "Reactive DOM Virtualization & Algorithmic Trigger"
+        "Binance WebSocket Ingestion: 1m–1M OHLCV klines, orderbook depth & User Data fill events",
+        "Multi-Kernel AI Telemetry: Gemini 3.1 Flash news sentiment + Gemma 3 27B ATR buffer calibration",
+        "EventBus Decision Engine: HedgeScore calculation, offset buffers & hard drawdown circuit breakers",
+        "CCXT Atomic Mirroring: Sub-millisecond order broadcast to slave accounts with HMAC validation",
+        "Shadow Mode Engine: Full margin/leverage matching against live Binance trade feeds in SQLite"
       ],
-      complexity: "Time: O(1) orderbook diff | Space: O(window) ring buffer"
+      complexity: "Latency: Sub-millisecond trade mirroring | Risk: Delta-neutral dynamic ATR hedge | Storage: Synchronous SQLite"
     }
   },
   {

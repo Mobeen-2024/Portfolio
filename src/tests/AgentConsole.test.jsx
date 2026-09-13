@@ -16,6 +16,12 @@ describe('Agent Knowledge & Command Engine', () => {
     expect(res.response).toContain('BMS');
   });
 
+  it('processes cryptobot trading terminal query correctly', () => {
+    const res = processExecutiveQuery('Tell me about the CryptoBot and trading engines');
+    expect(res.title).toContain('CryptoBot');
+    expect(res.response).toContain('Delta-Neutral');
+  });
+
   it('handles empty executive query with validation fallback', () => {
     const res = processExecutiveQuery('   ');
     expect(res.title).toContain('Error');
@@ -25,6 +31,13 @@ describe('Agent Knowledge & Command Engine', () => {
     const res = executeCliCommand('help');
     expect(res.type).toBe('success');
     expect(res.lines.some(l => l.includes('status'))).toBe(true);
+  });
+
+  it('executes CLI cryptobot command', () => {
+    const res = executeCliCommand('cryptobot');
+    expect(res.type).toBe('success');
+    expect(res.lines.some(l => l.includes('CRYPTOBOT 1.0'))).toBe(true);
+    expect(res.lines.some(l => l.includes('Master-to-Slave'))).toBe(true);
   });
 
   it('executes CLI hardware command', () => {
