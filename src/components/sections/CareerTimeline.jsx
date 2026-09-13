@@ -12,20 +12,20 @@ const TIMELINE_DATA = [
       achievements: [
         "Preparing for CompTIA A+ certification to validate core networking and systems administration proficiency",
         "Architected RepX AI cybernetic fitness platform with 3D WebGL anatomy and 600k Kaggle Polars data pipeline",
-        "Engineered TradeX real-time cryptocurrency terminal using Fastify and reactive Vue 3 WebSockets"
+        "Engineered Hisaab-Kitaab digital ledger PWA with Dexie.js offline storage and Gemini 3.1 Flash voice assistant"
       ],
-      tags: ["CompTIA A+", "Three.js", "WebGL", "TypeScript", "Fastify"]
+      tags: ["CompTIA A+", "React 19", "Three.js", "Dexie (IndexedDB)", "TypeScript"]
     },
     architect: {
       role: "SYSTEMS_&_INFRASTRUCTURE_ENGINEER",
       company: "LABS_&_TECHNICAL_PROJECTS",
       description: "Deploying high-throughput Fastify and Vue 3 WebSocket pipelines, modular relational databases, and AI-directed development workflows with deterministic data persistence.",
       achievements: [
-        "Constructed sub-50ms Binance WebSocket order-book aggregation and live feed ingestion",
         "Built Three.js runtime spatial mesh splitting and GLSL Bio-Electric muscle charge shaders for RepX AI",
-        "Integrated Arduino C++ opto-isolated relay modules for IoT smart environment control"
+        "Implemented Dexie.js schema with live queries and client-side statement OCR for Hisaab-Kitaab",
+        "Constructed sub-50ms Binance WebSocket order-book aggregation and live feed ingestion for TradeX"
       ],
-      tags: ["Three.js", "WebSockets", "Fastify", "TypeScript", "Arduino C++"]
+      tags: ["Three.js", "Dexie.js", "WebSockets", "Fastify", "TypeScript"]
     }
   },
   {

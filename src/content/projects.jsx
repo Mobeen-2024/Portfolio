@@ -3,7 +3,7 @@
 export const PROJECTS = [
   {
     id: 1,
-    category: "Fintech & Automation",
+    category: "Fintech & Offline PWA",
     images: [
       "/images/projects/hisaab-kitaab/hk-cover.png",
       "/images/projects/hisaab-kitaab/hk-dashboard.png",
@@ -14,37 +14,37 @@ export const PROJECTS = [
     ],
     executive: {
       title: "Hisaab-Kitaab Finance App",
-      tagline: "Automated Daily Expense Management",
-      description: "Architected and engineered a full-stack daily expense tracking application using TypeScript and modular database structures. Leveraged AI-directed development tools to implement automated bank statement parsing, digital receipt management, and analytics reporting.",
-      impact: "Automated Statement Parsing",
-      techStack: ["TypeScript", "React", "Node.js", "AI Workflows", "Modular DB"],
+      tagline: "Digital Ledger (Khata) & Offline-First PWA",
+      description: "Architected a localized, offline-first financial ledger and business management PWA designed to digitize traditional credit ('Khata') for merchants and individuals. Powered by Dexie.js (IndexedDB) for zero-latency offline persistence with optional Firebase cloud sync, the platform features hands-free voice accounting via Gemini 3.1 Flash, multimodal document/receipt OCR parsing (Gemini Vision + Tesseract.js) with dedicated JazzCash/Easypaisa statement importers, and full English/Urdu/Roman Urdu RTL support.",
+      impact: "Offline-First Digital Ledger & OCR Ingestion",
+      techStack: ["React 19", "TypeScript", "Dexie.js (IndexedDB)", "Gemini 3.1 Flash", "Firebase", "Tailwind CSS v4", "Capacitor 8", "Tesseract.js"],
       keyMetrics: [
-        { label: "Parsing Speed", value: "< 1.5s / Statement" },
-        { label: "Data Integrity", value: "99.8% Extraction" },
-        { label: "Persistence", value: "Cross-Session Zero Loss" }
+        { label: "Offline Storage", value: "100% Local IndexedDB" },
+        { label: "Document Ingestion", value: "PDF, OCR & CSV (Gemini)" },
+        { label: "Localization", value: "Trilingual + RTL (Urdu)" }
       ],
-      strategicTakeaway: "Automating document ingestion and categorization cut manual expense entry time by over 85%, ensuring dependable personal finance auditing.",
-      businessChallenges: "Unstructured bank PDF statements and receipt captures required intelligent sanitization to reliably normalize currency, dates, and vendors."
+      strategicTakeaway: "Empowered small business owners to replace error-prone paper ledgers with an offline-resilient PWA and Android APK, reducing transaction entry time by over 80% through voice dictation and automatic receipt extraction.",
+      businessChallenges: "Micro-merchants in emerging markets frequently encounter spotty internet connectivity and informal accounting practices. Built an offline-first architecture using Dexie reactive live queries, dual-engine statement parsing (Gemini Vision + offline regex fallbacks for mobile money), and full Urdu RTL layout parity."
     },
     architect: {
       title: "HISAAB_KITAAB_ENGINE",
-      tagline: "TypeScript / Modular DB / AI Parsing",
-      description: "Engineered a TypeScript financial ledger with atomic transaction logging, automated document parsing pipelines, and persistent modular storage with instant cross-session hydration.",
-      impact: "Atomic Transaction Engine",
-      techStack: ["TypeScript", "SQLite / Modular DB", "Node.js", "FastAPI", "Tailwind CSS"],
+      tagline: "Dexie IndexedDB / Gemini 3.1 Live Voice / PWA & Capacitor / Firebase",
+      description: "Constructed a reactive offline-first architecture utilizing Dexie.js v4 for schema-versioned client-side persistence and dexie-react-hooks for live query propagation. Implemented hands-free WebRTC voice accounting using Gemini 3.1 Flash, client-side OCR pipelines (PDF.js + Tesseract.js) with deterministic fallback parsers for JazzCash/Easypaisa, and multi-tenant personal vs. business context separation with PIN-based access control.",
+      impact: "Zero-Lag Offline Storage & Multimodal Parsing",
+      techStack: ["React 19 / Vite", "TypeScript 5.8", "Dexie.js (IndexedDB)", "Google Gemini (@google/genai)", "Firebase Firestore", "Capacitor 8", "Workbox PWA", "Recharts"],
       keyMetrics: [
-        { label: "Schema Architecture", value: "Modular Relational" },
-        { label: "Query Execution", value: "< 12ms P95" },
-        { label: "Ingestion Format", value: "PDF / OCR / JSON" }
+        { label: "Client Database", value: "Dexie.js v4 Live Queries" },
+        { label: "Voice Streaming", value: "< 350ms Real-Time Audio" },
+        { label: "Platform Target", value: "PWA + Native Android APK" }
       ],
-      architectureDetails: "Normalized modular schema separating accounts, transactions, and audit journals with idempotent transaction upsert pipelines and schema validation.",
+      architectureDetails: "IndexedDB client datastore with Zod schema validation and reactive hooks, Workbox service worker precaching, optional Firebase Firestore bidirectional cloud sync, and isolation between personal finances and business credit ledgers.",
       pipelineSteps: [
-        "Digital Receipt & Statement Document Ingestion",
-        "AI-Assisted Text Tokenization & Entity Extraction",
-        "Deterministic Transaction Deduplication & Validation",
-        "Atomic Commit to Modular Relational Datastore"
+        "Multimodal Ingestion (Gemini Vision / PDF.js / Tesseract.js / JazzCash Fallback)",
+        "Deterministic Data Sanitization, Amount Normalization & Category Mapping",
+        "Atomic ACID Transaction Commit to Local Dexie.js IndexedDB Datastore",
+        "Reactive UI State Propagation (Live Queries) & Optional Firestore Cloud Sync"
       ],
-      complexity: "Time: O(n) token parsing | Space: O(k) memory buffer"
+      complexity: "Storage: ACID IndexedDB with sync queue | Multimodal: WebRTC audio + OCR vision"
     }
   },
   {
@@ -61,7 +61,7 @@ export const PROJECTS = [
       "/images/projects/repx/RepX8.png"
     ],
     executive: {
-      title: "RepX AI Gym Platform",
+      title: "RepX AI : Gym Platform",
       tagline: "Cybernetic Fitness Intelligence & 3D WebGL Telemetry",
       description: "Engineered a personal fitness intelligence platform designed for the physical realities of the training floor: sweaty hands, background mobile throttling, and offline environments. Features an interactive 3D WebGL athlete anatomy model with raycastable sub-muscles and custom GLSL bio-electric shaders, a deterministic multi-factor recommendation engine over 3,213 canonical exercises normalized from 605k+ Kaggle records with Polars, and local-first offline persistence via IndexedDB with SHA-256 cryptographic envelopes.",
       impact: "3D WebGL Anatomy & Offline Resilience",

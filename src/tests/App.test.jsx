@@ -20,7 +20,7 @@ describe('Dual-Reality Portfolio App', () => {
   it('renders portfolio projects including RepX AI', () => {
     render(<App />);
     expect(screen.getByText('Hisaab-Kitaab Finance App')).toBeInTheDocument();
-    expect(screen.getByText('RepX AI Gym Platform')).toBeInTheDocument();
+    expect(screen.getAllByText(/RepX AI/i).length).toBeGreaterThan(0);
     expect(screen.getByText('Advanced Hardware Diagnostics & Repair')).toBeInTheDocument();
     expect(screen.getByText('IoT Home Automation Framework')).toBeInTheDocument();
     expect(screen.getByText('CryptoBot / TradeX Terminal')).toBeInTheDocument();

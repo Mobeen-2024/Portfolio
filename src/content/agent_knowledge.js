@@ -28,6 +28,7 @@ export const AGENT_ROLES = {
       "network",
       "comptia",
       "repx",
+      "hisaab",
       "contact"
     ]
   }
@@ -43,6 +44,7 @@ export const CLI_COMMANDS = {
       "  skills      - Display verified hardware, networking, and software competencies",
       "  projects    - List all practical engineering projects and architecture specs",
       "  repx        - Inspect RepX AI 3D WebGL, 600k Kaggle Polars pipeline & engine specs",
+      "  hisaab      - Inspect Hisaab-Kitaab offline ledger, Dexie & Gemini vision specs",
       "  hardware    - Inspect component-level PCB repair and BMS battery mod details",
       "  network     - Inspect CCTV surveillance, LAN/WLAN, and Cat6 cabling specs",
       "  comptia     - Review CompTIA A+ core competencies in progress",
@@ -78,7 +80,7 @@ export const CLI_COMMANDS = {
     description: "Inspect practical technical projects and systems architecture",
     output: [
       ">> PRACTICAL EXPERIENCE & TECHNICAL PROJECTS:",
-      "  [01] Hisaab-Kitaab           :: TypeScript / Modular DB / AI-directed bank statement & receipt parsing",
+      "  [01] Hisaab-Kitaab           :: React 19 / Dexie.js (IndexedDB) / Gemini 3.1 Flash / Offline Ledger & PWA",
       "  [02] RepX AI Gym Platform    :: 3D WebGL Anatomy / 600k Kaggle Polars Pipeline / Deterministic Scorer",
       "  [03] Advanced Hardware Mod   :: Component-level diagnostics on liquid damage / +100% BMS Li-ion runtime",
       "  [04] IoT Home Automation     :: Arduino microcontroller / Multi-channel relay logic / Voice assistant",
@@ -86,7 +88,19 @@ export const CLI_COMMANDS = {
       "  [06] Appliance & CCTV Net    :: Physical hardware mounting / Cat6 structured cabling / NVR remote access",
       "  [07] DIY Appliance Setup     :: Kitchen extractor hood mounting / structural wall anchor modification",
       "",
-      "Type 'repx', 'hardware' or 'network' for deep-dive physical specifications."
+      "Type 'hisaab', 'repx', 'hardware' or 'network' for deep-dive physical specifications."
+    ]
+  },
+  hisaab: {
+    description: "Inspect Hisaab-Kitaab digital ledger architecture and multimodal ingestion",
+    output: [
+      ">> HISAAB-KITAAB DIGITAL LEDGER ARCHITECTURE TELEMETRY:",
+      "  CORE CONCEPT:     Digital Ledger (Khata) & Business Management PWA + Android APK",
+      "  DATA ENGINE:      Dexie.js v4 (IndexedDB) with live reactive queries & optional Firebase sync",
+      "  AI & VOICE:       Gemini 3.1 Flash real-time streaming voice assistant + Gemini Vision OCR",
+      "  OFFLINE PARSING:  Client-side PDF.js, Tesseract.js & specialized JazzCash/Easypaisa regex parsers",
+      "  LOCALIZATION:     Full English, Urdu (اردو), and Roman Urdu support with dynamic RTL layouts",
+      "  UTILITIES:        jsPDF report export, jsQR payment scanner, transaction calendar & inventory"
     ]
   },
   repx: {
@@ -164,7 +178,12 @@ export const EXECUTIVE_ANSWERS = {
   projects: {
     title: "Featured Software & Engineering Projects",
     thoughtTrace: "Summarizing practical project portfolio...",
-    response: "Mobeen's key projects include: (1) Hisaab-Kitaab personal finance tracker with automated statement parsing, (2) RepX AI cybernetic fitness intelligence platform featuring 3D WebGL anatomy, 600k Kaggle dataset normalization, and deterministic recommendation algorithms, (3) TradeX high-throughput crypto terminal using Fastify & Vue 3 WebSockets, (4) Arduino IoT home automation with opto-isolated relays, and (5) Advanced Hardware BMS power modifications."
+    response: "Mobeen's key projects include: (1) Hisaab-Kitaab offline digital ledger (Khata) PWA with Dexie.js and Gemini 3.1 Flash voice assistant, (2) RepX AI cybernetic fitness intelligence platform featuring 3D WebGL anatomy, 600k Kaggle dataset normalization, and deterministic recommendation algorithms, (3) TradeX high-throughput crypto terminal using Fastify & Vue 3 WebSockets, (4) Arduino IoT home automation with opto-isolated relays, and (5) Advanced Hardware BMS power modifications."
+  },
+  hisaab: {
+    title: "Hisaab-Kitaab — Digital Ledger & Business Management PWA",
+    thoughtTrace: "Retrieving Hisaab-Kitaab offline-first specs, Dexie schema, and Gemini voice engine...",
+    response: "Hisaab-Kitaab is a localized, offline-first digital ledger (Khata) and business management PWA designed to digitize traditional credit and bookkeeping for micro-merchants and individuals. Built with React 19 and Dexie.js (IndexedDB) for zero-latency offline operation, it integrates real-time hands-free voice accounting via Gemini 3.1 Flash, automated statement parsing (PDF/images/JazzCash/Easypaisa), Firebase cloud backup, and native Android APK support."
   },
   repx: {
     title: "RepX AI — 3D Fitness Intelligence Platform",
@@ -194,6 +213,9 @@ export function processExecutiveQuery(queryText) {
     };
   }
 
+  if (normalized.includes("hisaab") || normalized.includes("khata") || normalized.includes("ledger") || normalized.includes("udhaar") || normalized.includes("easypaisa") || normalized.includes("jazzcash")) {
+    return EXECUTIVE_ANSWERS.hisaab;
+  }
   if (normalized.includes("repx") || normalized.includes("fitness") || normalized.includes("gym") || normalized.includes("biomechanic")) {
     return EXECUTIVE_ANSWERS.repx;
   }
@@ -251,6 +273,14 @@ export function executeCliCommand(rawCmd) {
   }
 
   // Fuzzy match or fallback
+  if (sanitized.startsWith("hisaab") || sanitized.startsWith("khata")) {
+    return {
+      type: "success",
+      command: "hisaab",
+      lines: CLI_COMMANDS.hisaab.output
+    };
+  }
+
   if (sanitized.startsWith("rep")) {
     return {
       type: "success",
