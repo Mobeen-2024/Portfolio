@@ -10,7 +10,7 @@ const HERO_CONTENT = {
   architect: {
     label: "// ROOT_SYSTEM_KERNEL::HARDWARE_&_SYSTEMS",
     title: "Component-Level Diagnostics, Network Telemetry & Real-Time Stacks.",
-    subtitle: "Executing PCB circuit diagnostics, active BMS lithium-ion integration, LAN/WLAN & CCTV deployments, and sub-50ms Fastify & Vue 3 WebSocket architectures.",
+    subtitle: "Executing PCB circuit diagnostics, active BMS lithium-ion integration, LAN/WLAN & CCTV deployments, and sub-millisecond React 19, Express & Binance WebSocket architectures.",
     ctaPrimary: "Inspect Systems Architecture",
     ctaSecondary: "Initialize CLI Terminal",
   }

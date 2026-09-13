@@ -76,4 +76,37 @@ describe('AgentConsole Component', () => {
     fireEvent.click(statusChip);
     expect(screen.getByText(/HARDWARE & SYSTEMS RUNTIME TELEMETRY/i)).toBeInTheDocument();
   });
+
+  it('navigates CLI command history using ArrowUp and ArrowDown', () => {
+    render(<AgentConsole isGodMode={true} isOpen={true} setIsOpen={() => {}} />);
+    const input = screen.getByPlaceholderText(/type command/i);
+
+    // Enter first command
+    fireEvent.change(input, { target: { value: 'status' } });
+    fireEvent.submit(input.closest('form'));
+
+    // Enter second command
+    fireEvent.change(input, { target: { value: 'projects' } });
+    fireEvent.submit(input.closest('form'));
+
+    // Press ArrowUp -> should recall 'projects'
+    fireEvent.keyDown(input, { key: 'ArrowUp' });
+    expect(input.value).toBe('projects');
+
+    // Press ArrowUp again -> should recall 'status'
+    fireEvent.keyDown(input, { key: 'ArrowUp' });
+    expect(input.value).toBe('status');
+
+    // Press ArrowDown -> should go forward to 'projects'
+    fireEvent.keyDown(input, { key: 'ArrowDown' });
+    expect(input.value).toBe('projects');
+  });
+
+  it('closes console on Escape key', () => {
+    let openState = true;
+    const setIsOpen = (val) => { openState = val; };
+    render(<AgentConsole isGodMode={false} isOpen={true} setIsOpen={setIsOpen} />);
+    fireEvent.keyDown(window, { key: 'Escape' });
+    expect(openState).toBe(false);
+  });
 });

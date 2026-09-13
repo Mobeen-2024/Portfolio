@@ -29,6 +29,8 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
     ]}
   ]);
   const [cliInput, setCliInput] = useState('');
+  const [commandList, setCommandList] = useState([]);
+  const [historyIndex, setHistoryIndex] = useState(-1);
 
   // Executive mode conversation state
   const [execConversation, setExecConversation] = useState([
@@ -44,6 +46,8 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
 
   const terminalEndRef = useRef(null);
   const execEndRef = useRef(null);
+  const cliInputRef = useRef(null);
+  const execInputRef = useRef(null);
 
   // Auto-scroll terminal or exec stream
   useEffect(() => {
@@ -53,11 +57,39 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
     }
   }, [terminalHistory, execConversation, isOpen]);
 
+  // Auto-focus input and Escape key listener
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const timer = setTimeout(() => {
+      if (isGodMode) {
+        cliInputRef.current?.focus();
+      } else {
+        execInputRef.current?.focus();
+      }
+    }, 100);
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, isGodMode, setIsOpen]);
+
   // Handle Architect CLI Execution
   const handleCliSubmit = (e) => {
     e?.preventDefault();
     const cmd = cliInput.trim();
     if (!cmd) return;
+
+    setCommandList(prev => [...prev, cmd]);
+    setHistoryIndex(-1);
 
     if (cmd.toLowerCase() === 'clear') {
       setTerminalHistory([]);
@@ -74,8 +106,31 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
     setCliInput('');
   };
 
+  const handleCliKeyDown = (e) => {
+    if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (commandList.length === 0) return;
+      const nextIdx = historyIndex === -1 ? commandList.length - 1 : Math.max(0, historyIndex - 1);
+      setHistoryIndex(nextIdx);
+      setCliInput(commandList[nextIdx]);
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (historyIndex === -1) return;
+      const nextIdx = historyIndex + 1;
+      if (nextIdx >= commandList.length) {
+        setHistoryIndex(-1);
+        setCliInput('');
+      } else {
+        setHistoryIndex(nextIdx);
+        setCliInput(commandList[nextIdx]);
+      }
+    }
+  };
+
   const runQuickCommand = (cmd) => {
     setCliInput(cmd);
+    setCommandList(prev => [...prev, cmd]);
+    setHistoryIndex(-1);
     const result = executeCliCommand(cmd);
     setTerminalHistory(prev => [
       ...prev,
@@ -336,9 +391,11 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
               <form onSubmit={handleCliSubmit} className="flex items-center gap-2">
                 <span className="text-green-500 font-mono font-bold">$</span>
                 <input
+                  ref={cliInputRef}
                   type="text"
                   value={cliInput}
                   onChange={(e) => setCliInput(e.target.value)}
+                  onKeyDown={handleCliKeyDown}
                   placeholder="type command (e.g. status, projects, eval_metrics, help)..."
                   className="flex-1 bg-transparent text-green-400 font-mono text-xs sm:text-sm outline-none placeholder:text-green-500/30"
                   autoFocus
@@ -354,6 +411,7 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
             ) : (
               <form onSubmit={handleExecSubmit} className="flex items-center gap-2">
                 <input
+                  ref={execInputRef}
                   type="text"
                   value={execInput}
                   onChange={(e) => setExecInput(e.target.value)}

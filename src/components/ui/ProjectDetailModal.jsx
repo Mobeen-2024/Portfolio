@@ -17,6 +17,15 @@ export default function ProjectDetailModal({ project, isGodMode, onClose }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
 
+  // Lock document body scrolling while modal is open
+  useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, []);
+
   if (!project) return null;
 
   const isArchitectView = modalPerspective === 'architect';
