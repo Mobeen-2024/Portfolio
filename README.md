@@ -77,6 +77,7 @@ Frontend Core       :: React 19.2 (Functional Components & Hooks)
 Build Tool          :: Vite 7.x (Lightning-fast HMR)
 Styling Engine      :: Tailwind CSS 3.4 + PostCSS + Autoprefixer
 Iconography         :: Lucide React
+Testing Engine      :: Vitest + React Testing Library + JSDOM
 Form Infrastructure :: Formspree (Headless Contact API)
 Code Quality        :: ESLint 9 + Stylelint + Prettier
 ```
@@ -96,27 +97,34 @@ My-Portfolio/
 │   │   │   ├── BackgroundEffects.jsx# Dynamic canvas/grid ambient effects
 │   │   │   ├── ScanOverlay.jsx      # Biometric laser beam transition overlay
 │   │   │   ├── IdentityStatus.jsx   # HUD indicator for active reality
-│   │   │   └── FooterTerminal.jsx   # Low-level CLI terminal logs
+│   │   │   └── AgentConsole.jsx     # Dual-Reality Agent Console & Terminal Co-Pilot
 │   │   ├── sections/           # Portfolio content sections
-│   │   │   ├── Hero.jsx             # Dual-perspective headline & callouts
-│   │   │   ├── About.jsx            # 20-year journey & systems history
+│   │   │   ├── Hero.jsx             # Dual-perspective headline, typewriter & CTAs
+│   │   │   ├── About.jsx            # 20-year journey, 2x2 metrics grid & systems history
 │   │   │   └── Contact.jsx          # Formspree transmission portal
 │   │   └── ui/                 # Reusable UI primitives
 │   │       ├── BiometricScanner.jsx # Interactive fingerprint button
-│   │       └── ProjectCard.jsx      # Dual-mode project card with stack tags
+│   │       ├── ProjectCard.jsx      # Dual-mode project card with stack tags
+│   │       └── ProjectDetailModal.jsx # Deep-dive architecture & strategy drawer
 │   ├── content/                # Declarative portfolio content & data
 │   │   ├── Hero_content.jsx         # Executive & Architect hero copies
 │   │   ├── About_me.jsx             # Bio storylines and quantifiable metrics
-│   │   └── projects.jsx             # Structured project case studies
-│   ├── hooks/                  # Custom React hooks
+│   │   ├── projects.jsx             # 5 structured project case studies with pipeline specs
+│   │   └── agent_knowledge.js       # Agent roles, CLI routines, and knowledge base
+│   ├── hooks/                  # Custom React hooks (useTypewriter)
+│   ├── tests/                  # Vitest automated test suites
+│   │   ├── setup.js                 # Testing environment setup & DOM mocks
+│   │   ├── App.test.jsx             # App layout & modal integration tests
+│   │   └── AgentConsole.test.jsx    # Knowledge engine & CLI command tests
 │   ├── theme/                  # Theme constants and color tokens
 │   ├── App.jsx                 # Central application state & mode orchestrator
 │   ├── index.css               # Base Tailwind imports & CSS custom properties
 │   └── main.jsx                # React root mount
-├── index.html                  # HTML5 shell & SEO meta configuration
-├── package.json                # Dependencies, scripts, and package metadata
+├── index.html                  # HTML5 shell & SEO meta configuration (Schema.org JSON-LD)
+├── package.json                # Dependencies, scripts, and package metadata (v1.1.0)
 ├── tailwind.config.js          # Tailwind theme extensions & font definitions
-└── vite.config.js              # Vite bundler configuration
+├── vite.config.js              # Vite bundler configuration
+└── vitest.config.js            # Vitest unit & integration test configuration
 ```
 
 ---
