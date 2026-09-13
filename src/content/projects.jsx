@@ -4,6 +4,14 @@ export const PROJECTS = [
   {
     id: 1,
     category: "Fintech & Automation",
+    images: [
+      "/images/projects/hisaab-kitaab/hk-cover.png",
+      "/images/projects/hisaab-kitaab/hk-dashboard.png",
+      "/images/projects/hisaab-kitaab/hk-pos.png",
+      "/images/projects/hisaab-kitaab/hk-reports.png",
+      "/images/projects/hisaab-kitaab/hk-calendar.png",
+      "/images/projects/hisaab-kitaab/hk-quick-add.png"
+    ],
     executive: {
       title: "Hisaab-Kitaab Finance App",
       tagline: "Automated Daily Expense Management",
@@ -42,8 +50,18 @@ export const PROJECTS = [
   {
     id: 2,
     category: "Full-Stack SaaS & Security",
+    images: [
+      "/images/projects/repx/RepX1.png",
+      "/images/projects/repx/RepX2.png",
+      "/images/projects/repx/RepX3.png",
+      "/images/projects/repx/RepX4.png",
+      "/images/projects/repx/RepX5.png",
+      "/images/projects/repx/RepX6.png",
+      "/images/projects/repx/RepX7.png",
+      "/images/projects/repx/RepX8.png"
+    ],
     executive: {
-      title: "Gym Management Platform",
+      title: "RepX AI Gym Platform",
       tagline: "Membership, Scheduling & Access Controls",
       description: "Engineered a multi-tier management platform to streamline member registration, subscription tracking, and facility scheduling. Implemented secure authentication mechanisms and built back-end REST APIs to handle member profile state.",
       impact: "End-to-End Member Lifecycle",
@@ -57,7 +75,7 @@ export const PROJECTS = [
       businessChallenges: "Handling concurrent booking requests for high-demand workout slots required thread-safe state synchronization and conflict-free booking queues."
     },
     architect: {
-      title: "GYM_CORE_PLATFORM",
+      title: "REPX_AI_CORE_PLATFORM",
       tagline: "RESTful API / RBAC / State Engine",
       description: "Constructed a multi-tier backend architecture with secure token authentication, route guards, and relational data modeling for member profiles, subscription tiers, and timetable scheduling.",
       impact: "Secure RBAC Architecture",
@@ -156,6 +174,12 @@ export const PROJECTS = [
   {
     id: 5,
     category: "Real-Time Systems & WebSockets",
+    images: [
+      "/images/projects/cryptobot/CryptoBot1.png",
+      "/images/projects/cryptobot/CryptoBot2.png",
+      "/images/projects/cryptobot/CryptoBot3.png",
+      "/images/projects/cryptobot/CryptoBot4.png"
+    ],
     executive: {
       title: "CryptoBot / TradeX Terminal",
       tagline: "High-Frequency Market Data Engine",
@@ -227,6 +251,47 @@ export const PROJECTS = [
         "Router Firewall Rule Setup & Secure Remote Gateway Verification"
       ],
       complexity: "Physical: T568B standard | Network: Layer 2/3 IP Subnetting"
+    }
+  },
+  {
+    id: 7,
+    category: "Hardware & Diagnostics",
+    images: [
+      "/images/projects/diy/extractor.jpg"
+    ],
+    executive: {
+      title: "DIY Appliance Installation",
+      tagline: "Stove Extractor Hood Setup",
+      description: "Successfully executed a DIY installation of a kitchen stove extractor hood, managing physical mounting and structural modifications.",
+      impact: "Home Improvement",
+      techStack: ["Hardware Mounting", "Power Tools", "Structural Modification"],
+      keyMetrics: [
+        { label: "Project", value: "DIY Installation" },
+        { label: "Hardware", value: "Extractor Hood" },
+        { label: "Result", value: "Fully Operational" }
+      ],
+      strategicTakeaway: "Demonstrated hands-on hardware installation and structural modification skills in a practical environment.",
+      businessChallenges: "Physical appliance installation requires precision, proper structural support, and safe handling of power tools."
+    },
+    architect: {
+      title: "HARDWARE_INSTALL_DIY",
+      tagline: "Structural Mounting / Appliance Setup",
+      description: "Planned and executed the physical mounting and integration of a Stoves extractor hood, ensuring structural integrity and level alignment.",
+      impact: "Hardware Mounting",
+      techStack: ["Drill", "Wall Anchors", "Measurement Tools"],
+      keyMetrics: [
+        { label: "Alignment", value: "Level Check" },
+        { label: "Support", value: "Wall Mounting" },
+        { label: "Integration", value: "Appliance Setup" }
+      ],
+      architectureDetails: "Physical layer installation requiring precise measurement, drilling, and secure wall anchoring for heavy appliance support.",
+      pipelineSteps: [
+        "Site Measurement & Marking",
+        "Structural Drilling",
+        "Secure Wall Anchoring",
+        "Appliance Mounting & Alignment"
+      ],
+      complexity: "Physical Hardware Mounting"
     }
   }
 ];

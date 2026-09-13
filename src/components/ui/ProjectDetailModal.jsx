@@ -101,6 +101,21 @@ export default function ProjectDetailModal({ project, isGodMode, onClose }) {
           </h2>
         </div>
 
+        {/* Image Gallery */}
+        {project.images && project.images.length > 0 && (
+          <div className="mb-8 overflow-x-auto pb-4 snap-x snap-mandatory hide-scrollbar flex gap-4">
+            {project.images.map((img, idx) => (
+              <div key={idx} className="shrink-0 w-full sm:w-[80%] snap-center rounded-2xl overflow-hidden border border-current/10">
+                <img 
+                  src={img} 
+                  alt={`${project.executive.title} screenshot ${idx + 1}`} 
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        )}
+
         {/* Core Narrative */}
         <div className="space-y-7">
           <p className={`text-base sm:text-lg leading-relaxed ${
