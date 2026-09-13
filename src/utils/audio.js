@@ -48,7 +48,7 @@ export const playClick = (freq = 440, duration = 0.04) => {
 
     osc.start();
     osc.stop(ctx.currentTime + duration);
-  } catch (_error) {
+  } catch {
     // Ignore audio errors gracefully
   }
 };
@@ -78,7 +78,7 @@ export const playLaserScan = () => {
 
     osc.start(now);
     osc.stop(now + 1.2);
-  } catch (_error) {
+  } catch {
     // Ignore audio errors gracefully
   }
 };
@@ -109,7 +109,7 @@ export const playModeSwitch = (isGodMode) => {
 
     osc.start(now);
     osc.stop(now + 0.25);
-  } catch (_error) {
+  } catch {
     // Ignore audio errors gracefully
   }
 };
@@ -132,7 +132,7 @@ export const playSuccess = () => {
       osc.start(now + idx * 0.08);
       osc.stop(now + idx * 0.08 + 0.18);
     });
-  } catch (_error) {
+  } catch {
     // Ignore audio errors gracefully
   }
 };
