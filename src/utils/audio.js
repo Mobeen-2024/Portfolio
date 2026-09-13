@@ -136,3 +136,27 @@ export const playSuccess = () => {
     // Ignore audio errors gracefully
   }
 };
+
+export const playError = () => {
+  if (isAudioMuted) return;
+  try {
+    const ctx = getAudioContext();
+    if (!ctx) return;
+    const now = ctx.currentTime;
+    [220, 180].forEach((freq, idx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(freq, now + idx * 0.1);
+      gain.gain.setValueAtTime(0.04, now + idx * 0.1);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.1 + 0.15);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now + idx * 0.1);
+      osc.stop(now + idx * 0.1 + 0.15);
+    });
+  } catch {
+    // Ignore audio errors gracefully
+  }
+};
+
