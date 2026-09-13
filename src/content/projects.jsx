@@ -136,6 +136,11 @@ export const PROJECTS = [
   {
     id: 4,
     category: "Embedded Systems & IoT",
+    images: [
+      "/images/projects/iot/board1.jpg",
+      "/images/projects/iot/board2.png",
+      "/images/projects/iot/board3.jpg"
+    ],
     executive: {
       title: "IoT Home Automation Framework",
       tagline: "Smart Microcontroller Automation",
