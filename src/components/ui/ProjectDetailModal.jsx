@@ -3,11 +3,8 @@ import { X, CheckCircle2, Layers, Activity, TrendingUp, ShieldAlert, GitCommit, 
 import { playClick } from '../../utils/audio';
 
 export default function ProjectDetailModal({ project, isGodMode, onClose }) {
-  const [modalPerspective, setModalPerspective] = useState(isGodMode ? 'architect' : 'executive');
-
-  useEffect(() => {
-    setModalPerspective(isGodMode ? 'architect' : 'executive');
-  }, [isGodMode]);
+  const [perspectiveOverride, setPerspectiveOverride] = useState(null);
+  const modalPerspective = perspectiveOverride ?? (isGodMode ? 'architect' : 'executive');
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -32,7 +29,7 @@ export default function ProjectDetailModal({ project, isGodMode, onClose }) {
 
   const togglePerspective = () => {
     playClick(580, 0.04);
-    setModalPerspective(prev => prev === 'architect' ? 'executive' : 'architect');
+    setPerspectiveOverride(modalPerspective === 'architect' ? 'executive' : 'architect');
   };
 
   return (

@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Cpu, Activity, Shield, Wifi, Zap } from 'lucide-react';
+import { Cpu, Activity, Shield, Zap } from 'lucide-react';
 
 export default function TelemetryBar({ isGodMode }) {
   const [latency, setLatency] = useState(14);
   const [memUsage, setMemUsage] = useState(41.8);
-  const [uptime, setUptime] = useState(175200);
 
   useEffect(() => {
     if (!isGodMode) return;
     const interval = setInterval(() => {
       // Simulate subtle realistic telemetry jitter
-      setLatency(prev => +(12 + Math.random() * 4).toFixed(1));
-      setMemUsage(prev => +(41.5 + Math.random() * 0.8).toFixed(1));
+      setLatency(+(12 + Math.random() * 4).toFixed(1));
+      setMemUsage(+(41.5 + Math.random() * 0.8).toFixed(1));
     }, 2500);
     return () => clearInterval(interval);
   }, [isGodMode]);

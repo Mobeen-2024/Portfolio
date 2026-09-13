@@ -1,6 +1,6 @@
 import React from 'react';
-import { Fingerprint, ShieldAlert, Zap } from 'lucide-react';
-import { playLaserScan, playClick } from '../../utils/audio';
+import { Fingerprint } from 'lucide-react';
+import { playLaserScan } from '../../utils/audio';
 
 export default function BiometricScanner({ isScanning, isGodMode, onScan }) {
   const handleClick = (e) => {
