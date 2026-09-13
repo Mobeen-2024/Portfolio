@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { X, CheckCircle2, Layers, Activity, TrendingUp, ShieldAlert, GitCommit, ArrowRight, Zap, RefreshCw } from 'lucide-react';
 import { playClick } from '../../utils/audio';
 
-export default function ProjectDetailModal({ project, isGodMode, onClose }) {
+export default function ProjectDetailModal({ project, isGodMode, themeMode = 'dark', onClose }) {
   const [perspectiveOverride, setPerspectiveOverride] = useState(null);
   const modalPerspective = perspectiveOverride ?? (isGodMode ? 'architect' : 'executive');
 
@@ -54,7 +54,9 @@ export default function ProjectDetailModal({ project, isGodMode, onClose }) {
         className={`w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl p-6 sm:p-10 border transition-all duration-300 no-scrollbar ${
           isArchitectView 
             ? "bg-[#060a08]/95 border-green-500/40 text-green-300 font-mono shadow-[0_0_60px_rgba(34,197,94,0.2)]" 
-            : "bg-white/95 border-slate-200/90 text-slate-800 font-sans shadow-2xl shadow-slate-900/20"
+            : themeMode === "light"
+            ? "bg-white/98 border-slate-200 text-slate-800 font-sans shadow-[0_25px_60px_rgba(0,0,0,0.25)] backdrop-blur-2xl"
+            : "bg-[#0c1222]/95 border-slate-800 text-slate-200 font-sans shadow-[0_25px_60px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-2xl"
         }`}
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
@@ -64,7 +66,9 @@ export default function ProjectDetailModal({ project, isGodMode, onClose }) {
             <span className={`text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border ${
               isArchitectView 
                 ? "bg-green-500/10 text-green-400 border-green-500/30 font-mono" 
-                : "bg-blue-50 text-blue-700 border-blue-100 font-sans"
+                : themeMode === "light"
+                ? "bg-blue-50 text-blue-700 border-blue-200 font-sans"
+                : "bg-blue-950/40 text-cyan-300 border-blue-500/30 font-sans"
             }`}>
               {project.category}
             </span>
@@ -72,10 +76,12 @@ export default function ProjectDetailModal({ project, isGodMode, onClose }) {
             {/* Quick In-Modal Perspective Switcher */}
             <button
               onClick={togglePerspective}
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider transition-all border ${
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider transition-all border cursor-pointer ${
                 isArchitectView
                   ? "bg-black text-green-400 border-green-500/40 hover:bg-green-500/10"
-                  : "bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200"
+                  : themeMode === "light"
+                  ? "bg-slate-100 text-slate-700 border-slate-300 hover:bg-slate-200 hover:text-slate-900"
+                  : "bg-[#121b30] text-slate-200 border-slate-750 hover:bg-[#18233d] hover:border-slate-700 hover:text-white"
               }`}
             >
               <RefreshCw className="w-3 h-3 animate-spin-once" />
@@ -88,7 +94,9 @@ export default function ProjectDetailModal({ project, isGodMode, onClose }) {
             className={`p-2 rounded-xl border transition-colors cursor-pointer ${
               isArchitectView 
                 ? "border-green-500/30 text-green-400 hover:bg-green-500/10" 
-                : "border-slate-200 text-slate-500 hover:bg-slate-100 hover:text-slate-800"
+                : themeMode === "light"
+                ? "border-slate-200 text-slate-500 hover:bg-slate-100 hover:text-slate-900"
+                : "border-slate-800 text-slate-400 hover:bg-slate-800/60 hover:text-white"
             }`}
             aria-label="Close modal"
           >
@@ -98,13 +106,13 @@ export default function ProjectDetailModal({ project, isGodMode, onClose }) {
 
         {/* Title & Tagline */}
         <div className="mb-6 space-y-2">
-          <span className={`text-xs font-bold uppercase tracking-widest opacity-60 ${
-            isArchitectView ? "text-green-400" : "text-blue-600"
+          <span className={`text-xs font-bold uppercase tracking-widest opacity-80 ${
+            isArchitectView ? "text-green-400" : themeMode === "light" ? "text-blue-600 font-semibold" : "text-cyan-400"
           }`}>
             {data.tagline}
           </span>
           <h2 className={`text-2xl sm:text-4xl font-black tracking-tight ${
-            isArchitectView ? "text-green-400 text-glow-green" : "text-slate-900"
+            isArchitectView ? "text-green-400 text-glow-green" : themeMode === "light" ? "text-slate-900" : "text-white"
           }`}>
             {data.title}
           </h2>
@@ -135,7 +143,7 @@ export default function ProjectDetailModal({ project, isGodMode, onClose }) {
         {/* Core Narrative */}
         <div className="space-y-7">
           <p className={`text-base sm:text-lg leading-relaxed ${
-            isArchitectView ? "text-green-400/90 font-mono" : "text-slate-700"
+            isArchitectView ? "text-green-400/90 font-mono" : themeMode === "light" ? "text-slate-700" : "text-slate-300"
           }`}>
             {data.description}
           </p>
@@ -149,11 +157,15 @@ export default function ProjectDetailModal({ project, isGodMode, onClose }) {
                   className={`p-4 rounded-2xl border ${
                     isArchitectView 
                       ? "bg-black/60 border-green-500/25 shadow-[0_0_15px_rgba(34,197,94,0.06)]" 
-                      : "bg-slate-50 border-slate-200/80 shadow-sm"
+                      : themeMode === "light"
+                      ? "bg-slate-50 border-slate-200 shadow-sm"
+                      : "bg-[#101728] border-slate-800 shadow-sm"
                   }`}
                 >
                   <p className="text-[10px] font-bold uppercase tracking-wider opacity-60 mb-1">{m.label}</p>
-                  <p className={`text-xl font-black ${isArchitectView ? "text-green-300" : "text-blue-600"}`}>{m.value}</p>
+                  <p className={`text-xl font-black ${
+                    isArchitectView ? "text-green-300" : themeMode === "light" ? "text-blue-600" : "text-cyan-400"
+                  }`}>{m.value}</p>
                 </div>
               ))}
             </div>
@@ -201,24 +213,36 @@ export default function ProjectDetailModal({ project, isGodMode, onClose }) {
             </div>
           ) : (
             /* Executive Deep Dive */
-            <div className="space-y-6 pt-5 border-t border-slate-100">
+            <div className="space-y-6 pt-5 border-t border-current/15">
               <div>
-                <h4 className="text-xs uppercase tracking-widest font-bold text-blue-600 mb-2.5 flex items-center gap-2">
+                <h4 className={`text-xs uppercase tracking-widest font-bold mb-2.5 flex items-center gap-2 ${
+                  themeMode === "light" ? "text-blue-600" : "text-cyan-400"
+                }`}>
                   <TrendingUp className="w-4 h-4" />
                   Strategic Takeaway & ROI
                 </h4>
-                <p className="text-sm text-slate-700 leading-relaxed bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200/80">
+                <p className={`text-sm leading-relaxed p-4 sm:p-5 rounded-2xl border ${
+                  themeMode === "light" 
+                    ? "text-slate-700 bg-slate-50 border-slate-200" 
+                    : "text-slate-300 bg-[#101728] border-slate-800"
+                }`}>
                   {data.strategicTakeaway}
                 </p>
               </div>
 
               {data.businessChallenges && (
                 <div>
-                  <h4 className="text-xs uppercase tracking-widest font-bold text-slate-600 mb-2.5 flex items-center gap-2">
-                    <ShieldAlert className="w-4 h-4 text-amber-500" />
+                  <h4 className={`text-xs uppercase tracking-widest font-bold mb-2.5 flex items-center gap-2 ${
+                    themeMode === "light" ? "text-amber-600" : "text-amber-400"
+                  }`}>
+                    <ShieldAlert className="w-4 h-4" />
                     Friction Resolved & Business Challenge
                   </h4>
-                  <p className="text-sm text-slate-700 leading-relaxed bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200/80">
+                  <p className={`text-sm leading-relaxed p-4 sm:p-5 rounded-2xl border ${
+                    themeMode === "light" 
+                      ? "text-slate-700 bg-slate-50 border-slate-200" 
+                      : "text-slate-300 bg-[#101728] border-slate-800"
+                  }`}>
                     {data.businessChallenges}
                   </p>
                 </div>
@@ -239,7 +263,9 @@ export default function ProjectDetailModal({ project, isGodMode, onClose }) {
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold ${
                     isArchitectView 
                       ? "bg-black/60 text-green-300 border border-green-500/30 font-mono" 
-                      : "bg-blue-50 text-blue-800 border border-blue-100 font-sans"
+                      : themeMode === "light"
+                      ? "bg-slate-100 text-blue-700 border border-slate-200 font-sans"
+                      : "bg-[#131d33] text-cyan-300 border border-slate-750 font-sans"
                   }`}
                 >
                   {tech}

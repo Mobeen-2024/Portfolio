@@ -74,7 +74,7 @@ const ARCHITECT_SKILLS = [
   }
 ];
 
-export default function SkillsMatrix({ isGodMode }) {
+export default function SkillsMatrix({ isGodMode, themeMode = 'dark' }) {
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
 
   const categories = isGodMode ? ARCHITECT_SKILLS : EXECUTIVE_SKILLS;
@@ -89,17 +89,17 @@ export default function SkillsMatrix({ isGodMode }) {
     <section id="skills" className="w-full py-16 md:py-24 max-w-6xl mx-auto px-4 sm:px-6 scroll-mt-24">
       <div className="text-center mb-12 sm:mb-16 space-y-3">
         <h2 className={`text-xs sm:text-sm font-bold tracking-[0.5em] uppercase ${
-          isGodMode ? "text-green-500/70 font-mono" : "text-blue-600/70 font-sans"
+          isGodMode ? "text-green-500/70 font-mono" : themeMode === "light" ? "text-blue-600 font-sans" : "text-cyan-400 font-sans"
         }`}>
           {isGodMode ? "// SYSTEM_STACK: HARDWARE_&_ENGINEERING_COMPETENCIES" : "Technical Skills & Competencies"}
         </h2>
         <h3 className={`text-3xl sm:text-4xl font-black ${
-          isGodMode ? "text-green-400 font-mono text-glow-green" : "text-slate-900 font-display"
+          isGodMode ? "text-green-400 font-mono text-glow-green" : themeMode === "light" ? "text-slate-900 font-display" : "text-white font-display"
         }`}>
           {isGodMode ? "CAPABILITY_REGISTRY_v2" : "Core Technical Capabilities"}
         </h3>
         <p className={`text-sm max-w-xl mx-auto opacity-70 ${
-          isGodMode ? "font-mono text-green-400/70" : "font-normal text-slate-600"
+          isGodMode ? "font-mono text-green-400/70" : themeMode === "light" ? "font-normal text-slate-600" : "font-normal text-slate-300"
         }`}>
           {isGodMode 
             ? "Inspect verified low-level circuit diagnostics, networking infrastructure, and real-time software systems."
@@ -120,10 +120,12 @@ export default function SkillsMatrix({ isGodMode }) {
                 isActive
                   ? isGodMode
                     ? "bg-green-500 text-black border-green-400 shadow-[0_0_25px_rgba(34,197,94,0.4)] font-mono"
-                    : "bg-blue-600 text-white border-blue-600 shadow-xl shadow-blue-500/25 font-sans"
+                    : "bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white border-blue-400/80 shadow-[0_0_25px_rgba(37,99,235,0.4)] font-sans"
                   : isGodMode
                     ? "bg-[#060a08]/80 text-green-400/70 border-green-500/20 hover:border-green-500/50 hover:text-green-300 font-mono"
-                    : "bg-white/80 text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-50 font-sans"
+                    : themeMode === "light"
+                    ? "bg-white/90 text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950 font-sans shadow-sm"
+                    : "bg-[#0c1222]/80 text-slate-300 border-slate-800 hover:border-slate-700 hover:bg-[#121b30] hover:text-white font-sans"
               }`}
             >
               <Icon className="w-4 h-4" />
@@ -137,17 +139,19 @@ export default function SkillsMatrix({ isGodMode }) {
       <div className={`p-6 sm:p-10 rounded-3xl border transition-all duration-500 ${
         isGodMode 
           ? "bg-[#060907]/90 border-green-500/30 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.85)]" 
-          : "bg-white/90 border-slate-200/90 backdrop-blur-2xl shadow-xl shadow-slate-200/40"
+          : themeMode === "light"
+          ? "bg-white/95 border-slate-200/90 backdrop-blur-2xl shadow-xl shadow-slate-200/50"
+          : "bg-[#0c1222]/80 border-slate-800/80 backdrop-blur-2xl shadow-[0_15px_40px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.06)]"
       }`}>
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-current/15">
           <div>
             <span className={`text-[10px] font-bold uppercase tracking-widest ${
-              isGodMode ? "text-green-500/60 font-mono" : "text-blue-600 font-sans"
+              isGodMode ? "text-green-500/60 font-mono" : themeMode === "light" ? "text-blue-600 font-sans" : "text-cyan-400 font-sans"
             }`}>
               {isGodMode ? "MODULE SPECIFICATION" : "CORE DOMAIN FOCUS"}
             </span>
             <h4 className={`text-2xl font-black mt-1 ${
-              isGodMode ? "text-green-400 font-mono" : "text-slate-900 font-display"
+              isGodMode ? "text-green-400 font-mono" : themeMode === "light" ? "text-slate-900 font-display" : "text-white font-display"
             }`}>
               {activeCategory.category}
             </h4>
@@ -156,7 +160,9 @@ export default function SkillsMatrix({ isGodMode }) {
           <div className={`px-4 py-2 rounded-xl border self-start sm:self-auto ${
             isGodMode 
               ? "bg-green-500/10 border-green-500/30 text-green-300 font-mono text-xs" 
-              : "bg-blue-50 border-blue-100 text-blue-700 font-sans text-xs font-semibold"
+              : themeMode === "light"
+              ? "bg-blue-50 border-blue-200 text-blue-800 font-sans text-xs font-semibold shadow-sm"
+              : "bg-blue-950/40 border-blue-500/30 text-cyan-300 font-sans text-xs font-semibold"
           }`}>
             <span>★ PROVEN IMPACT: </span>
             <span className="font-bold">{activeCategory.highlight}</span>
@@ -171,17 +177,19 @@ export default function SkillsMatrix({ isGodMode }) {
               className={`p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-1 ${
                 isGodMode 
                   ? "bg-black/50 border-green-500/20 hover:border-green-500/50 hover:shadow-[0_0_20px_rgba(34,197,94,0.12)]" 
-                  : "bg-slate-50/80 border-slate-200/70 hover:bg-white hover:border-blue-200 hover:shadow-lg hover:shadow-blue-500/5"
+                  : themeMode === "light"
+                  ? "bg-slate-50/90 border-slate-200 hover:bg-white hover:border-blue-400 hover:shadow-lg hover:shadow-blue-50/60"
+                  : "bg-[#101728]/70 border-slate-800/70 hover:bg-[#141f38] hover:border-blue-500/40 hover:shadow-lg hover:shadow-blue-950/40"
               }`}
             >
               <div className="flex items-center justify-between gap-2 mb-2.5">
                 <span className={`font-bold text-sm ${
-                  isGodMode ? "text-green-300 font-mono" : "text-slate-900 font-sans"
+                  isGodMode ? "text-green-300 font-mono" : themeMode === "light" ? "text-slate-900 font-sans" : "text-white font-sans"
                 }`}>
                   {skill.name}
                 </span>
                 <span className={`text-xs font-bold ${
-                  isGodMode ? "text-green-400 font-mono" : "text-blue-600 font-sans"
+                  isGodMode ? "text-green-400 font-mono" : themeMode === "light" ? "text-blue-600 font-sans" : "text-cyan-400 font-sans"
                 }`}>
                   {skill.level}%
                 </span>
@@ -189,22 +197,24 @@ export default function SkillsMatrix({ isGodMode }) {
 
               {/* Progress Track */}
               <div className={`w-full h-2 rounded-full overflow-hidden mb-3 ${
-                isGodMode ? "bg-green-950/40" : "bg-slate-200"
+                isGodMode ? "bg-green-950/40" : themeMode === "light" ? "bg-slate-200" : "bg-slate-800"
               }`}>
                 <div 
                   className={`h-full rounded-full transition-all duration-1000 ${
                     isGodMode 
                       ? "bg-gradient-to-r from-green-600 to-green-400 shadow-[0_0_12px_rgba(34,197,94,0.8)]" 
-                      : "bg-gradient-to-r from-blue-600 to-indigo-600"
+                      : "bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.4)]"
                   }`}
                   style={{ width: `${skill.level}%` }}
                 />
               </div>
 
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 ${isGodMode ? "text-green-500/60" : "text-blue-600/70"}`} />
+                <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 ${
+                  isGodMode ? "text-green-500/60" : themeMode === "light" ? "text-blue-600" : "text-cyan-400/80"
+                }`} />
                 <span className={`text-[11px] font-medium ${
-                  isGodMode ? "text-green-400/70 font-mono" : "text-slate-500 font-sans"
+                  isGodMode ? "text-green-400/70 font-mono" : themeMode === "light" ? "text-slate-600 font-sans" : "text-slate-400 font-sans"
                 }`}>
                   {skill.tag}
                 </span>

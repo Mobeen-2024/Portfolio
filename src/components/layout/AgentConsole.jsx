@@ -19,7 +19,7 @@ import {
   executeCliCommand 
 } from '../../content/agent_knowledge';
 
-export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
+export default function AgentConsole({ isGodMode, themeMode = 'dark', isOpen, setIsOpen }) {
   // Terminal history for Architect mode
   const [terminalHistory, setTerminalHistory] = useState([
     { type: 'system', lines: [
@@ -201,24 +201,32 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className={`group flex items-center gap-3 px-4 py-3 rounded-2xl shadow-2xl transition-all duration-300 border ${
+          className={`group flex items-center gap-3 px-4 py-3 rounded-2xl shadow-2xl transition-all duration-300 border cursor-pointer ${
             isGodMode
               ? "bg-black/90 border-green-500/50 text-green-400 hover:border-green-400 shadow-[0_0_25px_rgba(34,197,94,0.3)] font-mono"
-              : "bg-white/95 border-slate-200 text-slate-800 hover:border-blue-400 shadow-xl shadow-blue-500/10 font-sans"
+              : themeMode === "light"
+              ? "bg-white/95 border-slate-200 text-slate-900 hover:border-blue-400 shadow-xl shadow-slate-200/50 backdrop-blur-2xl font-sans"
+              : "bg-[#0c1222]/95 border-slate-800 text-white hover:border-blue-500/60 shadow-[0_10px_35px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-2xl font-sans"
           }`}
           aria-label="Open Agent Console"
         >
           <div className={`w-8 h-8 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 ${
-            isGodMode ? "bg-green-500/20 text-green-400" : "bg-blue-50 text-blue-600"
+            isGodMode 
+              ? "bg-green-500/20 text-green-400" 
+              : themeMode === "light"
+              ? "bg-blue-50 text-blue-600 border border-blue-200"
+              : "bg-blue-950/60 text-cyan-400 border border-blue-500/30"
           }`}>
             {isGodMode ? <Terminal className="w-4 h-4" /> : <Sparkles className="w-4 h-4" />}
           </div>
           <div className="text-left hidden sm:block">
             <p className="text-xs font-bold leading-tight flex items-center gap-1.5">
               <span>{isGodMode ? "SYS_ORCHESTRATOR v2.4" : "IT Systems & Support AI"}</span>
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping inline-block" />
+              <span className={`w-2 h-2 rounded-full animate-ping inline-block ${themeMode === "light" ? "bg-blue-600" : "bg-cyan-400"}`} />
             </p>
-            <p className="text-[10px] opacity-60 uppercase tracking-wider font-semibold">
+            <p className={`text-[10px] uppercase tracking-wider font-semibold ${
+              themeMode === "light" && !isGodMode ? "text-slate-500" : "opacity-70"
+            }`}>
               {isGodMode ? "CLI KERNEL READY" : "SYSTEMS ADVISOR"}
             </p>
           </div>
@@ -232,16 +240,22 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
           className={`flex flex-col h-full rounded-3xl border shadow-2xl overflow-hidden backdrop-blur-2xl transition-all duration-500 ${
             isGodMode 
               ? "bg-black/95 border-green-500/40 text-green-400 font-mono shadow-[0_0_50px_rgba(34,197,94,0.2)]" 
-              : "bg-white/95 border-slate-200 text-slate-800 font-sans shadow-2xl shadow-blue-900/15"
+              : themeMode === "light"
+              ? "bg-white/98 border-slate-200 text-slate-800 font-sans shadow-2xl"
+              : "bg-[#0c1222]/95 border-slate-800 text-slate-100 font-sans shadow-[0_25px_60px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.08)]"
           }`}
         >
           {/* Header Bar */}
           <div className={`px-5 py-4 border-b flex items-center justify-between transition-colors ${
-            isGodMode ? "border-green-500/20 bg-green-950/20" : "border-slate-100 bg-slate-50/80"
+            isGodMode 
+              ? "border-green-500/20 bg-green-950/20" 
+              : themeMode === "light"
+              ? "border-slate-200 bg-slate-50/90"
+              : "border-slate-800/80 bg-[#080c16]/90"
           }`}>
             <div className="flex items-center gap-3">
               <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${
-                isGodMode ? "bg-green-500 text-black font-black" : "bg-blue-600 text-white font-bold"
+                isGodMode ? "bg-green-500 text-black font-black" : "bg-gradient-to-tr from-blue-600 to-cyan-500 text-white font-bold"
               }`}>
                 {isGodMode ? <Terminal className="w-4 h-4" /> : <Sparkles className="w-4 h-4" />}
               </div>
@@ -249,7 +263,11 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
                 <h3 className="text-xs font-bold tracking-wider uppercase flex items-center gap-2">
                   <span>{isGodMode ? AGENT_ROLES.architect.name : AGENT_ROLES.executive.name}</span>
                   <span className={`text-[9px] px-1.5 py-0.5 rounded font-mono ${
-                    isGodMode ? "bg-green-500/20 text-green-300" : "bg-blue-100 text-blue-700"
+                    isGodMode 
+                      ? "bg-green-500/20 text-green-300" 
+                      : themeMode === "light"
+                      ? "bg-blue-50 text-blue-700 border border-blue-200"
+                      : "bg-blue-950/60 text-cyan-300 border border-blue-500/30"
                   }`}>
                     {isGodMode ? AGENT_ROLES.architect.badge : AGENT_ROLES.executive.badge}
                   </span>
@@ -263,10 +281,12 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
             <div className="flex items-center gap-1">
               <button
                 onClick={() => setIsOpen(false)}
-                className={`p-1.5 rounded-lg border transition-colors ${
+                className={`p-1.5 rounded-lg border transition-colors cursor-pointer ${
                   isGodMode 
                     ? "border-green-500/30 text-green-400 hover:bg-green-500/10" 
-                    : "border-slate-200 text-slate-500 hover:bg-slate-200/60"
+                    : themeMode === "light"
+                    ? "border-slate-200 text-slate-500 hover:bg-slate-100 hover:text-slate-900"
+                    : "border-slate-800 text-slate-400 hover:bg-slate-800 hover:text-white"
                 }`}
                 aria-label="Minimize Agent Console"
               >
@@ -321,14 +341,24 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
                     {msg.role === 'assistant' ? (
                       <div className="max-w-[88%] space-y-2">
                         {msg.thoughtTrace && (
-                          <div className="text-[10px] text-blue-600/70 font-mono flex items-center gap-1.5 bg-blue-50/80 px-2.5 py-1 rounded-md border border-blue-100">
+                          <div className={`text-[10px] font-mono flex items-center gap-1.5 px-2.5 py-1 rounded-md border ${
+                            themeMode === "light"
+                              ? "text-blue-700 bg-blue-50 border-blue-200"
+                              : "text-cyan-400 bg-blue-950/40 border-blue-500/30"
+                          }`}>
                             <Cpu className="w-3 h-3" />
                             <span>{msg.thoughtTrace}</span>
                           </div>
                         )}
-                        <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 text-slate-800 leading-relaxed shadow-sm">
+                        <div className={`p-4 rounded-2xl leading-relaxed shadow-sm border ${
+                          themeMode === "light"
+                            ? "bg-slate-50 border-slate-200 text-slate-800"
+                            : "bg-[#101728] border-slate-800 text-slate-200"
+                        }`}>
                           {msg.title && (
-                            <h4 className="font-bold text-xs uppercase tracking-wider text-blue-600 mb-1.5">
+                            <h4 className={`font-bold text-xs uppercase tracking-wider mb-1.5 ${
+                              themeMode === "light" ? "text-blue-600" : "text-cyan-400"
+                            }`}>
                               {msg.title}
                             </h4>
                           )}
@@ -336,7 +366,7 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
                         </div>
                       </div>
                     ) : (
-                      <div className="max-w-[80%] p-3 px-4 rounded-2xl bg-blue-600 text-white font-medium text-xs sm:text-sm shadow-md">
+                      <div className="max-w-[80%] p-3 px-4 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white font-medium text-xs sm:text-sm shadow-md">
                         {msg.content}
                       </div>
                     )}
@@ -344,10 +374,12 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
                 ))}
 
                 {isProcessing && (
-                  <div className="flex items-center gap-2 text-xs text-blue-600 font-medium py-1">
-                    <div className="w-2 h-2 rounded-full bg-blue-600 animate-bounce" />
-                    <div className="w-2 h-2 rounded-full bg-blue-600 animate-bounce [animation-delay:0.2s]" />
-                    <div className="w-2 h-2 rounded-full bg-blue-600 animate-bounce [animation-delay:0.4s]" />
+                  <div className={`flex items-center gap-2 text-xs font-medium py-1 ${
+                    themeMode === "light" ? "text-blue-600" : "text-cyan-400"
+                  }`}>
+                    <div className="w-2 h-2 rounded-full bg-current animate-bounce" />
+                    <div className="w-2 h-2 rounded-full bg-current animate-bounce [animation-delay:0.2s]" />
+                    <div className="w-2 h-2 rounded-full bg-current animate-bounce [animation-delay:0.4s]" />
                     <span className="text-[11px] font-mono opacity-80">Synthesizing executive response...</span>
                   </div>
                 )}
@@ -358,7 +390,11 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
 
           {/* Quick Suggestions Chips */}
           <div className={`px-4 py-2.5 border-t overflow-x-auto flex gap-2 no-scrollbar ${
-            isGodMode ? "border-green-500/20 bg-black/60" : "border-slate-100 bg-slate-50/50"
+            isGodMode 
+              ? "border-green-500/20 bg-black/60" 
+              : themeMode === "light"
+              ? "border-slate-200 bg-slate-50/90"
+              : "border-slate-800 bg-[#080c16]/90"
           }`}>
             {isGodMode ? (
               AGENT_ROLES.architect.suggestedCommands.map((cmd) => (
@@ -375,7 +411,11 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
                 <button
                   key={item.id}
                   onClick={() => handleExecutivePromptClick(item)}
-                  className="px-3 py-1 rounded-full text-[11px] font-medium whitespace-nowrap bg-white hover:bg-blue-50 border border-slate-200 text-slate-700 transition-colors shadow-xs"
+                  className={`px-3 py-1 rounded-full text-[11px] font-medium whitespace-nowrap transition-colors cursor-pointer border ${
+                    themeMode === "light"
+                      ? "bg-white hover:bg-slate-100 border-slate-250 text-slate-700 hover:text-slate-950 shadow-sm"
+                      : "bg-[#101728] hover:bg-[#151f38] border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white"
+                  }`}
                 >
                   {item.label}
                 </button>
@@ -385,7 +425,11 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
 
           {/* Input Controls */}
           <div className={`p-3 sm:p-4 border-t ${
-            isGodMode ? "border-green-500/20 bg-black/80" : "border-slate-100 bg-white"
+            isGodMode 
+              ? "border-green-500/20 bg-black/80" 
+              : themeMode === "light"
+              ? "border-slate-200 bg-white"
+              : "border-slate-800 bg-[#080c16]"
           }`}>
             {isGodMode ? (
               <form onSubmit={handleCliSubmit} className="flex items-center gap-2">
@@ -416,11 +460,15 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
                   value={execInput}
                   onChange={(e) => setExecInput(e.target.value)}
                   placeholder="Ask about CompTIA A+, hardware repair, CCTV setup, projects, or contact info..."
-                  className="flex-1 bg-slate-100 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-800 outline-none border border-transparent focus:border-blue-400 transition-all placeholder:text-slate-400"
+                  className={`flex-1 rounded-xl px-4 py-2.5 text-xs sm:text-sm outline-none border transition-all ${
+                    themeMode === "light"
+                      ? "bg-slate-50 border-slate-300 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:bg-white"
+                      : "bg-[#101728] border-slate-800 text-white placeholder:text-slate-500 focus:border-blue-500"
+                  }`}
                 />
                 <button
                   type="submit"
-                  className="p-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white shadow-md transition-colors"
+                  className="p-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-md transition-colors cursor-pointer"
                   aria-label="Send message"
                 >
                   <Send className="w-4 h-4" />

@@ -105,7 +105,7 @@ const TIMELINE_DATA = [
   }
 ];
 
-export default function CareerTimeline({ isGodMode }) {
+export default function CareerTimeline({ isGodMode, themeMode = 'dark' }) {
   const [activeItem, setActiveItem] = useState(0);
 
   const handleNodeClick = (index) => {
@@ -117,17 +117,17 @@ export default function CareerTimeline({ isGodMode }) {
     <section id="timeline" className="w-full py-16 md:py-24 max-w-6xl mx-auto px-4 sm:px-6 scroll-mt-24">
       <div className="text-center mb-12 sm:mb-16 space-y-3">
         <h2 className={`text-xs sm:text-sm font-bold tracking-[0.5em] uppercase ${
-          isGodMode ? "text-green-500/70 font-mono" : "text-blue-600/70 font-sans"
+          isGodMode ? "text-green-500/70 font-mono" : themeMode === "light" ? "text-blue-600 font-sans" : "text-cyan-400 font-sans"
         }`}>
           {isGodMode ? "// TELEMETRY_LOG: EXPERIENCE_&_EDUCATION_CHRONOLOGY" : "Career Milestones & Education"}
         </h2>
         <h3 className={`text-3xl sm:text-4xl font-black ${
-          isGodMode ? "text-green-400 font-mono text-glow-green" : "text-slate-900 font-sans"
+          isGodMode ? "text-green-400 font-mono text-glow-green" : themeMode === "light" ? "text-slate-900 font-display" : "text-white font-display"
         }`}>
           {isGodMode ? "SYSTEM_EVOLUTION_TIMELINE" : "Practical Experience & Qualifications"}
         </h3>
         <p className={`text-sm max-w-xl mx-auto opacity-70 ${
-          isGodMode ? "font-mono text-green-400/70" : "font-normal text-slate-600"
+          isGodMode ? "font-mono text-green-400/70" : themeMode === "light" ? "font-normal text-slate-600" : "font-normal text-slate-300"
         }`}>
           {isGodMode 
             ? "Inspect verified hardware diagnostics milestones, network cabling deployments, and systems development." 
@@ -152,10 +152,14 @@ export default function CareerTimeline({ isGodMode }) {
                 isActive
                   ? isGodMode 
                     ? "bg-green-500 border-black shadow-[0_0_15px_rgba(34,197,94,0.8)] scale-110" 
-                    : "bg-blue-600 border-white shadow-lg shadow-blue-500/40 scale-110"
+                    : themeMode === "light"
+                    ? "bg-blue-600 border-white shadow-[0_0_15px_rgba(37,99,235,0.4)] scale-110"
+                    : "bg-cyan-400 border-[#070a12] shadow-[0_0_20px_rgba(6,182,212,0.6)] scale-110"
                   : isGodMode
                     ? "bg-black border-green-500/40 group-hover:border-green-400"
-                    : "bg-white border-slate-300 group-hover:border-blue-400"
+                    : themeMode === "light"
+                    ? "bg-white border-slate-300 group-hover:border-blue-500"
+                    : "bg-[#0c1222] border-slate-700 group-hover:border-blue-400"
               }`}>
                 <span className={`w-1.5 h-1.5 rounded-full ${isActive ? (isGodMode ? "bg-black" : "bg-white") : "opacity-0"}`} />
               </div>
@@ -165,35 +169,41 @@ export default function CareerTimeline({ isGodMode }) {
                 isActive
                   ? isGodMode
                     ? "bg-[#070b09]/92 border-green-400/70 backdrop-blur-2xl shadow-[0_0_35px_rgba(34,197,94,0.18)] translate-x-1"
-                    : "bg-white/95 border-blue-300 backdrop-blur-2xl shadow-xl shadow-blue-100 translate-x-1"
+                    : themeMode === "light"
+                    ? "bg-white border-blue-400/80 backdrop-blur-2xl shadow-[0_15px_40px_rgba(37,99,235,0.12)] translate-x-1"
+                    : "bg-[#0c1324]/90 border-blue-500/60 backdrop-blur-2xl shadow-[0_15px_40px_rgba(37,99,235,0.2),inset_0_1px_0_rgba(255,255,255,0.08)] translate-x-1"
                   : isGodMode
                     ? "bg-black/50 border-green-500/20 hover:border-green-500/40 hover:bg-black/70 backdrop-blur-xl"
-                    : "bg-white/70 border-slate-200/80 hover:border-slate-300 hover:bg-white backdrop-blur-xl"
+                    : themeMode === "light"
+                    ? "bg-white/80 border-slate-200 hover:border-slate-300 hover:bg-white backdrop-blur-xl shadow-md"
+                    : "bg-[#0c1222]/70 border-slate-800/80 hover:border-slate-700 hover:bg-[#11192e] backdrop-blur-xl shadow-lg"
               }`}>
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
                   <span className={`text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full border inline-block w-fit ${
                     isGodMode 
                       ? "bg-green-500/15 border-green-500/40 text-green-300 font-mono" 
-                      : "bg-blue-50 border-blue-100 text-blue-700 font-semibold"
+                      : themeMode === "light"
+                      ? "bg-blue-50 border-blue-200 text-blue-800 font-semibold"
+                      : "bg-blue-950/40 border-blue-500/30 text-cyan-300 font-semibold"
                   }`}>
                     {item.period}
                   </span>
 
                   <span className={`text-xs font-medium opacity-60 ${
-                    isGodMode ? "font-mono text-green-400/60" : "font-sans text-slate-500"
+                    isGodMode ? "font-mono text-green-400/60" : themeMode === "light" ? "font-sans text-slate-500" : "font-sans text-slate-400"
                   }`}>
                     {content.company}
                   </span>
                 </div>
 
                 <h4 className={`text-xl sm:text-2xl font-black mb-3 ${
-                  isGodMode ? "text-green-400 font-mono" : "text-slate-900 font-sans"
+                  isGodMode ? "text-green-400 font-mono" : themeMode === "light" ? "text-slate-900 font-sans" : "text-white font-sans"
                 }`}>
                   {content.role}
                 </h4>
 
                 <p className={`text-sm sm:text-base leading-relaxed mb-5 ${
-                  isGodMode ? "text-green-400/80 font-mono" : "text-slate-600 font-normal"
+                  isGodMode ? "text-green-400/80 font-mono" : themeMode === "light" ? "text-slate-700 font-normal" : "text-slate-300 font-normal"
                 }`}>
                   {content.description}
                 </p>
@@ -203,10 +213,10 @@ export default function CareerTimeline({ isGodMode }) {
                   {content.achievements.map((ach, aIdx) => (
                     <div key={aIdx} className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 mt-0.5 shrink-0 ${
-                        isGodMode ? "text-green-400" : "text-blue-600"
+                        isGodMode ? "text-green-400" : themeMode === "light" ? "text-blue-600" : "text-cyan-400"
                       }`} />
                       <span className={`text-xs sm:text-sm ${
-                        isGodMode ? "text-green-300/90 font-mono" : "text-slate-700 font-medium"
+                        isGodMode ? "text-green-300/90 font-mono" : themeMode === "light" ? "text-slate-700 font-medium" : "text-slate-200 font-medium"
                       }`}>
                         {ach}
                       </span>
@@ -222,7 +232,9 @@ export default function CareerTimeline({ isGodMode }) {
                       className={`text-[10px] sm:text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-lg border ${
                         isGodMode 
                           ? "bg-black/60 border-green-500/30 text-green-300 font-mono" 
-                          : "bg-slate-100 border-slate-200 text-slate-700 font-sans"
+                          : themeMode === "light"
+                          ? "bg-slate-100 border-slate-200 text-slate-700 font-sans"
+                          : "bg-[#101728] border-slate-800 text-slate-300 font-sans"
                       }`}
                     >
                       {tag}

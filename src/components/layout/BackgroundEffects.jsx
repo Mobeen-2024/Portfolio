@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 
-export default function BackgroundEffects({ isGodMode }) {
+export default function BackgroundEffects({ isGodMode, themeMode = 'dark' }) {
   const canvasRef = useRef(null);
+  const isDark = isGodMode || themeMode === 'dark';
 
   // Matrix Rain Canvas for Architect Mode
   useEffect(() => {
@@ -75,22 +76,38 @@ export default function BackgroundEffects({ isGodMode }) {
           !isGodMode ? "opacity-100" : "opacity-0"
         }`}
       >
-        {/* Soft Background Tint */}
-        <div className="absolute inset-0 bg-slate-50/80" />
+        {/* Canvas Background: Midnight Obsidian or Crisp Porcelain */}
+        <div className={`absolute inset-0 transition-colors duration-700 ${
+          isDark ? "bg-[#070a12]" : "bg-[#f8fafc]"
+        }`} />
 
         {/* Ambient Precision Dot Matrix */}
         <div 
-          className="absolute inset-0 opacity-[0.45]"
+          className={`absolute inset-0 transition-opacity duration-700 ${isDark ? "opacity-30" : "opacity-40"}`}
           style={{
-            backgroundImage: 'radial-gradient(#94a3b8 1px, transparent 1px)',
+            backgroundImage: isDark 
+              ? 'radial-gradient(#334155 1.2px, transparent 1.2px)' 
+              : 'radial-gradient(#94a3b8 1.2px, transparent 1.2px)',
             backgroundSize: '28px 28px',
           }}
         />
 
         {/* Luminous Gradient Orbs */}
-        <div className="absolute top-[-10%] left-[15%] w-[550px] h-[550px] rounded-full bg-gradient-to-tr from-blue-400/20 to-indigo-500/10 blur-[130px] animate-pulse-slow" />
-        <div className="absolute top-[35%] right-[10%] w-[600px] h-[600px] rounded-full bg-gradient-to-bl from-sky-400/15 via-blue-500/10 to-transparent blur-[140px] animate-float" />
-        <div className="absolute bottom-[10%] left-[20%] w-[500px] h-[500px] rounded-full bg-gradient-to-r from-indigo-300/15 to-blue-200/10 blur-[120px]" />
+        <div className={`absolute top-[-10%] left-[15%] w-[600px] h-[600px] rounded-full blur-[140px] animate-pulse-slow transition-all duration-700 ${
+          isDark 
+            ? "bg-gradient-to-tr from-blue-600/20 via-indigo-600/15 to-transparent" 
+            : "bg-gradient-to-tr from-blue-500/12 via-indigo-400/10 to-transparent"
+        }`} />
+        <div className={`absolute top-[35%] right-[10%] w-[650px] h-[650px] rounded-full blur-[150px] animate-float transition-all duration-700 ${
+          isDark 
+            ? "bg-gradient-to-bl from-cyan-500/15 via-blue-600/15 to-transparent" 
+            : "bg-gradient-to-bl from-cyan-400/12 via-blue-400/10 to-transparent"
+        }`} />
+        <div className={`absolute bottom-[5%] left-[20%] w-[550px] h-[550px] rounded-full blur-[130px] transition-all duration-700 ${
+          isDark 
+            ? "bg-gradient-to-r from-indigo-700/15 to-blue-500/10" 
+            : "bg-gradient-to-r from-indigo-400/10 to-blue-300/10"
+        }`} />
       </div>
 
       {/* 2. ARCHITECT MODE: CYBER HUD MATRIX RAIN & BLUEPRINT GRID */}

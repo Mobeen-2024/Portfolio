@@ -32,6 +32,30 @@ function App() {
   const [isAgentConsoleOpen, setIsAgentConsoleOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   
+  // Theme Mode: 'dark' | 'light' (persisted in localStorage)
+  const [themeMode, setThemeMode] = useState(() => {
+    try {
+      const saved = localStorage.getItem("portfolio_theme_mode");
+      if (saved === "light" || saved === "dark") return saved;
+    } catch {
+      // Fallback
+    }
+    return "dark";
+  });
+
+  const toggleThemeMode = useCallback(() => {
+    playClick(600, 0.03);
+    setThemeMode(prev => {
+      const next = prev === "dark" ? "light" : "dark";
+      try {
+        localStorage.setItem("portfolio_theme_mode", next);
+      } catch {
+        // storage disabled
+      }
+      return next;
+    });
+  }, []);
+
   // Project Search and Category Filter
   const [projectFilter, setProjectFilter] = useState("ALL");
   const [searchQuery, setSearchQuery] = useState("");
@@ -46,16 +70,26 @@ function App() {
   const theme = {
     container: isGodMode
       ? "bg-transparent text-green-400 font-mono selection:bg-green-500 selection:text-black"
-      : "bg-slate-50/50 text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900",
-    heading: isGodMode ? "text-green-500/70 font-mono" : "text-blue-600/70 font-sans",
-    separator: isGodMode ? "bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]" : "bg-gradient-to-r from-blue-600 to-indigo-600",
+      : themeMode === "light"
+      ? "bg-transparent text-slate-900 font-sans selection:bg-blue-600 selection:text-white"
+      : "bg-transparent text-slate-100 font-sans selection:bg-blue-600 selection:text-white",
+    heading: isGodMode
+      ? "text-green-500/80 font-mono"
+      : themeMode === "light"
+      ? "text-blue-600 font-sans tracking-[0.5em]"
+      : "text-blue-400 font-sans tracking-[0.5em]",
+    separator: isGodMode
+      ? "bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]"
+      : "bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400 shadow-[0_0_20px_rgba(59,130,246,0.5)]",
     projectTitle: isGodMode ? "// SYSTEM_OUTPUT: CASE_STUDIES" : "Featured Strategic Success",
     aboutLabel: isGodMode ? "// ROOT_LOG: SYSTEM_PROVENANCE" : "The Strategic Background",
   };
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", isGodMode);
-  }, [isGodMode]);
+    const isDark = isGodMode || themeMode === "dark";
+    document.documentElement.classList.toggle("dark", isDark);
+    document.documentElement.classList.toggle("light", !isDark);
+  }, [isGodMode, themeMode]);
 
   const handleAuthentication = useCallback(() => {
     if (isScanning) return;
@@ -122,7 +156,7 @@ function App() {
     <div className={`min-h-screen relative overflow-x-hidden transition-all duration-700 ${theme.container}`}>
       
       {/* Visual Infrastructure */}
-      <BackgroundEffects isGodMode={isGodMode} isScanning={isScanning} />
+      <BackgroundEffects isGodMode={isGodMode} isScanning={isScanning} themeMode={themeMode} />
       <ScanOverlay isScanning={isScanning} />
       <IdentityStatus isScanning={isScanning} isGodMode={isGodMode} />
 
@@ -136,6 +170,8 @@ function App() {
         isScanning={isScanning} 
         onScan={handleAuthentication}
         activeLabel={activeContent.hero.label}
+        themeMode={themeMode}
+        onToggleTheme={toggleThemeMode}
       />
 
       {/* Main Content Layer */}
@@ -150,6 +186,7 @@ function App() {
           ctaPrimary={activeContent.hero.ctaPrimary}
           ctaSecondary={activeContent.hero.ctaSecondary}
           isGodMode={isGodMode} 
+          themeMode={themeMode}
           onOpenAgentConsole={() => setIsAgentConsoleOpen(true)}
         />
 
@@ -159,17 +196,18 @@ function App() {
           bio={activeContent.about.bio}
           metrics={activeContent.about.metrics}
           isGodMode={isGodMode}
+          themeMode={themeMode}
           label={theme.aboutLabel}
         />
 
         {/* 3. Interactive Skills & Architecture Matrix (NEW) */}
-        <SkillsMatrix isGodMode={isGodMode} />
+        <SkillsMatrix isGodMode={isGodMode} themeMode={themeMode} />
 
         {/* 4. Projects Section with Search & Category Filters */}
         <section id="projects" className="w-full py-12 md:py-16 scroll-mt-24">
           <header className="flex flex-col items-center mb-12 space-y-4 text-center">
             <div className="inline-flex items-center gap-2">
-              <span className={`w-2 h-2 rounded-full ${isGodMode ? "bg-green-400 animate-ping" : "bg-blue-600"}`} />
+              <span className={`w-2 h-2 rounded-full ${isGodMode ? "bg-green-400 animate-ping" : themeMode === "light" ? "bg-blue-600" : "bg-cyan-400"}`} />
               <h2 className={`text-xs sm:text-sm font-bold tracking-[0.5em] uppercase transition-colors duration-500 ${theme.heading}`}>
                 {theme.projectTitle}
               </h2>
@@ -177,28 +215,36 @@ function App() {
             
             <div className={`h-[2px] w-28 transition-all duration-500 ${theme.separator}`} />
             
-            <p className="text-sm opacity-70 max-w-xl pt-1">
+            <p className={`text-sm max-w-xl pt-1 ${
+              isGodMode 
+                ? "font-mono text-green-400/80" 
+                : themeMode === "light" 
+                ? "text-slate-600 font-normal" 
+                : "text-slate-300/80 font-normal"
+            }`}>
               {isGodMode 
                 ? "// CLICK ANY CASE STUDY TO INSPECT LOW-LEVEL PIPELINE EXECUTION & COMPLEXITY" 
                 : "Select any case study to explore full business impact, ARR growth, and strategic takeaways."}
             </p>
 
             {/* Filter and Search Controls */}
-            <div className="w-full max-w-4xl pt-6 space-y-4">
+            <div className="w-full max-w-4xl pt-6 space-y-5">
               {/* Category Filter Pills */}
-              <div className="flex flex-wrap items-center justify-center gap-2">
+              <div className="flex flex-wrap items-center justify-center gap-2.5">
                 {projectCategories.map((cat, idx) => (
                   <button
                     key={idx}
                     onClick={() => handleFilterChange(cat)}
-                    className={`px-3.5 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border cursor-pointer ${
+                    className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border cursor-pointer active:scale-95 ${
                       projectFilter === cat
                         ? isGodMode
-                          ? "bg-green-500 text-black border-green-400 shadow-[0_0_15px_rgba(34,197,94,0.4)] font-mono"
-                          : "bg-blue-600 text-white border-blue-600 shadow-md font-sans"
+                          ? "bg-green-500 text-black border-green-400 shadow-[0_0_20px_rgba(34,197,94,0.5)] font-mono"
+                          : "bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-500 text-white border-blue-400/80 shadow-[0_0_25px_rgba(37,99,235,0.4)] font-sans"
                         : isGodMode
                           ? "bg-[#060a08]/80 text-green-400/70 border-green-500/20 hover:border-green-400 font-mono"
-                          : "bg-white/80 text-slate-600 border-slate-200 hover:border-slate-300 font-sans"
+                          : themeMode === "light"
+                          ? "bg-white/90 text-slate-700 border-slate-250 hover:border-slate-350 hover:bg-slate-50 hover:text-slate-950 font-sans shadow-sm"
+                          : "bg-[#0d1424]/80 text-slate-400 border-slate-800 hover:border-slate-700 hover:text-white font-sans backdrop-blur-md"
                     }`}
                   >
                     {cat === "ALL" ? `All (${PROJECTS.length})` : cat}
@@ -207,19 +253,25 @@ function App() {
               </div>
 
               {/* Stack Search Input Bar */}
-              <div className="max-w-md mx-auto relative">
-                <Search className={`w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 opacity-50 ${
-                  isGodMode ? "text-green-400" : "text-slate-500"
+              <div className="max-w-md mx-auto relative group">
+                <Search className={`w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 transition-colors ${
+                  isGodMode 
+                    ? "text-green-400/60 group-focus-within:text-green-400" 
+                    : themeMode === "light" 
+                    ? "text-slate-400 group-focus-within:text-blue-600" 
+                    : "text-slate-400 group-focus-within:text-cyan-400"
                 }`} />
                 <input
                   type="text"
                   value={searchQuery}
-                  placeholder={isGodMode ? 'Filter stack (e.g. Kafka, Python, C++, Snowflake)...' : 'Filter by tool or skill (e.g. Attribution, Python)...'}
+                  placeholder={isGodMode ? 'Filter stack (e.g. CCXT, Polars, C++, SQLite)...' : 'Filter by tool or skill (e.g. React 19, WebSockets, Python)...'}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className={`w-full pl-10 pr-4 py-2.5 rounded-xl text-xs outline-none border transition-all ${
+                  className={`w-full pl-11 pr-4 py-3 rounded-2xl text-xs outline-none border transition-all ${
                     isGodMode
-                      ? "bg-black/70 border-green-500/30 text-green-300 placeholder-green-700 focus:border-green-400 font-mono"
-                      : "bg-white/90 border-slate-200 text-slate-800 placeholder-slate-400 focus:border-blue-500 font-sans shadow-sm"
+                      ? "bg-black/80 border-green-500/30 text-green-300 placeholder-green-700 focus:border-green-400 focus:shadow-[0_0_20px_rgba(34,197,94,0.25)] font-mono"
+                      : themeMode === "light"
+                      ? "bg-white border-slate-300 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:shadow-[0_0_20px_rgba(37,99,235,0.15)] font-sans shadow-md"
+                      : "bg-[#0d1424]/90 border-slate-800 text-white placeholder-slate-500 focus:border-blue-500/80 focus:shadow-[0_0_25px_rgba(37,99,235,0.25)] font-sans shadow-xl"
                   }`}
                 />
               </div>
@@ -234,19 +286,24 @@ function App() {
                   key={project.id} 
                   project={project} 
                   isGodMode={isGodMode} 
+                  themeMode={themeMode}
                   onSelect={(p) => setSelectedProject(p)}
                 />
               ))}
             </div>
           ) : (
             <div className={`p-12 text-center rounded-3xl border ${
-              isGodMode ? "bg-black/50 border-green-500/20 text-green-500/70 font-mono" : "bg-white border-slate-200 text-slate-500"
+              isGodMode 
+                ? "bg-black/50 border-green-500/20 text-green-500/70 font-mono" 
+                : themeMode === "light"
+                ? "bg-white border-slate-200 text-slate-600 shadow-sm"
+                : "bg-[#0d1424]/80 border-slate-800 text-slate-400"
             }`}>
               <p className="text-sm font-semibold">No case studies matching your filter criteria.</p>
               <button 
                 onClick={() => { setProjectFilter("ALL"); setSearchQuery(""); }}
                 className={`mt-4 px-4 py-2 rounded-xl text-xs font-bold uppercase ${
-                  isGodMode ? "text-green-400 underline" : "text-blue-600 underline"
+                  isGodMode ? "text-green-400 underline" : themeMode === "light" ? "text-blue-600 underline" : "text-blue-400 underline"
                 }`}
               >
                 Reset Filters
@@ -256,16 +313,20 @@ function App() {
         </section>
 
         {/* 5. Career & Systems Evolution Timeline (NEW) */}
-        <CareerTimeline isGodMode={isGodMode} />
+        <CareerTimeline isGodMode={isGodMode} themeMode={themeMode} />
 
         {/* 6. Contact Transmission Gateway */}
-        <Contact isGodMode={isGodMode} />
+        <Contact isGodMode={isGodMode} themeMode={themeMode} />
 
       </main>
 
       {/* Footer */}
       <footer className={`w-full border-t py-8 px-6 text-center transition-colors duration-500 ${
-        isGodMode ? "border-green-500/20 bg-black/80 text-green-500/60 font-mono text-xs" : "border-slate-200 bg-white/80 text-slate-500 font-sans text-xs"
+        isGodMode 
+          ? "border-green-500/20 bg-black/80 text-green-500/60 font-mono text-xs" 
+          : themeMode === "light"
+          ? "border-slate-200/90 bg-white/90 text-slate-600 font-sans text-xs backdrop-blur-xl shadow-[0_-5px_20px_rgba(0,0,0,0.02)]"
+          : "border-slate-800/80 bg-[#070a12]/90 text-slate-400 font-sans text-xs backdrop-blur-xl"
       }`}>
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <p>© {new Date().getFullYear()} Mobeen. Dual-Reality Architecture. All Rights Reserved.</p>
@@ -273,7 +334,7 @@ function App() {
             <button 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className={`flex items-center gap-1 hover:underline cursor-pointer ${
-                isGodMode ? "text-green-400" : "text-blue-600"
+                isGodMode ? "text-green-400" : themeMode === "light" ? "text-blue-600" : "text-cyan-400"
               }`}
             >
               <ArrowUp className="w-3.5 h-3.5" />
@@ -283,7 +344,9 @@ function App() {
               href="https://github.com/Mobeen-2024/Portfolio" 
               target="_blank" 
               rel="noreferrer"
-              className="flex items-center gap-1 hover:underline"
+              className={`flex items-center gap-1 hover:underline ${
+                themeMode === "light" && !isGodMode ? "text-slate-700 hover:text-slate-950" : "text-slate-300 hover:text-white"
+              }`}
             >
               <span>GitHub</span>
               <ExternalLink className="w-3 h-3" />
@@ -295,6 +358,7 @@ function App() {
       {/* Interactive Dual-Reality Agent Console / Terminal Co-Pilot */}
       <AgentConsole 
         isGodMode={isGodMode} 
+        themeMode={themeMode}
         isOpen={isAgentConsoleOpen} 
         setIsOpen={setIsAgentConsoleOpen} 
       />
@@ -304,6 +368,7 @@ function App() {
         <ProjectDetailModal 
           project={selectedProject} 
           isGodMode={isGodMode} 
+          themeMode={themeMode}
           onClose={() => setSelectedProject(null)} 
         />
       )}
