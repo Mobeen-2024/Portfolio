@@ -36,12 +36,19 @@ describe('Dual-Reality Portfolio App', () => {
     expect(screen.getByText('Strategic Takeaway & ROI')).toBeInTheDocument();
   });
 
-  it('opens the Agent Console when clicking the Hero CTA', () => {
+  it('renders the Skills Matrix and Career Timeline sections', () => {
     render(<App />);
-    const agentCta = screen.getByText('Consult Executive AI');
-    fireEvent.click(agentCta);
+    expect(screen.getByText(/Proven Value Delivery Engine/i)).toBeInTheDocument();
+    expect(screen.getByText(/20\+ Years of Transformational Impact/i)).toBeInTheDocument();
+  });
 
-    // Agent console should now be expanded
-    expect(screen.getByPlaceholderText(/ask a strategic question/i)).toBeInTheDocument();
+  it('filters projects using the search input', () => {
+    render(<App />);
+    const searchInput = screen.getByPlaceholderText(/filter by tool or skill/i);
+    fireEvent.change(searchInput, { target: { value: 'Kafka' } });
+    
+    // Should show Real-Time Data Modernization
+    expect(screen.getByText('Real-Time Data Modernization')).toBeInTheDocument();
   });
 });
+

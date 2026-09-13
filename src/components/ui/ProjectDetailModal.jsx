@@ -176,7 +176,7 @@ export default function ProjectDetailModal({ project, isGodMode, onClose }) {
               <div>
                 <h4 className="text-xs uppercase tracking-widest font-bold text-blue-600 mb-2.5 flex items-center gap-2">
                   <TrendingUp className="w-4 h-4" />
-                  Strategic Takeaway & Boardroom Impact
+                  Strategic Takeaway & ROI
                 </h4>
                 <p className="text-sm text-slate-700 leading-relaxed bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200/80">
                   {data.strategicTakeaway}
