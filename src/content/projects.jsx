@@ -3,6 +3,51 @@
 export const PROJECTS = [
   {
     id: 1,
+    category: "Real-Time Systems & WebSockets",
+    images: [
+      "/images/projects/cryptobot/CryptoBot1.png",
+      "/images/projects/cryptobot/CryptoBot2.png",
+      "/images/projects/cryptobot/CryptoBot3.png",
+      "/images/projects/cryptobot/CryptoBot4.png"
+    ],
+    executive: {
+      title: "CryptoBot 1.0 Terminal",
+      tagline: "High-Frequency Dual-Account Terminal & AI Bot Pilot",
+      description: "Institutional-grade cryptocurrency trading terminal and algorithmic execution engine styled after Binance Futures (#0B0E11). Engineered with sub-millisecond Master-to-Slave trade mirroring (scalable up to 20 accounts via CCXT and User Data Stream WebSockets), automated Delta-Neutral hedging (Delta Master & Voltron Straddle bots), multi-kernel Google Gemini/Gemma AI intelligence, TradingView Lightweight Charts canvas, and a zero-risk virtual paper trading sandbox (Shadow Mode) backed by SQLite.",
+      impact: "Sub-Millisecond Mirroring & Delta Hedging",
+      techStack: ["React 19", "Lightweight Charts", "Node.js / Express", "WebSockets / Socket.IO", "Google Gemini & Gemma", "CCXT", "Better-SQLite3", "Tailwind CSS 4"],
+      keyMetrics: [
+        { label: "Execution Latency", value: "Sub-Millisecond Mirroring" },
+        { label: "AI Bot Matrix", value: "Gemini 3.1 + Gemma 3 27B" },
+        { label: "Hedge Engine", value: "Delta-Neutral & Auto-Recovery" }
+      ],
+      strategicTakeaway: "Eliminates execution slippage, latency asymmetry, and unhedged drawdowns across multi-account portfolios by coupling automated delta-neutral position hedging with real-time AI market regime classification and zero-risk paper trading simulation.",
+      businessChallenges: "Maintaining microsecond order execution parity across up to 20 accounts while handling WebSocket reconnection packet drops, dynamic ATR spread friction, and exchange rate-limit constraints during extreme volatility."
+    },
+    architect: {
+      title: "CRYPTOBOT_MULTI_KERNEL_ENGINE",
+      tagline: "React 19 / Express / CCXT / Gemini AI / Lightweight Charts / SQLite",
+      description: "Event-driven algorithmic execution engine orchestrated via Node.js/Express and EventBus. Integrates Binance User Data Stream WebSockets, CCXT exchange abstraction, multi-kernel Google Gemini/Gemma AI pipelines, dynamic SuperTrend/Alligator canvas charting, and an isolated SQLite paper trading engine.",
+      impact: "Zero-Lag Mirroring & Hedge Parity",
+      techStack: ["React 19", "Lightweight Charts", "Node.js / Express", "WebSockets / Socket.IO", "Google Gemini & Gemma", "CCXT", "Better-SQLite3", "Tailwind CSS 4"],
+      keyMetrics: [
+        { label: "Multi-Account Sync", value: "Up to 20 Slave Accounts" },
+        { label: "AI Cadence", value: "5-Min Sentiment Loop & Live Kernel" },
+        { label: "Paper Engine", value: "Cross/Isolated Margin (1x–125x)" }
+      ],
+      architectureDetails: "EventBus decision engine calculating real-time HedgeScore from drawdown, liquidity, and ATR friction. Binance WebSocket orderbook depth and User Data streams drive instant CCXT slave replication with HMAC signature validation, automated desync reconciliation modals, and isolated SQLite ledgers (trades.db, shadow_orders.db).",
+      pipelineSteps: [
+        "Binance WebSocket Ingestion: 1m–1M OHLCV klines, orderbook depth & User Data fill events",
+        "Multi-Kernel AI Telemetry: Gemini 3.1 Flash news sentiment + Gemma 3 27B ATR buffer calibration",
+        "EventBus Decision Engine: HedgeScore calculation, offset buffers & hard drawdown circuit breakers",
+        "CCXT Atomic Mirroring: Sub-millisecond order broadcast to slave accounts with HMAC validation",
+        "Shadow Mode Engine: Full margin/leverage matching against live Binance trade feeds in SQLite"
+      ],
+      complexity: "Latency: Sub-millisecond trade mirroring | Risk: Delta-neutral dynamic ATR hedge | Storage: Synchronous SQLite"
+    }
+  },
+  {
+    id: 2,
     category: "Fintech & Offline PWA",
     images: [
       "/images/projects/hisaab-kitaab/hk-cover.png",
@@ -48,7 +93,7 @@ export const PROJECTS = [
     }
   },
   {
-    id: 2,
+    id: 3,
     category: "Full-Stack & 3D WebGL",
     images: [
       "/images/projects/repx/RepX1.png",
@@ -96,7 +141,7 @@ export const PROJECTS = [
     }
   },
   {
-    id: 3,
+    id: 4,
     category: "Hardware Diagnostics & Electronics",
     executive: {
       title: "Advanced Hardware Diagnostics & Repair",
@@ -134,7 +179,7 @@ export const PROJECTS = [
     }
   },
   {
-    id: 4,
+    id: 5,
     category: "Embedded Systems & IoT",
     images: [
       "/images/projects/iot/board1.jpg",
@@ -174,51 +219,6 @@ export const PROJECTS = [
         "State Telemetry Broadcast to Smart Network Bridge"
       ],
       complexity: "Firmware: Deterministic state machine | Safety: Full galvanic isolation"
-    }
-  },
-  {
-    id: 5,
-    category: "Real-Time Systems & WebSockets",
-    images: [
-      "/images/projects/cryptobot/CryptoBot1.png",
-      "/images/projects/cryptobot/CryptoBot2.png",
-      "/images/projects/cryptobot/CryptoBot3.png",
-      "/images/projects/cryptobot/CryptoBot4.png"
-    ],
-    executive: {
-      title: "CryptoBot 1.0 Terminal",
-      tagline: "High-Frequency Dual-Account Terminal & AI Bot Pilot",
-      description: "Institutional-grade cryptocurrency trading terminal and algorithmic execution engine styled after Binance Futures (#0B0E11). Engineered with sub-millisecond Master-to-Slave trade mirroring (scalable up to 20 accounts via CCXT and User Data Stream WebSockets), automated Delta-Neutral hedging (Delta Master & Voltron Straddle bots), multi-kernel Google Gemini/Gemma AI intelligence, TradingView Lightweight Charts canvas, and a zero-risk virtual paper trading sandbox (Shadow Mode) backed by SQLite.",
-      impact: "Sub-Millisecond Mirroring & Delta Hedging",
-      techStack: ["React 19", "Lightweight Charts", "Node.js / Express", "WebSockets / Socket.IO", "Google Gemini & Gemma", "CCXT", "Better-SQLite3", "Tailwind CSS 4"],
-      keyMetrics: [
-        { label: "Execution Latency", value: "Sub-Millisecond Mirroring" },
-        { label: "AI Bot Matrix", value: "Gemini 3.1 + Gemma 3 27B" },
-        { label: "Hedge Engine", value: "Delta-Neutral & Auto-Recovery" }
-      ],
-      strategicTakeaway: "Eliminates execution slippage, latency asymmetry, and unhedged drawdowns across multi-account portfolios by coupling automated delta-neutral position hedging with real-time AI market regime classification and zero-risk paper trading simulation.",
-      businessChallenges: "Maintaining microsecond order execution parity across up to 20 accounts while handling WebSocket reconnection packet drops, dynamic ATR spread friction, and exchange rate-limit constraints during extreme volatility."
-    },
-    architect: {
-      title: "CRYPTOBOT_MULTI_KERNEL_ENGINE",
-      tagline: "React 19 / Express / CCXT / Gemini AI / Lightweight Charts / SQLite",
-      description: "Event-driven algorithmic execution engine orchestrated via Node.js/Express and EventBus. Integrates Binance User Data Stream WebSockets, CCXT exchange abstraction, multi-kernel Google Gemini/Gemma AI pipelines, dynamic SuperTrend/Alligator canvas charting, and an isolated SQLite paper trading engine.",
-      impact: "Zero-Lag Mirroring & Hedge Parity",
-      techStack: ["React 19", "Lightweight Charts", "Node.js / Express", "WebSockets / Socket.IO", "Google Gemini & Gemma", "CCXT", "Better-SQLite3", "Tailwind CSS 4"],
-      keyMetrics: [
-        { label: "Multi-Account Sync", value: "Up to 20 Slave Accounts" },
-        { label: "AI Cadence", value: "5-Min Sentiment Loop & Live Kernel" },
-        { label: "Paper Engine", value: "Cross/Isolated Margin (1x–125x)" }
-      ],
-      architectureDetails: "EventBus decision engine calculating real-time HedgeScore from drawdown, liquidity, and ATR friction. Binance WebSocket orderbook depth and User Data streams drive instant CCXT slave replication with HMAC signature validation, automated desync reconciliation modals, and isolated SQLite ledgers (trades.db, shadow_orders.db).",
-      pipelineSteps: [
-        "Binance WebSocket Ingestion: 1m–1M OHLCV klines, orderbook depth & User Data fill events",
-        "Multi-Kernel AI Telemetry: Gemini 3.1 Flash news sentiment + Gemma 3 27B ATR buffer calibration",
-        "EventBus Decision Engine: HedgeScore calculation, offset buffers & hard drawdown circuit breakers",
-        "CCXT Atomic Mirroring: Sub-millisecond order broadcast to slave accounts with HMAC validation",
-        "Shadow Mode Engine: Full margin/leverage matching against live Binance trade feeds in SQLite"
-      ],
-      complexity: "Latency: Sub-millisecond trade mirroring | Risk: Delta-neutral dynamic ATR hedge | Storage: Synchronous SQLite"
     }
   },
   {

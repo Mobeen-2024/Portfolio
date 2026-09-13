@@ -82,11 +82,11 @@ export const CLI_COMMANDS = {
     description: "Inspect practical technical projects and systems architecture",
     output: [
       ">> PRACTICAL EXPERIENCE & TECHNICAL PROJECTS:",
-      "  [01] Hisaab-Kitaab           :: React 19 / Dexie.js (IndexedDB) / Gemini 3.1 Flash / Offline Ledger & PWA",
-      "  [02] RepX AI Gym Platform    :: 3D WebGL Anatomy / 600k Kaggle Polars Pipeline / Deterministic Scorer",
-      "  [03] Advanced Hardware Mod   :: Component-level diagnostics on liquid damage / +100% BMS Li-ion runtime",
-      "  [04] IoT Home Automation     :: Arduino microcontroller / Multi-channel relay logic / Voice assistant",
-      "  [05] CryptoBot 1.0 Terminal  :: React 19 / CCXT / Gemini & Gemma AI / Delta-Neutral Hedging / Shadow Mode",
+      "  [01] CryptoBot 1.0 Terminal  :: React 19 / CCXT / Gemini & Gemma AI / Delta-Neutral Hedging / Shadow Mode",
+      "  [02] Hisaab-Kitaab           :: React 19 / Dexie.js (IndexedDB) / Gemini 3.1 Flash / Offline Ledger & PWA",
+      "  [03] RepX AI Gym Platform    :: 3D WebGL Anatomy / 600k Kaggle Polars Pipeline / Deterministic Scorer",
+      "  [04] Advanced Hardware Mod   :: Component-level diagnostics on liquid damage / +100% BMS Li-ion runtime",
+      "  [05] IoT Home Automation     :: Arduino microcontroller / Multi-channel relay logic / Voice assistant",
       "  [06] Appliance & CCTV Net    :: Physical hardware mounting / Cat6 structured cabling / NVR remote access",
       "  [07] DIY Appliance Setup     :: Kitchen extractor hood mounting / structural wall anchor modification",
       "",
@@ -193,7 +193,7 @@ export const EXECUTIVE_ANSWERS = {
   projects: {
     title: "Featured Software & Engineering Projects",
     thoughtTrace: "Summarizing practical project portfolio...",
-    response: "Mobeen's key projects include: (1) Hisaab-Kitaab offline digital ledger (Khata) PWA with Dexie.js and Gemini 3.1 Flash voice assistant, (2) RepX AI cybernetic fitness intelligence platform featuring 3D WebGL anatomy, 600k Kaggle dataset normalization, and deterministic recommendation algorithms, (3) CryptoBot 1.0 institutional crypto terminal with sub-millisecond Master-Slave trade mirroring, Delta-Neutral hedging, and multi-kernel Gemini/Gemma AI pilot, (4) Arduino IoT home automation with opto-isolated relays, and (5) Advanced Hardware BMS power modifications."
+    response: "Mobeen's key projects include: (1) CryptoBot 1.0 institutional crypto terminal with sub-millisecond Master-Slave trade mirroring, Delta-Neutral hedging, and multi-kernel Gemini/Gemma AI pilot, (2) Hisaab-Kitaab offline digital ledger (Khata) PWA with Dexie.js and Gemini 3.1 Flash voice assistant, (3) RepX AI cybernetic fitness intelligence platform featuring 3D WebGL anatomy, 600k Kaggle dataset normalization, and deterministic recommendation algorithms, (4) Arduino IoT home automation with opto-isolated relays, and (5) Advanced Hardware BMS power modifications."
   },
   cryptobot: {
     title: "CryptoBot 1.0 — High-Frequency Dual-Account Terminal & AI Bot Pilot",
