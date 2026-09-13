@@ -147,6 +147,8 @@ function App() {
         <Hero 
           title={activeContent.hero.title} 
           subtitle={activeContent.hero.subtitle} 
+          ctaPrimary={activeContent.hero.ctaPrimary}
+          ctaSecondary={activeContent.hero.ctaSecondary}
           isGodMode={isGodMode} 
           onOpenAgentConsole={() => setIsAgentConsoleOpen(true)}
         />

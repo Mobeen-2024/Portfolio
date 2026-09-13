@@ -19,9 +19,9 @@
 
   <br /><br />
 
-  <h3><b>Mobeen</b> — Full-Stack Developer & Systems Architect</h3>
+  <h3><b>Muhammad Mobeen</b> — IT Support Specialist & Systems Engineer</h3>
   <p align="center">
-    <i>Bridging high-level business strategy with deep architectural code through a seamless dual-reality experience.</i>
+    <i>Hands-on hardware diagnostics, component-level repair, structured network cabling, and full-stack software development.</i>
   </p>
 
   <p align="center">
@@ -44,8 +44,8 @@ Most portfolios only tell half the story. The **Dual-Reality Portfolio** bridges
 
 | Reality Mode | Visual Theme | Audience & Focus | Core Narrative |
 | :--- | :--- | :--- | :--- |
-| **Executive Mode** | Clean Minimalist Slate & Sapphire | Executives, Founders & Stakeholders | **Strategy, Market Influence & ROI.** Translating complex data into boardroom clarity, sustainable growth, and actionable business metrics. |
-| **Architect Mode** *(God Mode)* | Cyberpunk Matrix Terminal & Emerald Monospace | Technical Leads, Engineers & Architects | **Systems, Algorithms & Pipelines.** Low-latency data pipelines, ML attribution engines, deduplication at scale, and high-performance engineering. |
+| **Executive Mode** | Clean Minimalist Slate & Sapphire | Hiring Managers & IT Leadership | **IT Support & Systems Engineering.** Hands-on hardware troubleshooting, CCTV & network deployment, full-stack software, and CompTIA A+ core alignment. |
+| **Architect Mode** *(God Mode)* | Cyberpunk Matrix Terminal & Emerald Monospace | Senior Engineers & Hardware Technicians | **Circuits, Telemetry & WebSockets.** Motherboard micro-soldering, BMS battery integration, Cat6 termination, and low-latency Fastify & Vue 3 streams. |
 
 > [!TIP]
 > Click the **Biometric Fingerprint Scanner** in the navigation bar to trigger a real-time laser scan and shift realities on the fly.
@@ -60,8 +60,8 @@ Most portfolios only tell half the story. The **Dual-Reality Portfolio** bridges
   - Matrix digital rain & animated ambient grid effects in Architect mode.
   - Crisp, modern typography and clean glassmorphic elevations in Executive mode.
 - **Multi-Touch Project Showcases**:
-  - Executive perspective: Business impact, ARR, ROI optimization, and enterprise toolchains.
-  - Architect perspective: Algorithmic complexity, ETL pipelines, neural churn models, and tech stacks (Python, Snowflake, TensorFlow, C++).
+  - Executive perspective: Operational reliability, member lifecycle platforms, +100% BMS battery extension, and secure CCTV monitoring.
+  - Architect perspective: Component-level micro-soldering, T568B Cat6 termination, Arduino optocoupler relay logic, and high-throughput Fastify & Vue 3 WebSockets.
 - **Dual-Reality Contact Gateway**:
   - Interactive communication protocol integrated with Formspree.
   - Automatically tags transmissions with telemetry payloads (`EXECUTIVE` vs `ARCHITECT`).
@@ -195,7 +195,11 @@ Contributions, issues, and feature suggestions are always welcome!
 
 ## 📬 Contact & Connect
 
-**Mobeen**  
+**Muhammad Mobeen**  
+- **Location**: London, NW9 6EJ (Full Right to Work in the UK - Spouse Visa)  
+- **Phone**: [07351187884](tel:07351187884)  
+- **Email**: [muhammadmobeen20011@gmail.com](mailto:muhammadmobeen20011@gmail.com)  
+- **Portfolio**: [my-project-portfolios-projects-ed15ad56.vercel.app](https://my-project-portfolios-projects-ed15ad56.vercel.app/)  
 - **GitHub**: [@Mobeen-2024](https://github.com/Mobeen-2024)  
 - **Repository**: [Mobeen-2024/Portfolio](https://github.com/Mobeen-2024/Portfolio)  
 
