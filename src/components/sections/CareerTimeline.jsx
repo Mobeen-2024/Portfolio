@@ -11,10 +11,10 @@ const TIMELINE_DATA = [
       description: "Developing core competencies across enterprise IT infrastructure, network protocols, operating system diagnostics, hardware troubleshooting, and security administration. Architecting full-stack web applications and real-time market data terminals.",
       achievements: [
         "Preparing for CompTIA A+ certification to validate core networking and systems administration proficiency",
-        "Architected Hisaab-Kitaab personal finance application with automated statement parsing and receipt OCR",
+        "Architected RepX AI cybernetic fitness platform with 3D WebGL anatomy and 600k Kaggle Polars data pipeline",
         "Engineered TradeX real-time cryptocurrency terminal using Fastify and reactive Vue 3 WebSockets"
       ],
-      tags: ["CompTIA A+", "Systems Diagnostics", "Fastify", "Vue 3", "TypeScript"]
+      tags: ["CompTIA A+", "Three.js", "WebGL", "TypeScript", "Fastify"]
     },
     architect: {
       role: "SYSTEMS_&_INFRASTRUCTURE_ENGINEER",
@@ -22,10 +22,10 @@ const TIMELINE_DATA = [
       description: "Deploying high-throughput Fastify and Vue 3 WebSocket pipelines, modular relational databases, and AI-directed development workflows with deterministic data persistence.",
       achievements: [
         "Constructed sub-50ms Binance WebSocket order-book aggregation and live feed ingestion",
-        "Implemented idempotent transaction accounting schema with zero cross-session data loss",
+        "Built Three.js runtime spatial mesh splitting and GLSL Bio-Electric muscle charge shaders for RepX AI",
         "Integrated Arduino C++ opto-isolated relay modules for IoT smart environment control"
       ],
-      tags: ["WebSockets", "Fastify", "TypeScript", "Arduino C++", "Relay Logic"]
+      tags: ["Three.js", "WebSockets", "Fastify", "TypeScript", "Arduino C++"]
     }
   },
   {

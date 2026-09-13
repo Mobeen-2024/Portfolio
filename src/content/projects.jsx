@@ -49,7 +49,7 @@ export const PROJECTS = [
   },
   {
     id: 2,
-    category: "Full-Stack SaaS & Security",
+    category: "Full-Stack & 3D WebGL",
     images: [
       "/images/projects/repx/RepX1.png",
       "/images/projects/repx/RepX2.png",
@@ -62,37 +62,37 @@ export const PROJECTS = [
     ],
     executive: {
       title: "RepX AI Gym Platform",
-      tagline: "Membership, Scheduling & Access Controls",
-      description: "Engineered a multi-tier management platform to streamline member registration, subscription tracking, and facility scheduling. Implemented secure authentication mechanisms and built back-end REST APIs to handle member profile state.",
-      impact: "End-to-End Member Lifecycle",
-      techStack: ["TypeScript", "REST APIs", "Node.js", "Authentication", "PostgreSQL"],
+      tagline: "Cybernetic Fitness Intelligence & 3D WebGL Telemetry",
+      description: "Engineered a personal fitness intelligence platform designed for the physical realities of the training floor: sweaty hands, background mobile throttling, and offline environments. Features an interactive 3D WebGL athlete anatomy model with raycastable sub-muscles and custom GLSL bio-electric shaders, a deterministic multi-factor recommendation engine over 3,213 canonical exercises normalized from 605k+ Kaggle records with Polars, and local-first offline persistence via IndexedDB with SHA-256 cryptographic envelopes.",
+      impact: "3D WebGL Anatomy & Offline Resilience",
+      techStack: ["Three.js", "WebGL / GLSL", "React 19", "TypeScript", "Drizzle ORM", "PostgreSQL / PGlite", "Python (Polars)", "Google Gemini"],
       keyMetrics: [
-        { label: "Facility Scheduling", value: "Multi-Tier Logic" },
-        { label: "Access Security", value: "Role-Based (RBAC)" },
-        { label: "Member Tracking", value: "Active Subscriptions" }
+        { label: "Data Processing", value: "605k+ Kaggle Records" },
+        { label: "Recommendation Speed", value: "< 5ms Deterministic" },
+        { label: "3D Anatomy Heads", value: "27 Sub-Muscles" }
       ],
-      strategicTakeaway: "Centralized gym operations eliminated member renewal leakage, streamlined staff workflows, and secured user records behind strict authentication.",
-      businessChallenges: "Handling concurrent booking requests for high-demand workout slots required thread-safe state synchronization and conflict-free booking queues."
+      strategicTakeaway: "Built an enterprise-grade fitness architecture combining 44×44px tactile gym-floor UI, zero layout shifts, local-first offline execution with background sync, and strict trust-bounded AI coaching that eliminates exercise hallucinations.",
+      businessChallenges: "Active workout sessions demand absolute reliability with zero latency and offline capability. Solved mobile background timer throttling using absolute Unix epoch calculations, and prevented generative AI hallucinations by constraining LLM coaching strictly to pre-scored deterministic candidates."
     },
     architect: {
       title: "REPX_AI_CORE_PLATFORM",
-      tagline: "RESTful API / RBAC / State Engine",
-      description: "Constructed a multi-tier backend architecture with secure token authentication, route guards, and relational data modeling for member profiles, subscription tiers, and timetable scheduling.",
-      impact: "Secure RBAC Architecture",
-      techStack: ["TypeScript", "Express / Fastify", "PostgreSQL", "JWT", "Docker"],
+      tagline: "WebGL Shaders / Polars Pipeline / Local-First FSM / Drizzle ORM",
+      description: "Constructed an enterprise cybernetic fitness engine combining Three.js 3D anatomy rendering with runtime spatial mesh splitting, custom GLSL Bio-Electric muscle charge shaders, a 7-factor deterministic recommendation algorithm across 3,213 normalized exercises, and an offline-first IndexedDB finite-state machine sealed with SHA-256 StorageEnvelopes.",
+      impact: "Sub-5ms Scorer & Zero Data Loss",
+      techStack: ["Three.js (GLSL)", "React 19 / Vite", "Drizzle ORM", "PostgreSQL / PGlite", "Polars (Python)", "IndexedDB (idb)", "Argon2id / CSRF"],
       keyMetrics: [
-        { label: "API Standards", value: "RESTful Compliant" },
-        { label: "Auth Latency", value: "< 8ms Token Verify" },
-        { label: "State Reliability", value: "ACID Concurrency" }
+        { label: "Scorer Latency", value: "< 5ms Heuristics" },
+        { label: "Persistence Layer", value: "PGlite / Postgres Dual" },
+        { label: "Test Suite", value: "275 Automated Tests" }
       ],
-      architectureDetails: "Stateless JWT access tokens with refresh tokens, rate-limited public auth endpoints, and indexed database queries for calendar schedule conflict checks.",
+      architectureDetails: "Zero-trust backend with multi-tenant isolation (WHERE id = :id AND user_id = :userId), Argon2id password hashing, CSRF synchronizer tokens, Drizzle ORM schema with UUIDv7 keys, and an immutable finite-state machine (initializing -> in_progress -> completed) backed by IndexedDB and SHA-256 storage envelope verification.",
       pipelineSteps: [
-        "Client Request & Route Guard Evaluation",
-        "Cryptographic Token Verification & Claims Extraction",
-        "Schedule Conflict & Capacity Query Check",
-        "Relational State Mutation & Audit Logging"
+        "605k Kaggle Raw Record Ingestion & Polars High-Performance Normalization",
+        "3D Spatial Partition & GLSL Bio-Electric Muscle Charge Shader Rendering",
+        "7-Factor Deterministic Compatibility Scoring (< 5ms, Zero Hallucinations)",
+        "IndexedDB Local-First State Buffering & Cryptographic Envelope Sync"
       ],
-      complexity: "Time: O(1) auth validation | Space: O(1) token footprint"
+      complexity: "Algorithmic: 7-factor weighted heuristic | Graphics: Multi-pass GLSL & spatial mesh splitting"
     }
   },
   {

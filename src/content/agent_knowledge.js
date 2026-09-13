@@ -27,6 +27,7 @@ export const AGENT_ROLES = {
       "hardware",
       "network",
       "comptia",
+      "repx",
       "contact"
     ]
   }
@@ -41,6 +42,7 @@ export const CLI_COMMANDS = {
       "  status      - Print real-time system diagnostics, UK work rights, and environment",
       "  skills      - Display verified hardware, networking, and software competencies",
       "  projects    - List all practical engineering projects and architecture specs",
+      "  repx        - Inspect RepX AI 3D WebGL, 600k Kaggle Polars pipeline & engine specs",
       "  hardware    - Inspect component-level PCB repair and BMS battery mod details",
       "  network     - Inspect CCTV surveillance, LAN/WLAN, and Cat6 cabling specs",
       "  comptia     - Review CompTIA A+ core competencies in progress",
@@ -73,17 +75,30 @@ export const CLI_COMMANDS = {
     ]
   },
   projects: {
-    description: "Inspect all 6 practical technical projects",
+    description: "Inspect practical technical projects and systems architecture",
     output: [
       ">> PRACTICAL EXPERIENCE & TECHNICAL PROJECTS:",
       "  [01] Hisaab-Kitaab           :: TypeScript / Modular DB / AI-directed bank statement & receipt parsing",
-      "  [02] Gym Management System   :: Multi-tier member platform / RESTful APIs / RBAC auth & scheduling",
+      "  [02] RepX AI Gym Platform    :: 3D WebGL Anatomy / 600k Kaggle Polars Pipeline / Deterministic Scorer",
       "  [03] Advanced Hardware Mod   :: Component-level diagnostics on liquid damage / +100% BMS Li-ion runtime",
       "  [04] IoT Home Automation     :: Arduino microcontroller / Multi-channel relay logic / Voice assistant",
       "  [05] CryptoBot / TradeX      :: Fastify / Vue 3 / WebSockets / Binance API live market ingestion",
       "  [06] Appliance & CCTV Net    :: Physical hardware mounting / Cat6 structured cabling / NVR remote access",
+      "  [07] DIY Appliance Setup     :: Kitchen extractor hood mounting / structural wall anchor modification",
       "",
-      "Type 'hardware' or 'network' for deep-dive physical specifications."
+      "Type 'repx', 'hardware' or 'network' for deep-dive physical specifications."
+    ]
+  },
+  repx: {
+    description: "Inspect RepX AI 3D WebGL and data engine architecture",
+    output: [
+      ">> REPX AI CYBERNETIC ARCHITECTURE TELEMETRY:",
+      "  VISUAL ENGINE:    Three.js WebGL / 27 Raycastable Sub-Muscles / GLSL Bio-Electric Shader",
+      "  DATA PIPELINE:    605k+ Kaggle records normalized via Polars into 3,213 canonical exercises",
+      "  SCORING ENGINE:   Pure deterministic 7-weight heuristic (<5ms) with Gemini AI coaching guardrails",
+      "  OFFLINE ENGINE:   Local-first IndexedDB FSM with SHA-256 StorageEnvelope verification",
+      "  BACKEND STACK:    Node.js / Express / Drizzle ORM / PGlite + PostgreSQL / Argon2id / CSRF",
+      "  TEST COVERAGE:    275 automated unit, integration, and security tests"
     ]
   },
   hardware: {
@@ -149,7 +164,12 @@ export const EXECUTIVE_ANSWERS = {
   projects: {
     title: "Featured Software & Engineering Projects",
     thoughtTrace: "Summarizing practical project portfolio...",
-    response: "Mobeen's key projects include: (1) Hisaab-Kitaab personal finance tracker with automated statement parsing, (2) Gym Management platform with RBAC authentication and REST APIs, (3) TradeX high-throughput crypto terminal using Fastify & Vue 3 WebSockets, (4) Arduino IoT home automation with opto-isolated relays, and (5) Advanced Hardware BMS power modifications."
+    response: "Mobeen's key projects include: (1) Hisaab-Kitaab personal finance tracker with automated statement parsing, (2) RepX AI cybernetic fitness intelligence platform featuring 3D WebGL anatomy, 600k Kaggle dataset normalization, and deterministic recommendation algorithms, (3) TradeX high-throughput crypto terminal using Fastify & Vue 3 WebSockets, (4) Arduino IoT home automation with opto-isolated relays, and (5) Advanced Hardware BMS power modifications."
+  },
+  repx: {
+    title: "RepX AI — 3D Fitness Intelligence Platform",
+    thoughtTrace: "Retrieving RepX AI architectural specifications and 3D WebGL pipeline...",
+    response: "RepX AI is an enterprise-caliber fitness intelligence platform engineered for gym-floor reliability. It features an interactive 3D WebGL athlete anatomy visualizer with raycastable sub-muscles and custom GLSL Bio-Electric shaders, a 7-factor deterministic recommendation engine over 3,213 canonical exercises (normalized from 605k+ Kaggle records via Polars), local-first offline IndexedDB persistence with SHA-256 storage envelopes, and zero-trust Drizzle/Postgres security."
   },
   contact: {
     title: "Direct Contact Coordinates & UK Right to Work",
@@ -174,6 +194,9 @@ export function processExecutiveQuery(queryText) {
     };
   }
 
+  if (normalized.includes("repx") || normalized.includes("fitness") || normalized.includes("gym") || normalized.includes("biomechanic")) {
+    return EXECUTIVE_ANSWERS.repx;
+  }
   if (normalized.includes("comptia") || normalized.includes("cert") || normalized.includes("qualification") || normalized.includes("exam")) {
     return EXECUTIVE_ANSWERS.comptia;
   }
@@ -228,6 +251,14 @@ export function executeCliCommand(rawCmd) {
   }
 
   // Fuzzy match or fallback
+  if (sanitized.startsWith("rep")) {
+    return {
+      type: "success",
+      command: "repx",
+      lines: CLI_COMMANDS.repx.output
+    };
+  }
+
   if (sanitized.startsWith("proj")) {
     return {
       type: "success",
