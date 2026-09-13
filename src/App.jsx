@@ -98,7 +98,6 @@ function App() {
   // Filtered Projects
   const filteredProjects = useMemo(() => {
     return PROJECTS.filter(project => {
-      const activeData = isGodMode ? project.architect : project.executive;
       const matchesCategory = projectFilter === "ALL" || project.category === projectFilter;
       
       const query = searchQuery.trim().toLowerCase();
@@ -112,7 +111,7 @@ function App() {
 
       return matchesCategory && (matchesTitle || matchesDesc || matchesCategoryText || matchesTech);
     });
-  }, [projectFilter, searchQuery, isGodMode]);
+  }, [projectFilter, searchQuery]);
 
   const handleFilterChange = (cat) => {
     playClick(500, 0.03);

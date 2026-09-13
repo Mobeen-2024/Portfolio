@@ -4,12 +4,11 @@ import { Volume2, VolumeX, Menu, X, Terminal, Sparkles, ExternalLink } from 'luc
 import { isMuted, toggleMute, playClick } from '../../utils/audio';
 
 export default function Navigation({ isGodMode, isScanning, onScan, activeLabel }) {
-  const [muted, setMuted] = useState(false);
+  const [muted, setMuted] = useState(() => isMuted());
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    setMuted(isMuted());
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
