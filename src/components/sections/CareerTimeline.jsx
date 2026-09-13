@@ -1,106 +1,106 @@
 import React, { useState } from 'react';
-import { Calendar, Briefcase, Award, ArrowUpRight, Cpu, GitBranch, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import { playClick } from '../../utils/audio';
 
 const TIMELINE_DATA = [
   {
     period: "2024 — PRESENT",
     executive: {
-      role: "Founder Advisory & AI Systems Architect",
-      company: "Strategic AI Squads & Enterprise Advisory",
-      description: "Spearheading autonomous multi-agent swarms and neural multi-touch attribution engines for high-growth tech ventures, delivering 4x team productivity and transparent boardroom ROI.",
+      role: "CompTIA A+ & Systems Engineering",
+      company: "Certification & Full-Stack Projects",
+      description: "Developing core competencies across enterprise IT infrastructure, network protocols, operating system diagnostics, hardware troubleshooting, and security administration. Architecting full-stack web applications and real-time market data terminals.",
       achievements: [
-        "Architected LangGraph multi-agent systems replacing 120+ weekly manual research hours",
-        "Devised board-level multi-touch attribution frameworks saving $680K/yr in subscription churn",
-        "Engineered real-time data sync with sub-second replication latency"
+        "Preparing for CompTIA A+ certification to validate core networking and systems administration proficiency",
+        "Architected Hisaab-Kitaab personal finance application with automated statement parsing and receipt OCR",
+        "Engineered TradeX real-time cryptocurrency terminal using Fastify and reactive Vue 3 WebSockets"
       ],
-      tags: ["Multi-Agent AI", "LangGraph", "Boardroom Strategy", "Attribution"]
+      tags: ["CompTIA A+", "Systems Diagnostics", "Fastify", "Vue 3", "TypeScript"]
     },
     architect: {
-      role: "PRINCIPAL_SYSTEMS_ARCHITECT",
-      company: "AUTONOMOUS_SWARM_LABS",
-      description: "Designing directed acyclic graph (DAG) multi-agent state machines, memory-mapped Polars ETL pipelines, and SIMD-accelerated C++20 API gateways running with zero data loss.",
+      role: "SYSTEMS_&_INFRASTRUCTURE_ENGINEER",
+      company: "LABS_&_TECHNICAL_PROJECTS",
+      description: "Deploying high-throughput Fastify and Vue 3 WebSocket pipelines, modular relational databases, and AI-directed development workflows with deterministic data persistence.",
       achievements: [
-        "Deployed 4-node supervisor-agent graph with constitutional self-correction loops",
-        "Engineered O(n) streaming deduplication processing 1.2M CRM records/batch",
-        "Authored lock-free C++20 rate-limiting proxy sustaining 52K req/sec at 3.8ms P99"
+        "Constructed sub-50ms Binance WebSocket order-book aggregation and live feed ingestion",
+        "Implemented idempotent transaction accounting schema with zero cross-session data loss",
+        "Integrated Arduino C++ opto-isolated relay modules for IoT smart environment control"
       ],
-      tags: ["C++20 epoll", "LangGraph", "Kafka CDC", "Snowflake", "Polars"]
+      tags: ["WebSockets", "Fastify", "TypeScript", "Arduino C++", "Relay Logic"]
     }
   },
   {
-    period: "2019 — 2023",
+    period: "2023 — PRESENT",
     executive: {
-      role: "Head of Growth Engineering & Analytics",
-      company: "Scale-Up Growth Ventures",
-      description: "Directed full-lifecycle marketing technology and data infrastructure, eliminating cross-channel data silos and driving aggressive customer acquisition efficiency.",
+      role: "Hardware Diagnostics & Electronics Technician",
+      company: "Freelance & Technical Work (London, UK)",
+      description: "Executing component-level diagnostics and electronic repairs on liquid-damaged and compromised hardware. Custom-engineering lithium-ion power packs with active Battery Management Systems (BMS).",
       achievements: [
-        "Accelerated ARR by +$2.4M through predictive ad bidding and audience deduplication",
-        "Reduced blended CAC by 28% while improving lead-to-opportunity velocity",
-        "Unified Salesforce, HubSpot, and GA4 telemetry into single source of truth"
+        "Restored liquid-damaged laptops and circuitry through ultrasonic cleaning and trace reconstruction",
+        "Custom-engineered lithium-ion battery packs with active BMS, extending operational runtime by 100%",
+        "Executed precision SMD micro-soldering, component replacement, and signal rail impedance tests"
       ],
-      tags: ["+$2.4M ARR", "CAC Reduction", "Revenue Engineering", "Enterprise CRM"]
+      tags: ["Hardware Repair", "Micro-Soldering", "Active BMS", "Lithium-Ion", "PCB Diagnostics"]
     },
     architect: {
-      role: "STAFF_DATA_ENGINEER",
-      company: "DISTRIBUTED_PIPELINES_CORE",
-      description: "Engineered change-data-capture (CDC) pipelines streaming transaction events from PostgreSQL datastores to analytical lakes with sub-100ms sync.",
+      role: "COMPONENT_LEVEL_HARDWARE_SPECIALIST",
+      company: "HARDWARE_DIAGNOSTICS_LAB",
+      description: "Tracing microscopic PCB signal lines, isolating short-to-ground rail failures with multimeters and thermal inspection, and balancing multi-cell battery packs.",
       achievements: [
-        "Constructed Debezium + Kafka streaming fabric processing 45K events/sec",
-        "Eliminated legacy 24hr batch reporting delays with real-time Flink windowing",
-        "Maintained 99.999% data pipeline availability across viral flash surges"
+        "Engineered custom multi-cell Li-ion pack with balanced charge management and over-current protection",
+        "Diagnosed 3.3V and 5V power bus short circuits on high-density multi-layer motherboards",
+        "Bridged damaged PCB traces using micro-jumpers and UV-curable solder mask"
       ],
-      tags: ["Apache Kafka", "Debezium", "PostgreSQL", "Apache Flink", "AWS"]
+      tags: ["SMD Soldering", "Multimeter", "Thermal Probing", "Li-ion BMS", "Schematics"]
     }
   },
   {
-    period: "2012 — 2018",
+    period: "2022 — 2023",
     executive: {
-      role: "Senior Systems & Infrastructure Architect",
-      company: "Enterprise Cloud Platforms",
-      description: "Led the migration of legacy monolithic client systems to resilient microservices and distributed data pipelines, slashing infrastructure costs by 35%.",
+      role: "Network & Infrastructure Installation Specialist",
+      company: "Appliance & Physical IT Installations",
+      description: "Planned and deployed on-premises CCTV security camera networks, structured Cat6 cabling, and local networking hardware for commercial and residential facilities.",
       achievements: [
-        "Modernized core customer-facing applications to 99.999% SLA uptime",
-        "Delivered zero-downtime database migrations during peak consumer periods",
-        "Mentored and scaled engineering squads across three continents"
+        "Mounted and configured multi-camera CCTV networks with local NVR/DVR storage and secure remote access",
+        "Terminated and routed high-density Cat6 structured Ethernet cabling adhering to T568B standards",
+        "Configured LAN/WLAN routers, subnetting, DHCP reservations, and port forwarding rules"
       ],
-      tags: ["Microservices", "Cloud Migration", "Team Scaling", "High Availability"]
+      tags: ["CCTV (NVR/DVR)", "Cat6 Cabling", "LAN / WLAN", "Router Config", "Hardware Mounting"]
     },
     architect: {
-      role: "SENIOR_SYSTEMS_ENGINEER",
-      company: "DISTRIBUTED_CORE_SYSTEMS",
-      description: "Built high-concurrency backend services in C++ and Python, focusing on low-latency memory management, network sockets, and database optimization.",
+      role: "NETWORK_&_INFRASTRUCTURE_LEAD",
+      company: "INFRASTRUCTURE_DEPLOYMENT_OPS",
+      description: "Executing Layer 1 physical cabling to Layer 3 IP routing, PoE switch budgeting, RTSP streaming configuration, and electrical circuit integration.",
       achievements: [
-        "Optimized relational query bottlenecks resulting in 80% database IOPS reduction",
-        "Implemented fault-tolerant distributed consensus protocols and cache strategies",
-        "Automated continuous delivery pipelines with comprehensive chaos engineering tests"
+        "Calculated 802.3af/at PoE power budgets for multi-node IP surveillance installations",
+        "Configured secure remote access gateways with encrypted DDNS and firewall port restrictions",
+        "Conducted physical structural modifications and electrical wiring for commercial equipment"
       ],
-      tags: ["C++", "Python", "Linux Sockets", "Docker", "Database Tuning"]
+      tags: ["Structured Cabling", "IP Cameras", "Subnetting", "PoE", "Electrical Wiring"]
     }
   },
   {
-    period: "2004 — 2011",
+    period: "FOUNDATIONAL",
     executive: {
-      role: "Software & Systems Foundations",
-      company: "Applied Engineering Laboratories",
-      description: "Formative decade mastering core computing fundamentals, algorithmic efficiency, and building reliable foundational architectures from first principles.",
+      role: "Matriculation (GCSE Equivalent)",
+      company: "Foundational Secondary Education (Pakistan)",
+      description: "Completed foundational secondary education with strong analytical and mathematics disciplines, establishing the core logical principles for hardware troubleshooting and computer engineering.",
       achievements: [
-        "Engineered foundational web software and backend transactional databases",
-        "Established automated regression testing frameworks for critical financial code",
-        "Forged enduring technical leadership ethos combining rigour with business impact"
+        "Completed foundational secondary education with emphasis on mathematics, science, and computer fundamentals",
+        "Developed multilingual fluency: English (Fluent), Urdu (Native), Hindi (Fluent), Punjabi (Fluent)",
+        "Cultivated rigorous problem-solving approach directly applicable to IT support and systems diagnostics"
       ],
-      tags: ["Systems Foundations", "Algorithms", "Relational SQL", "Architecture"]
+      tags: ["GCSE Equivalent", "Mathematics", "Multilingual", "Analytical Logic"]
     },
     architect: {
-      role: "KERNEL_&_SOFTWARE_SPECIALIST",
-      company: "LOW_LEVEL_LABS",
-      description: "Deep dive into memory safety, OS scheduling, network stack mechanics, and deterministic state transitions.",
+      role: "ACADEMIC_&_COMPUTATIONAL_FOUNDATIONS",
+      company: "SECONDARY_EDUCATION_BOARD",
+      description: "Rigorous training in foundational mathematics, analytical logic, electrical physics, and computational thinking.",
       achievements: [
-        "Authored custom network protocol parsers with strict bounds validation",
-        "Implemented high-performance indexing trees and custom memory allocators",
-        "Engineered high-concurrency client-server daemon architectures"
+        "Mastered core algebraic, electrical principles, and logical deduction methods",
+        "Fluency across 4 languages facilitating seamless cross-functional communication in global IT teams",
+        "Laid the technical groundwork for component-level diagnostics and full-stack software development"
       ],
-      tags: ["Algorithms", "Memory Architecture", "Data Structures", "TCP/IP"]
+      tags: ["Foundations", "Electrical Physics", "Multilingual", "Analytical Logic"]
     }
   }
 ];
@@ -119,19 +119,19 @@ export default function CareerTimeline({ isGodMode }) {
         <h2 className={`text-xs sm:text-sm font-bold tracking-[0.5em] uppercase ${
           isGodMode ? "text-green-500/70 font-mono" : "text-blue-600/70 font-sans"
         }`}>
-          {isGodMode ? "// TELEMETRY_LOG: SYSTEM_CHRONOLOGY" : "Career Milestones & Proven Experience"}
+          {isGodMode ? "// TELEMETRY_LOG: EXPERIENCE_&_EDUCATION_CHRONOLOGY" : "Career Milestones & Education"}
         </h2>
         <h3 className={`text-3xl sm:text-4xl font-black ${
           isGodMode ? "text-green-400 font-mono text-glow-green" : "text-slate-900 font-sans"
         }`}>
-          {isGodMode ? "SYSTEM_EVOLUTION_TIMELINE" : "20+ Years of Transformational Impact"}
+          {isGodMode ? "SYSTEM_EVOLUTION_TIMELINE" : "Practical Experience & Qualifications"}
         </h3>
         <p className={`text-sm max-w-xl mx-auto opacity-70 ${
           isGodMode ? "font-mono text-green-400/70" : "font-normal text-slate-600"
         }`}>
           {isGodMode 
-            ? "Inspect 175,200+ operating hours of systems architecture, streaming data pipelines, and agent swarms." 
-            : "A track record of steering cross-functional teams, generating verified ARR, and deploying resilient systems."}
+            ? "Inspect verified hardware diagnostics milestones, network cabling deployments, and systems development." 
+            : "A track record of hands-on physical repairs, CCTV network setups, CompTIA A+ preparation, and software applications."}
         </p>
       </div>
 

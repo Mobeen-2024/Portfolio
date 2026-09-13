@@ -1,23 +1,23 @@
 // src/content/About_me.jsx
 const ABOUT_CONTENT = {
   executive: {
-    title: "The Strategist's Journey",
-    bio: "For over two decades, I have operated at the crossroads of market psychology, enterprise data, and revenue acceleration. I translate ambiguous customer journeys and complex multi-channel signals into clear, defensible growth strategies that give C-suite leadership the confidence to deploy capital effectively.",
+    title: "Technical Expertise & Operational Reliability",
+    bio: "Adaptable and technical IT Specialist with hands-on expertise in hardware diagnostics, component-level repair, network configuration, and full-stack system architecture. Based in London with Full Right to Work in the UK (Spouse Visa), I demonstrate strong problem-solving skills across physical infrastructure and software development, leveraging AI-assisted workflows to design end-to-end web applications and IoT systems. Currently preparing for the CompTIA A+ certification to further validate core networking and systems administration proficiency.",
     metrics: [
-      { label: "Executive Tenure", value: "20+ Years" },
-      { label: "Incremental ARR", value: "$2.4M+" },
-      { label: "Strategic Focus", value: "Attribution & Growth" },
-      { label: "Execution Model", value: "Cross-Disciplinary" }
+      { label: "Target Certification", value: "CompTIA A+" },
+      { label: "Work Authorization", value: "UK Full Rights" },
+      { label: "Hardware Runtime Boost", value: "+100% BMS" },
+      { label: "Multilingual Fluency", value: "4 Languages" }
     ]
   },
   architect: {
-    title: "01_SYSTEM_HISTORY",
-    bio: "Processing real-time telemetry and market signals for 175,200+ operating hours. I treat business funnels as high-throughput distributed state machines. By pairing low-level systems engineering (C++, Python, Kafka) with autonomous agent orchestration (LangGraph, PyTorch), I eliminate data entropy and maintain deterministic attribution fidelity.",
+    title: "01_SYSTEM_&_HARDWARE_LOG",
+    bio: "Executing component-level diagnostics on liquid-damaged hardware, PCB micro-soldering, signal line tracing, and active BMS lithium-ion battery integration. Operating across Windows/Linux OS recovery, Arduino microcontroller relay logic, and high-concurrency Fastify/Vue 3 WebSocket streaming. CompTIA A+ aligned across structured Cat6 cabling, router/WLAN deployment, and remote CCTV infrastructure.",
     metrics: [
-      { label: "System Uptime", value: "175.2K Hrs" },
-      { label: "Batch Scale", value: "1.2M Records" },
-      { label: "Architectural Focus", value: "Agentic Data Mesh" },
-      { label: "Signal Integrity", value: "99.99% Zero-Loss" }
+      { label: "Hardware Diagnostics", value: "Component-Level" },
+      { label: "Network Protocol", value: "LAN / WLAN / CCTV" },
+      { label: "Embedded Control", value: "Arduino / Relays" },
+      { label: "Real-Time Pipeline", value: "Fastify / Vue 3" }
     ]
   }
 };

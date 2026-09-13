@@ -1,194 +1,232 @@
-// src/content/projects.js
+// src/content/projects.jsx
 
 export const PROJECTS = [
   {
     id: 1,
-    category: "Data Engineering & Growth",
+    category: "Fintech & Automation",
     executive: {
-      title: "Revenue Growth Architecture",
-      tagline: "Marketing ROI Optimization",
-      description: "Transformed fragmented customer data across disparate ad networks into a unified growth engine, unlocking sustainable scale and boardroom confidence.",
-      impact: "+$2.4M ARR",
-      techStack: ["HubSpot", "Google Ads", "Salesforce", "Snowflake"],
+      title: "Hisaab-Kitaab Finance App",
+      tagline: "Automated Daily Expense Management",
+      description: "Architected and engineered a full-stack daily expense tracking application using TypeScript and modular database structures. Leveraged AI-directed development tools to implement automated bank statement parsing, digital receipt management, and analytics reporting.",
+      impact: "Automated Statement Parsing",
+      techStack: ["TypeScript", "React", "Node.js", "AI Workflows", "Modular DB"],
       keyMetrics: [
-        { label: "Revenue Lift", value: "+40% ARR" },
-        { label: "CAC Reduction", value: "-28%" },
-        { label: "Audience Matched", value: "98.4%" }
+        { label: "Parsing Speed", value: "< 1.5s / Statement" },
+        { label: "Data Integrity", value: "99.8% Extraction" },
+        { label: "Persistence", value: "Cross-Session Zero Loss" }
       ],
-      strategicTakeaway: "Eliminating cross-channel data silos enabled predictive ad bidding and maximized capital allocation towards high-intent segments.",
-      businessChallenges: "Multiple marketing teams were tracking duplicate user conversions, inflating reported ROI and resulting in misdirected media spend."
+      strategicTakeaway: "Automating document ingestion and categorization cut manual expense entry time by over 85%, ensuring dependable personal finance auditing.",
+      businessChallenges: "Unstructured bank PDF statements and receipt captures required intelligent sanitization to reliably normalize currency, dates, and vendors."
     },
     architect: {
-      title: "ETL_PIPELINE_STABLE",
-      tagline: "Python / SQL / Snowflake",
-      description: "Engineered a multi-threaded Python ETL pipeline to ingest, sanitize, and deduplicate 1.2M CRM records with cryptographic hashing and zero data loss.",
-      impact: "O(n) Deduplication",
-      techStack: ["Python 3.12", "PostgreSQL", "Pandas", "Snowflake", "Docker"],
+      title: "HISAAB_KITAAB_ENGINE",
+      tagline: "TypeScript / Modular DB / AI Parsing",
+      description: "Engineered a TypeScript financial ledger with atomic transaction logging, automated document parsing pipelines, and persistent modular storage with instant cross-session hydration.",
+      impact: "Atomic Transaction Engine",
+      techStack: ["TypeScript", "SQLite / Modular DB", "Node.js", "FastAPI", "Tailwind CSS"],
       keyMetrics: [
-        { label: "Throughput", value: "1.2M Rec/Batch" },
-        { label: "Data Integrity", value: "99.99%" },
-        { label: "Run Latency", value: "< 3.8 mins" }
+        { label: "Schema Architecture", value: "Modular Relational" },
+        { label: "Query Execution", value: "< 12ms P95" },
+        { label: "Ingestion Format", value: "PDF / OCR / JSON" }
       ],
-      architectureDetails: "Distributed batch worker using SHA-256 composite row hashing, Polars streaming chunks, and atomic Snowflake MERGE statements.",
+      architectureDetails: "Normalized modular schema separating accounts, transactions, and audit journals with idempotent transaction upsert pipelines and schema validation.",
       pipelineSteps: [
-        "Raw Webhook Ingestion & S3 Staging",
-        "Polars-powered Memory-Mapped Parsing",
-        "Deterministic Entity Deduplication",
-        "Atomic Upsert via Snowflake MERGE"
+        "Digital Receipt & Statement Document Ingestion",
+        "AI-Assisted Text Tokenization & Entity Extraction",
+        "Deterministic Transaction Deduplication & Validation",
+        "Atomic Commit to Modular Relational Datastore"
       ],
-      complexity: "Time: O(n) | Space: O(chunk_size)"
+      complexity: "Time: O(n) token parsing | Space: O(k) memory buffer"
     }
   },
   {
     id: 2,
-    category: "Deep Learning & Churn Analytics",
+    category: "Full-Stack SaaS & Security",
     executive: {
-      title: "Strategic Attribution & Retention",
-      tagline: "Board-Room Customer Lifetime Clarity",
-      description: "Implemented a multi-touch attribution and neural churn forecasting engine that provided 100% transparency into customer retention and channel profitability.",
-      impact: "100% Attribution",
-      techStack: ["GA4", "Tableau", "Segment", "Python"],
+      title: "Gym Management Platform",
+      tagline: "Membership, Scheduling & Access Controls",
+      description: "Engineered a multi-tier management platform to streamline member registration, subscription tracking, and facility scheduling. Implemented secure authentication mechanisms and built back-end REST APIs to handle member profile state.",
+      impact: "End-to-End Member Lifecycle",
+      techStack: ["TypeScript", "REST APIs", "Node.js", "Authentication", "PostgreSQL"],
       keyMetrics: [
-        { label: "Attribution Accuracy", value: "100%" },
-        { label: "Churn Prediction Lead", value: "45 Days" },
-        { label: "Saved Subscriptions", value: "$680K/yr" }
+        { label: "Facility Scheduling", value: "Multi-Tier Logic" },
+        { label: "Access Security", value: "Role-Based (RBAC)" },
+        { label: "Member Tracking", value: "Active Subscriptions" }
       ],
-      strategicTakeaway: "Leadership transitioned from reactive churn triage to proactive high-value customer retention interventions.",
-      businessChallenges: "Last-click attribution models under-credited brand nurture touchpoints, distorting real acquisition unit economics."
+      strategicTakeaway: "Centralized gym operations eliminated member renewal leakage, streamlined staff workflows, and secured user records behind strict authentication.",
+      businessChallenges: "Handling concurrent booking requests for high-demand workout slots required thread-safe state synchronization and conflict-free booking queues."
     },
     architect: {
-      title: "NEURAL_ATTRIBUTION_v2",
-      tagline: "LSTM / Scikit-Learn / TensorFlow",
-      description: "Developed a Long Short-Term Memory (LSTM) recurrent neural network with temporal attention to model multi-channel conversion likelihood and churn risk.",
-      impact: "92% Accuracy",
-      techStack: ["TensorFlow", "Scikit-Learn", "NumPy", "Keras", "FastAPI"],
+      title: "GYM_CORE_PLATFORM",
+      tagline: "RESTful API / RBAC / State Engine",
+      description: "Constructed a multi-tier backend architecture with secure token authentication, route guards, and relational data modeling for member profiles, subscription tiers, and timetable scheduling.",
+      impact: "Secure RBAC Architecture",
+      techStack: ["TypeScript", "Express / Fastify", "PostgreSQL", "JWT", "Docker"],
       keyMetrics: [
-        { label: "Validation Accuracy", value: "92.3%" },
-        { label: "Inference Latency", value: "14ms (P99)" },
-        { label: "ROC-AUC Score", value: "0.94" }
+        { label: "API Standards", value: "RESTful Compliant" },
+        { label: "Auth Latency", value: "< 8ms Token Verify" },
+        { label: "State Reliability", value: "ACID Concurrency" }
       ],
-      architectureDetails: "Sequential bi-directional LSTM with custom attention layers, tracking user interaction events across continuous 90-day sliding windows.",
+      architectureDetails: "Stateless JWT access tokens with refresh tokens, rate-limited public auth endpoints, and indexed database queries for calendar schedule conflict checks.",
       pipelineSteps: [
-        "Feature Engineering & Recency-Frequency Scaling",
-        "Sliding Temporal Window Generation",
-        "LSTM Inference & Churn Score Calculation",
-        "FastAPI Asynchronous Scoring Webhook"
+        "Client Request & Route Guard Evaluation",
+        "Cryptographic Token Verification & Claims Extraction",
+        "Schedule Conflict & Capacity Query Check",
+        "Relational State Mutation & Audit Logging"
       ],
-      complexity: "Model Parameters: 1.4M | Latency: 14ms"
+      complexity: "Time: O(1) auth validation | Space: O(1) token footprint"
     }
   },
   {
     id: 3,
-    category: "Autonomous AI & Agent Orchestration",
+    category: "Hardware Diagnostics & Electronics",
     executive: {
-      title: "Autonomous Workflow Intelligence",
-      tagline: "Agentic Automation & Operational Velocity",
-      description: "Designed an enterprise multi-agent swarm that automates competitor intelligence, marketing collateral synthesis, and executive briefing delivery.",
-      impact: "75% Speed Increase",
-      techStack: ["OpenAI", "LangChain", "Next.js", "Redis"],
+      title: "Advanced Hardware Diagnostics & Repair",
+      tagline: "Component-Level Restoration & BMS Engineering",
+      description: "Executed component-level diagnostics and repair on liquid-damaged hardware, disassembling circuitry, tracing signal lines, and restoring functional integrity. Custom-engineered power management solutions by integrating additional lithium-ion cells with an active BMS, increasing operational runtime by 100%.",
+      impact: "+100% Operational Runtime",
+      techStack: ["Micro-Soldering", "BMS Integration", "Motherboard Diagnostics", "Li-ion Cells", "Multimeter"],
       keyMetrics: [
-        { label: "Cycle Time Cut", value: "75%" },
-        { label: "Human Review Pass", value: "96.4%" },
-        { label: "Weekly Hours Saved", value: "120+ hrs" }
+        { label: "Runtime Increase", value: "+100% via Active BMS" },
+        { label: "Salvage Success", value: "Liquid Damage Reversal" },
+        { label: "Cell Configuration", value: "Balanced Li-ion Pack" }
       ],
-      strategicTakeaway: "Empowered lean strategic squads to produce research and campaign materials with 4x output capacity without expanding headcount.",
-      businessChallenges: "Competitive research and campaign copy iteration consumed dozens of senior strategist hours weekly with inconsistent quality."
+      strategicTakeaway: "Delivered component-level repair solutions that fully restored severely compromised hardware at a fraction of replacement cost, coupled with custom power mods.",
+      businessChallenges: "Microscopic corrosion bridging solder joints and shorting high-voltage supply rails to sensitive ground planes required micro-soldering and trace reconstruction."
     },
     architect: {
-      title: "AGENT_SWARM_ORCHESTRATOR",
-      tagline: "LangGraph / Python / Redis / Tool Routing",
-      description: "Architected a directed acyclic graph (DAG) multi-agent system with supervisor routing, constitutional self-critique loops, and fault-tolerant state persistence.",
-      impact: "Sub-second Tool Routing",
-      techStack: ["LangGraph", "Python 3.12", "Redis", "ChromaDB", "FastAPI"],
+      title: "PCB_DIAGNOSTICS_&_BMS",
+      tagline: "Micro-Soldering / Circuit Tracing / BMS",
+      description: "Disassembled high-density multilayer PCBs, traced power rail shorts using thermal inspection and multimeters, and micro-soldered replacement SMD components. Engineered balanced multi-cell Li-ion pack with active Battery Management System.",
+      impact: "Zero-Resistance Rail Repair",
+      techStack: ["SMD Micro-Soldering", "Thermal Probing", "Active BMS", "Circuit Schematics", "Oscilloscope"],
       keyMetrics: [
-        { label: "Agent Workers", value: "4 Autonomous Nodes" },
-        { label: "Self-Correction Rate", value: "88% on first pass" },
-        { label: "State Checkpoint Latency", value: "8ms" }
+        { label: "Diagnostic Method", value: "Signal Line Tracing" },
+        { label: "BMS Protection", value: "Over-current / Thermal / Balance" },
+        { label: "Soldering Standard", value: "SMD / Micro-Pads" }
       ],
-      architectureDetails: "LangGraph state machine with Supervisor agent dynamically delegating tasks to Research, Synthesis, Code Review, and Format Validation workers.",
+      architectureDetails: "Schematic analysis to identify 3.3V/5V power rail short-to-ground conditions, ultrasonic flux de-oxidation, micro-jumper trace bridging, and constant-current/constant-voltage BMS charge regulation.",
       pipelineSteps: [
-        "Supervisor Intent Parsing & Task Decomposition",
-        "Parallel Worker Tool Execution & Scraping",
-        "Constitutional AI Critique & Reflection Loop",
-        "Redis State Checkpoint & Output Formatting"
+        "Multimeter Continuity & Impedance Rail Mapping",
+        "Ultrasonic Cleaning & Corrosion Neutralization",
+        "SMD Component Desoldering & Micro-Jumper Bridging",
+        "BMS Cell Voltage Balancing & Thermal Stress Testing"
       ],
-      complexity: "Graph Depth: 5 Stages | Checkpoints: Redis Persistence"
+      complexity: "Physical: Micron-scale micro-soldering | Electrical: 1S-4S BMS"
     }
   },
   {
     id: 4,
-    category: "Streaming Data & Real-Time Sync",
+    category: "Embedded Systems & IoT",
     executive: {
-      title: "Real-Time Data Modernization",
-      tagline: "Immediate Decision Intelligence",
-      description: "Replaced legacy batch reporting with real-time operational data streaming, enabling executive leaders to make intraday revenue adjustments.",
-      impact: "< 1s Analytics Lag",
-      techStack: ["Databricks", "PowerBI", "AWS", "Segment"],
+      title: "IoT Home Automation Framework",
+      tagline: "Smart Microcontroller Automation",
+      description: "Designed and configured an IoT automation framework using Arduino microcontrollers and multi-channel relay modules. Established smart assistant ecosystem integrations for remote mobile and voice-controlled management of environmental systems.",
+      impact: "Unified Smart Environment",
+      techStack: ["Arduino", "C/C++", "Relay Logic", "Smart Assistant", "IoT Protocols"],
       keyMetrics: [
-        { label: "Data Freshness", value: "Instant (<1s)" },
-        { label: "Reporting Outages", value: "0 Incidents" },
-        { label: "Ad Spend Agility", value: "Intraday Real-time" }
+        { label: "Control Channels", value: "Multi-Channel Relay" },
+        { label: "Interface", value: "Voice & Mobile App" },
+        { label: "Response Lag", value: "< 200ms Actuation" }
       ],
-      strategicTakeaway: "Allowed marketing and finance to detect margin shifts and ad fatigue within minutes rather than at end-of-month reconciliation.",
-      businessChallenges: "24-hour batch delays masked morning ad anomalies, causing budget hemorrhage on underperforming creatives."
+      strategicTakeaway: "Transformed standard high-voltage electrical appliances into intelligent, voice-activated environmental systems with seamless manual fallback switches.",
+      businessChallenges: "Isolating low-voltage 5V microcontroller logic from 240V AC mains to eliminate inductive kickback interference and ensure absolute operational safety."
     },
     architect: {
-      title: "REALTIME_CDC_DATA_MESH",
-      tagline: "Apache Kafka / Debezium / Postgres",
-      description: "Engineered change-data-capture (CDC) pipeline streaming transaction events from relational datastores to analytical data lakes with sub-second replication.",
-      impact: "Sub-100ms Latency",
-      techStack: ["Apache Kafka", "Debezium", "PostgreSQL", "Apache Flink", "S3"],
+      title: "ARDUINO_RELAY_IOT_CORE",
+      tagline: "Arduino C++ / Optocoupler Isolation / Relays",
+      description: "Embedded C++ state machine running on Arduino with opto-isolated relay modules, debounced physical GPIO inputs, and smart assistant wireless gateway bridge integration.",
+      impact: "Opto-Isolated AC Switching",
+      techStack: ["Arduino C++", "Relay Modules", "Optocouplers", "WiFi / MQTT", "GPIO Interrupts"],
       keyMetrics: [
-        { label: "Sync Latency", value: "< 85ms" },
-        { label: "Peak Message Volume", value: "45K msgs/sec" },
-        { label: "Replication Lag", value: "0 Seconds" }
+        { label: "Firmware", value: "Non-Blocking C++ Loop" },
+        { label: "Galvanic Isolation", value: "Optocoupler Array" },
+        { label: "Command Latency", value: "< 45ms Local" }
       ],
-      architectureDetails: "Debezium WAL reader streaming Postgres events into partitioned Kafka topics, processed via Flink streaming aggregations into Iceberg tables.",
+      architectureDetails: "Hardware interrupt-driven edge detection for physical toggle switches, non-blocking millis() state management, and fail-safe default-off relay coil states.",
       pipelineSteps: [
-        "PostgreSQL WAL Log Ingestion via Debezium",
-        "Kafka Topic Partitioning with Keyed Hashes",
-        "Flink Windowed Aggregation & Enrichment",
-        "Materialized Views in Analytical Cache"
+        "Voice Assistant / Mobile MQTT Command Reception",
+        "Microcontroller Firmware Interlock & Bounds Check",
+        "Optocoupler Signal Trigger & Relay Armature Energization",
+        "State Telemetry Broadcast to Smart Network Bridge"
       ],
-      complexity: "Throughput: 45K events/s | At-Least-Once Guarantees"
+      complexity: "Firmware: Deterministic state machine | Safety: Full galvanic isolation"
     }
   },
   {
     id: 5,
-    category: "High-Performance Systems",
+    category: "Real-Time Systems & WebSockets",
     executive: {
-      title: "Enterprise Core Infrastructure",
-      tagline: "Zero-Downtime Reliability",
-      description: "Spearheaded the ground-up re-architecture of mission-critical customer-facing infrastructure, achieving 99.999% SLA availability during high-traffic flash surges.",
-      impact: "99.999% Availability",
-      techStack: ["Kubernetes", "Cloudflare", "AWS", "Datadog"],
+      title: "CryptoBot / TradeX Terminal",
+      tagline: "High-Frequency Market Data Engine",
+      description: "Developed a real-time market interface connecting directly to the Binance API for live data feed ingestion. Constructed a high-throughput Fastify backend and reactive Vue 3 frontend utilizing WebSockets for low-latency updates. Executed automated risk management and trade execution algorithms within live testing environments.",
+      impact: "Sub-50ms Market Telemetry",
+      techStack: ["Vue 3", "Fastify", "WebSockets", "Binance API", "TypeScript"],
       keyMetrics: [
-        { label: "Uptime SLA", value: "99.999%" },
-        { label: "Traffic Capacity", value: "10x Peak Load" },
-        { label: "Infrastructure Cost", value: "-35%" }
+        { label: "Market Feed", value: "Binance API Live WSS" },
+        { label: "UI Reactivity", value: "Vue 3 Composition API" },
+        { label: "Update Rate", value: "Sub-50ms WebSockets" }
       ],
-      strategicTakeaway: "Unshakable platform stability protected brand reputation during marquee product launches and investor roadshows.",
-      businessChallenges: "Legacy monolithic application suffered cascade failures during viral product drops, damaging user trust and enterprise sales."
+      strategicTakeaway: "Delivered instantaneous market visibility and automated order risk bounds, safeguarding capital against unexpected slippage during high-volatility spikes.",
+      businessChallenges: "Ingesting continuous order book ticker streams without causing main-thread frame drops or memory leaks in the client browser interface."
     },
     architect: {
-      title: "HIGH_THROUGHPUT_API_GW",
-      tagline: "C++20 / Asynchronous I/O / Redis",
-      description: "Constructed an ultra-low-latency event gateway and rate-limiting proxy in C++20 with epoll-driven non-blocking sockets and thread pool concurrency.",
-      impact: "50K req/sec (P99 < 4ms)",
-      techStack: ["C++20", "Redis", "Linux epoll", "Docker", "Prometheus"],
+      title: "TRADEX_WEBSOCKET_CORE",
+      tagline: "Fastify / Vue 3 / Binance API / WSS",
+      description: "Asynchronous Fastify streaming backend bridging Binance WebSocket APIs with ring-buffer throttling, typed order execution structures, and reactive Vue 3 virtualized order books.",
+      impact: "Zero-Lag Order Book Diff",
+      techStack: ["Fastify", "Vue 3", "TypeScript", "WebSocket (WSS)", "Node.js"],
       keyMetrics: [
-        { label: "Throughput", value: "52,000 req/sec" },
-        { label: "Memory Footprint", value: "< 42MB RSS" },
-        { label: "P99 Response Time", value: "3.8ms" }
+        { label: "Throughput", value: "5,000+ msgs/sec" },
+        { label: "Backend Engine", value: "Fastify Async I/O" },
+        { label: "Client Latency", value: "< 25ms Render" }
       ],
-      architectureDetails: "Zero-copy HTTP parsing with SIMD instructions, ring-buffer ring queues, and lock-free token bucket rate limiting against Redis clusters.",
+      architectureDetails: "Stream aggregation pipeline with exponential backoff WebSocket reconnects, atomic trade execution validation against balance bounds, and Vue 3 ShallowRef optimizations.",
       pipelineSteps: [
-        "Linux epoll Asynchronous Event Loop",
-        "Lock-Free Token Bucket Rate Validation",
-        "SIMD-Accelerated Request Header Parsing",
-        "Zero-Copy Proxy Forwarding to Upstream"
+        "Direct Binance WebSocket Ticker & Depth Stream Ingestion",
+        "Fastify Stream Sanitization & Risk Check Subroutine",
+        "WSS Broadcast to Authenticated Vue 3 Client",
+        "Reactive DOM Virtualization & Algorithmic Trigger"
       ],
-      complexity: "Zero-Copy SIMD | RSS: 42MB | 52K RPS"
+      complexity: "Time: O(1) orderbook diff | Space: O(window) ring buffer"
+    }
+  },
+  {
+    id: 6,
+    category: "Network Infrastructure & Deployment",
+    executive: {
+      title: "CCTV Network & Infrastructure",
+      tagline: "Commercial & Residential Cabling",
+      description: "Deployed local CCTV network infrastructure, executing physical hardware mounting, cable routing, and remote access configuration. Performed physical structural modifications and electrical wiring integration for commercial and residential hardware installations.",
+      impact: "Secure Multi-Point Coverage",
+      techStack: ["CCTV (NVR/DVR)", "Structured Cabling (Cat6)", "LAN/WLAN", "Router Config", "Electrical Wiring"],
+      keyMetrics: [
+        { label: "Infrastructure", value: "Structured Cat6 / RJ45" },
+        { label: "Surveillance", value: "Local NVR & Remote Access" },
+        { label: "Certification", value: "CompTIA A+ Aligned" }
+      ],
+      strategicTakeaway: "Designed and deployed tamper-resistant physical IT networks and security surveillance, providing continuous 24/7 facility monitoring with encrypted mobile access.",
+      businessChallenges: "Routing cabling through complex architectural conduits while maintaining strict bend radiuses and avoiding high-voltage AC electromagnetic interference."
+    },
+    architect: {
+      title: "INFRASTRUCTURE_&_CCTV_NET",
+      tagline: "Structured Cabling / NVR / Subnetting",
+      description: "Terminated T568B Cat6 cabling, configured static IP addressing and port forwarding on local routers, set up multi-channel NVR recording streams, and integrated clean electrical power distribution.",
+      impact: "Gigabit LAN & Secure RTSP",
+      techStack: ["Cat6 Termination (T568B)", "NVR/DVR IP Cameras", "Subnetting / VLAN", "DDNS / Port Forwarding", "PoE Injectors"],
+      keyMetrics: [
+        { label: "Bandwidth", value: "1000BASE-T Gigabit" },
+        { label: "Power Delivery", value: "802.3af/at PoE" },
+        { label: "Stream Protocol", value: "RTSP / H.265+" }
+      ],
+      architectureDetails: "Isolated surveillance traffic onto dedicated IP subnets, configured PoE power budgets for outdoor weather-sealed cameras, and established secure remote access via encrypted DDNS tunnel.",
+      pipelineSteps: [
+        "Physical Site Survey, Cable Path & PoE Budget Planning",
+        "T568B Cat6 Pulling, Punch-Down & Continuity Testing",
+        "NVR Camera IP Addressing, Subnetting & RTSP Stream Config",
+        "Router Firewall Rule Setup & Secure Remote Gateway Verification"
+      ],
+      complexity: "Physical: T568B standard | Network: Layer 2/3 IP Subnetting"
     }
   }
 ];

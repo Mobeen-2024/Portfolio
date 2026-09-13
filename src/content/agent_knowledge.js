@@ -2,29 +2,31 @@
 
 export const AGENT_ROLES = {
   executive: {
-    name: "Strategic Executive Advisor",
-    tagline: "Board-Level Growth & Marketing Strategy",
-    badge: "EXECUTIVE_AI_v1.4",
-    description: "An AI advisor synthesizing 20+ years of cross-channel marketing leadership, revenue attribution, and ROI modeling.",
+    name: "IT Systems & Support Advisor",
+    tagline: "Hardware Diagnostics, Infrastructure & Systems Engineering",
+    badge: "IT_ADVISOR_v1.0",
+    description: "An AI advisor providing verified insights into Muhammad Mobeen's IT support competencies, hardware repair capabilities, CompTIA A+ certification, and technical projects.",
     suggestedQueries: [
-      { id: "roi", label: "📈 Proven ROI & Metrics", query: "What is Mobeen's track record in revenue impact?" },
-      { id: "leadership", label: "🏛️ Strategic Leadership", query: "How does Mobeen lead cross-functional growth teams?" },
-      { id: "projects", label: "💼 Key Case Studies", query: "Summarize the top business success stories." },
-      { id: "contact", label: "🤝 Book Strategy Session", query: "How can we initiate a strategic consultation?" }
+      { id: "comptia", label: "🛡️ CompTIA A+ Progress", query: "What is Mobeen's CompTIA A+ certification progress and competencies?" },
+      { id: "hardware", label: "🔧 Hardware & Soldering", query: "What hands-on hardware and micro-soldering experience does Mobeen have?" },
+      { id: "networking", label: "🌐 Networking & CCTV", query: "Can you summarize Mobeen's networking and CCTV deployment experience?" },
+      { id: "projects", label: "💻 Technical Projects", query: "What software and engineering projects has Mobeen built?" },
+      { id: "contact", label: "📍 Contact & UK Visa", query: "What is Mobeen's location, contact details, and UK right to work?" }
     ]
   },
   architect: {
     name: "SysOrchestrator v2.4",
-    tagline: "Autonomous Agent & Systems Pipeline Engine",
-    badge: "SYS_KERNEL_STABLE",
-    description: "Low-level autonomous terminal agent trained on distributed data pipelines, multi-agent frameworks, and fault-tolerant architectures.",
+    tagline: "Hardware Diagnostics, Network Telemetry & Real-Time Kernel",
+    badge: "HARDWARE_KERNEL_STABLE",
+    description: "Low-level autonomous terminal agent providing system telemetry, circuit diagnostics logs, Fastify/Vue 3 architectures, and network cabling specs.",
     suggestedCommands: [
       "help",
       "status",
-      "projects",
       "skills",
-      "eval_metrics",
-      "arch_swarm",
+      "projects",
+      "hardware",
+      "network",
+      "comptia",
       "contact"
     ]
   }
@@ -32,121 +34,132 @@ export const AGENT_ROLES = {
 
 export const CLI_COMMANDS = {
   help: {
-    description: "Display all available terminal commands and orchestration subroutines",
+    description: "Display all available terminal commands and diagnostic subroutines",
     output: [
       "AVAILABLE SYSTEM ROUTINES:",
-      "  help              - List all available terminal commands",
-      "  status            - Print real-time pipeline status and system telemetry",
-      "  projects          - List all architectural case studies and throughput specs",
-      "  skills            - Display low-level tech stack and frameworks",
-      "  eval_metrics      - Run benchmark evaluation suite across agent workflows",
-      "  arch_swarm        - View ASCII diagram of multi-agent orchestration architecture",
-      "  contact           - Dump secure transmission coordinates",
-      "  clear             - Clear terminal display buffer"
+      "  help        - List all available terminal commands",
+      "  status      - Print real-time system diagnostics, UK work rights, and environment",
+      "  skills      - Display verified hardware, networking, and software competencies",
+      "  projects    - List all practical engineering projects and architecture specs",
+      "  hardware    - Inspect component-level PCB repair and BMS battery mod details",
+      "  network     - Inspect CCTV surveillance, LAN/WLAN, and Cat6 cabling specs",
+      "  comptia     - Review CompTIA A+ core competencies in progress",
+      "  contact     - Dump direct communication channels and location coordinates",
+      "  clear       - Clear terminal display buffer"
     ]
   },
   status: {
-    description: "Query system telemetry and runtime environment",
+    description: "Query system diagnostics, location, and work authorization",
     output: [
-      ">> RUNTIME TELEMETRY:",
-      "  KERNEL:           Linux x86_64 / React 19.2 / Vite 7.x",
-      "  AGENT CLUSTER:    5 Active Worker Nodes (Status: HEALTHY)",
-      "  UPTIME:           175,200+ Hours (20+ Years Equivalent)",
-      "  DATA INGESTION:   1.2M Records / Batch (99.9% deduplication fidelity)",
-      "  MODEL LATENCY:    P99 < 85ms across neural inference nodes",
-      "  SECURITY LAYER:   Biometric Multi-Factor Authentication ACTIVE"
+      ">> HARDWARE & SYSTEMS RUNTIME TELEMETRY:",
+      "  OPERATOR:         Muhammad Mobeen",
+      "  LOCATION:         London, NW9 6EJ, United Kingdom",
+      "  RIGHT TO WORK:    Full UK Right to Work (Spouse Visa - Verified)",
+      "  PRIMARY TARGET:   IT Support Specialist / Hardware Technician / Systems Engineer",
+      "  CERTIFICATION:    CompTIA A+ (In Progress — Core 1 & 2 Domains)",
+      "  LANGUAGES:        English (Fluent), Urdu (Native), Hindi (Fluent), Punjabi (Fluent)",
+      "  KERNEL STATUS:    Online (Vite 7 / React 19 / Fastify / Vue 3 / WebSockets)"
     ]
   },
   skills: {
-    description: "Display architectural skills and technologies",
+    description: "Display verified technical competencies across physical and digital systems",
     output: [
-      ">> ARCHITECTURAL CORE COMPETENCIES:",
-      "  LANGUAGES:        Python 3.12, C++20, TypeScript, SQL (PostgreSQL / Snowflake), Bash",
-      "  DATA & PIPELINES: Apache Kafka, Debezium, Pandas, Apache Spark, dbt, Redis",
-      "  AI & AGENTS:      LangChain, LangGraph, Multi-Agent Orchestration, PyTorch, Scikit-Learn",
-      "  CLOUD & DEVOPS:   AWS (ECS, Lambda, S3), Docker, GitHub Actions CI/CD, Kubernetes",
-      "  FRONTEND SYSTEMS: React 19, Tailwind CSS, Vite, WebSockets, Responsive UI/UX"
+      ">> TECHNICAL SKILLS & SYSTEM STACK:",
+      "  HARDWARE & REPAIR: Motherboard diagnostics, component soldering, circuit cleaning, Lithium-ion BMS, Arduino, relays",
+      "  NETWORKING:        Router & LAN/WLAN config, CCTV deployment, structured cabling (Cat6 T568B), physical mounting",
+      "  OS ADMINISTRATION: Windows 10/11 configuration & troubleshooting, Linux CLI basics, system recovery, hardware utilities",
+      "  SOFTWARE STACK:    TypeScript, JavaScript (ES6+), Vue 3, Fastify, WebSockets, HTML5, CSS3, REST APIs, modular DBs",
+      "  AI WORKFLOWS:      AI-directed document parsing, receipt OCR, rapid prototyping, and automated testing"
     ]
   },
   projects: {
-    description: "Inspect architectural projects",
+    description: "Inspect all 6 practical technical projects",
     output: [
-      ">> SYSTEM_CASE_STUDIES:",
-      "  [01] ETL_PIPELINE_STABLE       :: Python / Snowflake / Pandas (1.2M records, 99.9% dedupe)",
-      "  [02] NEURAL_ATTRIBUTION_v2     :: LSTM / TensorFlow / Keras (92% churn prediction accuracy)",
-      "  [03] AGENT_SWARM_ORCHESTRATOR  :: LangGraph / Python / Redis (4 autonomous worker nodes)",
-      "  [04] REALTIME_CDC_DATA_MESH    :: Kafka / Debezium / Postgres (Sub-100ms sync latency)",
-      "  [05] HIGH_THROUGHPUT_API_GW    :: C++ / FastHTTP / Redis (50K req/sec, zero memory leaks)",
+      ">> PRACTICAL EXPERIENCE & TECHNICAL PROJECTS:",
+      "  [01] Hisaab-Kitaab           :: TypeScript / Modular DB / AI-directed bank statement & receipt parsing",
+      "  [02] Gym Management System   :: Multi-tier member platform / RESTful APIs / RBAC auth & scheduling",
+      "  [03] Advanced Hardware Mod   :: Component-level diagnostics on liquid damage / +100% BMS Li-ion runtime",
+      "  [04] IoT Home Automation     :: Arduino microcontroller / Multi-channel relay logic / Voice assistant",
+      "  [05] CryptoBot / TradeX      :: Fastify / Vue 3 / WebSockets / Binance API live market ingestion",
+      "  [06] Appliance & CCTV Net    :: Physical hardware mounting / Cat6 structured cabling / NVR remote access",
       "",
-      "Type 'arch_swarm' to inspect the multi-agent orchestration diagram."
+      "Type 'hardware' or 'network' for deep-dive physical specifications."
     ]
   },
-  eval_metrics: {
-    description: "Run automated evaluation metrics suite",
+  hardware: {
+    description: "Inspect component-level repair and BMS battery engineering",
     output: [
-      ">> EXECUTING BENCHMARK PROTOCOL [agent-orchestration-improve-agent]:",
-      "  [✓] Instruction Fidelity:       98.4% (Target: >95%)",
-      "  [✓] Hallucination Rate:         0.2%  (Target: <1%)",
-      "  [✓] Tool Selection Accuracy:    99.1% (Target: >98%)",
-      "  [✓] Pipeline Deduplication:     99.9% (Verified zero data loss)",
-      "  [✓] P95 Response Latency:       64ms  (Target: <100ms)",
-      "  EVAL STATUS: ALL CONSTITUTIONAL CRITERIA MET"
+      ">> COMPONENT-LEVEL HARDWARE TELEMETRY:",
+      "  DIAGNOSTIC PROTOCOL: Multimeter continuity mapping, thermal rail analysis, impedance probing",
+      "  REPAIR CAPABILITIES: SMD component soldering, damaged PCB micro-jumper bridging, ultrasonic cleaning",
+      "  POWER MODIFICATION:  Engineered multi-cell Lithium-ion pack with active BMS (over-current, thermal, balance)",
+      "  RUNTIME OUTCOME:     +100% operational runtime achieved with stable voltage discharge curves",
+      "  EMBEDDED LOGIC:      Arduino C++ firmware with opto-isolated relay switching for high-voltage AC circuits"
     ]
   },
-  arch_swarm: {
-    description: "Display ASCII diagram of the multi-agent swarm architecture",
+  network: {
+    description: "Inspect CCTV surveillance and network infrastructure deployment",
     output: [
-      "+---------------------------------------------------------------+",
-      "|           [Autonomous Ingestion Gateway (FastAPI)]            |",
-      "+-------------------------------+-------------------------------+",
-      "                                |",
-      "               +----------------v---------------+",
-      "               |  Supervisor Agent Orchestrator |",
-      "               |   (LangGraph State Machine)    |",
-      "               +-------+----------------+-------+",
-      "                       |                |",
-      "         +-------------v----+     +-----v-------------+",
-      "         | Extraction Agent |     | Validation Agent  |",
-      "         | (Entity Parsing) |     | (Schema & Bounds) |",
-      "         +-------------+----+     +-----+-------------+",
-      "                       |                |",
-      "               +-------v----------------v-------+",
-      "               |   Consensus & Attribution Node |",
-      "               |  (Snowflake / Postgres Engine) |",
-      "               +--------------------------------+"
+      ">> NETWORK & CCTV INFRASTRUCTURE:",
+      "  CABLING STANDARD:    TIA/EIA-568-B Cat6 UTP termination, punch-down patch panels, RJ45 crimping",
+      "  SURVEILLANCE:        Multi-channel NVR/DVR IP setup, RTSP streaming, 802.3af/at PoE power budgeting",
+      "  NETWORK LAYER:       Router LAN/WLAN subnetting, DHCP reservations, port forwarding, encrypted DDNS tunnel",
+      "  PHYSICAL RIGGING:    Structural mounting, wall conduits, weather-sealed camera enclosures, clean AC wiring"
+    ]
+  },
+  comptia: {
+    description: "Review CompTIA A+ core competency areas",
+    output: [
+      ">> COMPTIA A+ COMPETENCY PROGRESS (IN PROGRESS):",
+      "  CORE 1 (220-1101): Mobile devices, networking technology, hardware, virtualization & cloud computing",
+      "  CORE 2 (220-1102): Operating systems (Windows, Linux, macOS), security protocols, software troubleshooting, operational procedures",
+      "  STATUS:            Active exam preparation, continuous lab practice, and system diagnostic simulation"
     ]
   },
   contact: {
-    description: "Show contact and secure transmission info",
+    description: "Show contact channels and work rights",
     output: [
-      ">> SECURE CHANNELS:",
-      "  DIRECT COMMS:  Reach out via the secure form below.",
+      ">> DIRECT COMMUNICATION CHANNELS:",
+      "  PHONE:         07351187884",
+      "  EMAIL:         muhammadmobeen20011@gmail.com",
+      "  LOCATION:      London, NW9 6EJ, United Kingdom",
+      "  RIGHT TO WORK: Full Right to Work in the UK (Spouse Visa)",
       "  GITHUB:        https://github.com/Mobeen-2024",
-      "  STATUS:        Open for Strategic Architecture & Growth Advisory roles."
+      "  PORTFOLIO:     https://my-project-portfolios-projects-ed15ad56.vercel.app/"
     ]
   }
 };
 
 export const EXECUTIVE_ANSWERS = {
-  roi: {
-    title: "Documented ROI & Revenue Generation",
-    thoughtTrace: "Analyzing historical impact across multi-channel attribution and CRM consolidation...",
-    response: "Over a 20-year career spanning digital transformation and full-stack systems, Mobeen has unlocked over $2.4M in incremental ARR through proprietary attribution models, optimized customer acquisition cost (CAC) by up to 34%, and eliminated high-risk data silos across marketing and engineering organizations."
+  comptia: {
+    title: "CompTIA A+ Certification & Systems Mastery",
+    thoughtTrace: "Retrieving certification progress and IT infrastructure syllabus...",
+    response: "Muhammad Mobeen is actively preparing for the CompTIA A+ certification, building rigorous competencies in computer hardware, network protocols (TCP/IP, DNS, DHCP, VLANs), operating system diagnostics (Windows 10/11, Linux CLI), cybersecurity best practices, and systematic hardware troubleshooting."
   },
-  leadership: {
-    title: "Cross-Functional Strategic Leadership",
-    thoughtTrace: "Synthesizing executive leadership approach across marketing, engineering, and C-suite alignment...",
-    response: "Mobeen bridges the critical divide between boardroom ROI imperatives and technical engineering execution. By establishing clear OKRs, data governance protocols, and collaborative cross-disciplinary squads, engineering deliverables directly map to top-line business velocity."
+  hardware: {
+    title: "Component-Level Hardware & Power Engineering",
+    thoughtTrace: "Querying physical diagnostic, soldering, and BMS capabilities...",
+    response: "Mobeen possesses hands-on expertise in motherboard diagnostics, microscopic circuit inspection, and precision component soldering. In a standout project, he reverse-engineered and repaired liquid-damaged circuitry, and custom-built a lithium-ion battery pack with an active Battery Management System (BMS), increasing equipment runtime by 100%."
+  },
+  networking: {
+    title: "Networking & CCTV Infrastructure Deployment",
+    thoughtTrace: "Analyzing physical cabling, NVR configurations, and router setup...",
+    response: "Mobeen has planned and deployed on-premises CCTV surveillance networks, terminating and routing structured Cat6 cabling (T568B), configuring local routers (WLAN/LAN subnets, DHCP, port forwarding), and enabling secure remote mobile monitoring for commercial and residential installations."
   },
   projects: {
-    title: "Flagship Strategic Transformations",
-    thoughtTrace: "Retrieving case studies with highest enterprise impact...",
-    response: "Key initiatives include: (1) Enterprise CRM Deduplication Engine achieving 99.9% data fidelity across 1.2M client records, (2) Deep Neural Attribution Model predicting customer lifetime churn with 92% accuracy, and (3) Autonomous Multi-Agent Swarm for automated data verification and marketing pipeline routing."
+    title: "Featured Software & Engineering Projects",
+    thoughtTrace: "Summarizing practical project portfolio...",
+    response: "Mobeen's key projects include: (1) Hisaab-Kitaab personal finance tracker with automated statement parsing, (2) Gym Management platform with RBAC authentication and REST APIs, (3) TradeX high-throughput crypto terminal using Fastify & Vue 3 WebSockets, (4) Arduino IoT home automation with opto-isolated relays, and (5) Advanced Hardware BMS power modifications."
   },
   contact: {
-    title: "Initiate Strategic Consultation",
-    thoughtTrace: "Configuring communication protocol dispatch...",
-    response: "Mobeen is currently available for select advisory roles, technical leadership consultations, and enterprise architecture engagements. Please submit the consultation dispatch below, or connect directly via GitHub."
+    title: "Direct Contact Coordinates & UK Right to Work",
+    thoughtTrace: "Retrieving verified contact details and visa status...",
+    response: "Muhammad Mobeen is based in London, NW9 6EJ, and holds Full Right to Work in the UK under a Spouse Visa. You can reach him directly at 07351187884 or via email at muhammadmobeen20011@gmail.com."
+  },
+  languages: {
+    title: "Multilingual Communication",
+    thoughtTrace: "Reviewing language proficiencies...",
+    response: "Mobeen is fluent in four languages: English (Fluent), Urdu (Native), Hindi (Fluent), and Punjabi (Fluent), enabling seamless communication across diverse technical teams and client environments."
   }
 };
 
@@ -157,28 +170,34 @@ export function processExecutiveQuery(queryText) {
     return {
       title: "Query Error",
       thoughtTrace: "Sanitizing input...",
-      response: "Please provide a query regarding strategy, ROI, case studies, or consultations."
+      response: "Please provide a query regarding CompTIA A+, hardware diagnostics, networking, projects, or contact information."
     };
   }
 
-  if (normalized.includes("roi") || normalized.includes("revenue") || normalized.includes("track record") || normalized.includes("metric")) {
-    return EXECUTIVE_ANSWERS.roi;
+  if (normalized.includes("comptia") || normalized.includes("cert") || normalized.includes("qualification") || normalized.includes("exam")) {
+    return EXECUTIVE_ANSWERS.comptia;
   }
-  if (normalized.includes("lead") || normalized.includes("team") || normalized.includes("manage") || normalized.includes("culture")) {
-    return EXECUTIVE_ANSWERS.leadership;
+  if (normalized.includes("hardware") || normalized.includes("solder") || normalized.includes("bms") || normalized.includes("battery") || normalized.includes("circuit") || normalized.includes("repair")) {
+    return EXECUTIVE_ANSWERS.hardware;
   }
-  if (normalized.includes("case") || normalized.includes("project") || normalized.includes("work") || normalized.includes("story")) {
+  if (normalized.includes("network") || normalized.includes("cctv") || normalized.includes("cable") || normalized.includes("router") || normalized.includes("lan") || normalized.includes("wlan")) {
+    return EXECUTIVE_ANSWERS.networking;
+  }
+  if (normalized.includes("case") || normalized.includes("project") || normalized.includes("work") || normalized.includes("build") || normalized.includes("app")) {
     return EXECUTIVE_ANSWERS.projects;
   }
-  if (normalized.includes("contact") || normalized.includes("book") || normalized.includes("hire") || normalized.includes("consult") || normalized.includes("email")) {
+  if (normalized.includes("contact") || normalized.includes("book") || normalized.includes("hire") || normalized.includes("email") || normalized.includes("phone") || normalized.includes("visa") || normalized.includes("location") || normalized.includes("right to work")) {
     return EXECUTIVE_ANSWERS.contact;
+  }
+  if (normalized.includes("language") || normalized.includes("speak") || normalized.includes("urdu") || normalized.includes("english") || normalized.includes("hindi") || normalized.includes("punjabi")) {
+    return EXECUTIVE_ANSWERS.languages;
   }
 
   // General intelligent synthesis
   return {
-    title: "Strategic Overview",
-    thoughtTrace: `Processing query: "${queryText.slice(0, 40)}..." through executive knowledge graph`,
-    response: `Mobeen brings 20+ years of high-impact leadership at the intersection of business strategy and deep systems architecture. For specific insights, explore the project case studies below, run a system diagnostic, or use one of the quick inquiry options.`
+    title: "Technical Profile Overview",
+    thoughtTrace: `Processing query: "${queryText.slice(0, 40)}..." through technical knowledge graph`,
+    response: `Muhammad Mobeen is an IT Support Specialist and Systems Engineer with expertise in hardware diagnostics, component soldering, structured network cabling, and full-stack software development. Currently preparing for CompTIA A+ and available for IT roles in London with Full UK Right to Work (Spouse Visa).`
   };
 }
 
@@ -214,6 +233,30 @@ export function executeCliCommand(rawCmd) {
       type: "success",
       command: "projects",
       lines: CLI_COMMANDS.projects.output
+    };
+  }
+
+  if (sanitized.startsWith("hard")) {
+    return {
+      type: "success",
+      command: "hardware",
+      lines: CLI_COMMANDS.hardware.output
+    };
+  }
+
+  if (sanitized.startsWith("net")) {
+    return {
+      type: "success",
+      command: "network",
+      lines: CLI_COMMANDS.network.output
+    };
+  }
+
+  if (sanitized.startsWith("comp")) {
+    return {
+      type: "success",
+      command: "comptia",
+      lines: CLI_COMMANDS.comptia.output
     };
   }
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import { ArrowRight, Terminal, Sparkles, ShieldCheck, ChevronRight, Zap } from 'lucide-react';
+import { ArrowRight, Terminal, Sparkles, ChevronRight } from 'lucide-react';
 import { playClick } from '../../utils/audio';
 
-export default function Hero({ title, subtitle, isGodMode, onOpenAgentConsole }) {
+export default function Hero({ title, subtitle, isGodMode, onOpenAgentConsole, ctaPrimary, ctaSecondary }) {
   const scrollToProjects = () => {
     playClick(480, 0.04);
     const el = document.getElementById("projects");
@@ -17,16 +17,19 @@ export default function Hero({ title, subtitle, isGodMode, onOpenAgentConsole })
   };
 
   const kpis = isGodMode ? [
-    { label: "THROUGHPUT", value: "1.2M Rec/Batch" },
-    { label: "P99 LATENCY", value: "< 3.8ms" },
-    { label: "AGENT NODES", value: "4 Swarm DAGs" },
-    { label: "UPTIME", value: "99.999% SLA" }
+    { label: "HARDWARE DIAGNOSTICS", value: "Component-Level" },
+    { label: "STREAM LATENCY", value: "< 50ms WSS" },
+    { label: "CABLING SPEC", value: "Cat6 T568B" },
+    { label: "EMBEDDED LOGIC", value: "Arduino / Relays" }
   ] : [
-    { label: "INCREMENTAL ARR", value: "+$2.4M Lift" },
-    { label: "LEADERSHIP TENURE", value: "20+ Years" },
-    { label: "ATTRIBUTION FIDELITY", value: "100% Precise" },
-    { label: "PRODUCTION ARCHITECTURES", value: "5 Case Studies" }
+    { label: "TARGET CERTIFICATION", value: "CompTIA A+" },
+    { label: "WORK AUTHORIZATION", value: "UK Full Rights" },
+    { label: "BATTERY INTEGRATION", value: "+100% BMS" },
+    { label: "MULTILINGUAL", value: "4 Languages" }
   ];
+
+  const primaryBtnText = ctaPrimary || (isGodMode ? "Inspect Systems Architecture" : "Explore Technical Projects");
+  const secondaryBtnText = ctaSecondary || (isGodMode ? "Launch Terminal Co-Pilot" : "Consult Systems AI");
 
   return (
     <section className="relative min-h-[80vh] flex flex-col justify-center items-center px-4 sm:px-6 pt-12 md:pt-8 w-full">
@@ -44,8 +47,8 @@ export default function Hero({ title, subtitle, isGodMode, onOpenAgentConsole })
             }`} />
             <span>
               {isGodMode 
-                ? "root@cluster-01: active_pipeline_telemetry" 
-                : "Available for Strategic Advisory & Architecture Leadership"}
+                ? "root@hardware-kernel: active_diagnostics_telemetry" 
+                : "Available for IT Support, Hardware & Systems Roles (London, UK)"}
             </span>
             <ChevronRight className="w-3.5 h-3.5 opacity-50" />
           </div>
@@ -84,7 +87,7 @@ export default function Hero({ title, subtitle, isGodMode, onOpenAgentConsole })
                 : "bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 hover:shadow-blue-300"
             }`}
           >
-            <span>{isGodMode ? "Inspect Systems Architecture" : "Explore Strategic Outcomes"}</span>
+            <span>{primaryBtnText}</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </button>
 
@@ -97,7 +100,7 @@ export default function Hero({ title, subtitle, isGodMode, onOpenAgentConsole })
             }`}
           >
             {isGodMode ? <Terminal className="w-4 h-4 text-green-400" /> : <Sparkles className="w-4 h-4 text-blue-600" />}
-            <span>{isGodMode ? "Launch Terminal Co-Pilot" : "Consult Executive AI"}</span>
+            <span>{secondaryBtnText}</span>
           </button>
         </div>
 

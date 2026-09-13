@@ -1,75 +1,75 @@
 import React, { useState } from 'react';
-import { Layers, Terminal, Sparkles, CheckCircle2, ChevronRight, Cpu, Network, ShieldCheck, Database } from 'lucide-react';
+import { Terminal, Sparkles, CheckCircle2, Cpu, Network, ShieldCheck, Database, Wrench, HardDrive, Wifi, Code2 } from 'lucide-react';
 import { playClick } from '../../utils/audio';
 
 const EXECUTIVE_SKILLS = [
   {
-    category: "Revenue & Growth Strategy",
-    icon: Sparkles,
-    highlight: "+$2.4M ARR Generated",
+    category: "Hardware & Component Repair",
+    icon: Wrench,
+    highlight: "+100% Battery Runtime / BMS",
     skills: [
-      { name: "Multi-Touch Attribution", level: 98, tag: "GA4 / Tableau / Segment" },
-      { name: "Predictive CAC / LTV Modeling", level: 95, tag: "Cohort Retention Analysis" },
-      { name: "Ad Network Budget Optimization", level: 92, tag: "Cross-Channel Ad Arbitrage" },
-      { name: "Conversion Rate Optimization (CRO)", level: 94, tag: "A/B Testing & Funnel Engineering" }
+      { name: "Motherboard Diagnostics & Repair", level: 95, tag: "Multimeter / Component Soldering / Tracing" },
+      { name: "Lithium-Ion BMS Battery Integration", level: 94, tag: "Custom Cells / Power Management / Active BMS" },
+      { name: "Microcontrollers & Embedded Logic", level: 90, tag: "Arduino / Multi-Channel Relays / Sensors" },
+      { name: "Circuit Cleaning & Liquid Damage Recovery", level: 92, tag: "Ultrasonic / Corrosion Removal / Trace Repair" }
     ]
   },
   {
-    category: "AI Strategy & Operational Velocity",
-    icon: Cpu,
-    highlight: "75% Cycle Time Cut",
+    category: "Networking & IT Infrastructure",
+    icon: Wifi,
+    highlight: "CompTIA A+ Aligned",
     skills: [
-      { name: "Autonomous Agent Swarms", level: 96, tag: "Task Decomposition & Synthesis" },
-      { name: "Executive AI Copilot Integration", level: 94, tag: "Boardroom Reporting Systems" },
-      { name: "AI Risk Governance & Compliance", level: 90, tag: "Data Privacy & Ethical Alignment" },
-      { name: "Strategic Headcount Leverage", level: 95, tag: "4x Squad Productivity" }
+      { name: "LAN/WLAN & Router Configuration", level: 94, tag: "Subnets / Port Forwarding / Wi-Fi Optimization" },
+      { name: "CCTV & Surveillance Deployment", level: 95, tag: "NVR/DVR / IP Cameras / Remote Mobile Viewing" },
+      { name: "Structured Cabling & Hardware Mounting", level: 96, tag: "Cat6 T568B / Punchdown / Cable Management" },
+      { name: "Systems & OS Administration", level: 92, tag: "Windows 10/11 Troubleshooting / Linux CLI Basics" }
     ]
   },
   {
-    category: "Enterprise Systems Leadership",
-    icon: Database,
-    highlight: "99.999% SLA Platform",
+    category: "Software Architecture & Web Technologies",
+    icon: Code2,
+    highlight: "Sub-50ms Real-Time WebSockets",
     skills: [
-      { name: "Enterprise Data Governance", level: 95, tag: "Single Source of Truth (SSOT)" },
-      { name: "Cloud Cost & Resource Stewardship", level: 92, tag: "-35% Infrastructure Spend" },
-      { name: "M&A Technical Due Diligence", level: 88, tag: "Codebase & Security Audits" },
-      { name: "Cross-Disciplinary Team Mentorship", level: 96, tag: "20+ Years Mentoring Staff Leads" }
+      { name: "Modern Frontend & UI Engineering", level: 92, tag: "TypeScript / Vue 3 / React / Tailwind CSS" },
+      { name: "High-Throughput Backend APIs", level: 90, tag: "Fastify / Node.js / RESTful Endpoints" },
+      { name: "Real-Time Data Streaming & Feeds", level: 91, tag: "WebSockets / Binance API Feeds" },
+      { name: "AI-Directed Development Workflows", level: 95, tag: "Automated OCR / Rapid Prototyping / Testing" }
     ]
   }
 ];
 
 const ARCHITECT_SKILLS = [
   {
-    category: "Autonomous AI & Agentic Graph",
-    icon: Terminal,
-    highlight: "Sub-Second DAG Routing",
-    skills: [
-      { name: "LangGraph State Machines", level: 98, tag: "Supervisor Dynamic Delegation" },
-      { name: "ChromaDB & pgvector RAG", level: 95, tag: "Semantic Memory & Embeddings" },
-      { name: "Constitutional AI Critique Loops", level: 92, tag: "Self-Healing Output Verification" },
-      { name: "FastAPI Async Tool Integration", level: 96, tag: "REST & WebSocket Endpoints" }
-    ]
-  },
-  {
-    category: "Distributed Data & CDC Streaming",
-    icon: Network,
-    highlight: "45K events/s @ <85ms",
-    skills: [
-      { name: "Apache Kafka & Debezium CDC", level: 96, tag: "Log-Based Replication" },
-      { name: "Snowflake & Polars Streaming", level: 98, tag: "O(n) Memory-Mapped Parsing" },
-      { name: "Apache Flink & Windowed Aggs", level: 90, tag: "Real-Time Event Ingestion" },
-      { name: "PostgreSQL & Redis Clusters", level: 96, tag: "Lock-Free Ring Buffers & Caching" }
-    ]
-  },
-  {
-    category: "Low-Level Systems & Microservices",
+    category: "Hardware Diagnostics & Electronics",
     icon: Cpu,
-    highlight: "52K RPS (P99 < 3.8ms)",
+    highlight: "Component-Level Precision",
     skills: [
-      { name: "C++20 Asynchronous I/O", level: 94, tag: "Linux epoll & Non-Blocking Sockets" },
-      { name: "SIMD Hardware Acceleration", level: 90, tag: "Zero-Copy HTTP Header Parsing" },
-      { name: "Python 3.12 Concurrency", level: 98, tag: "asyncio, multiprocessing, uvloop" },
-      { name: "Docker & Kubernetes Orchestration", level: 92, tag: "Containerized Mesh Architecture" }
+      { name: "SMD Micro-Soldering & Pad Repair", level: 96, tag: "Micro-Jumpers / Flux Profiling / Hot Air" },
+      { name: "Power Rail Short Circuit Tracing", level: 95, tag: "Continuity / Thermal Probing / Schematics" },
+      { name: "Active Battery Management (BMS)", level: 94, tag: "Overcurrent / Cell Balancing / Li-ion Packs" },
+      { name: "Arduino Firmware Architecture", level: 92, tag: "C++ Loops / Interrupts / Relay Optocouplers" }
+    ]
+  },
+  {
+    category: "Systems Recovery & Network Engineering",
+    icon: Network,
+    highlight: "1000BASE-T Gigabit Standard",
+    skills: [
+      { name: "Structured Cat6 Infrastructure", level: 96, tag: "T568B Termination / Cable Testing / Racks" },
+      { name: "IP Camera Networks & NVR Setup", level: 94, tag: "RTSP Protocols / PoE Budgeting / DDNS" },
+      { name: "Windows & Linux OS Administration", level: 92, tag: "Registry / Hardware Utilities / CLI Recovery" },
+      { name: "Router & Firewall Configuration", level: 91, tag: "VLAN Separation / DHCP Scopes / NAT Rules" }
+    ]
+  },
+  {
+    category: "Real-Time Web & API Engineering",
+    icon: Terminal,
+    highlight: "Sub-50ms Event Streaming",
+    skills: [
+      { name: "Fastify Low-Overhead Server", level: 92, tag: "Async I/O / JSON Schema / REST APIs" },
+      { name: "Vue 3 Reactive Interface", level: 94, tag: "Composition API / ShallowRef / Vite" },
+      { name: "WebSocket Full-Duplex Feeds", level: 93, tag: "Binance Live Ticker / Reconnect Logic" },
+      { name: "TypeScript Modular Data Models", level: 94, tag: "Strict Types / Schema Validation / DB Stores" }
     ]
   }
 ];
@@ -91,19 +91,19 @@ export default function SkillsMatrix({ isGodMode }) {
         <h2 className={`text-xs sm:text-sm font-bold tracking-[0.5em] uppercase ${
           isGodMode ? "text-green-500/70 font-mono" : "text-blue-600/70 font-sans"
         }`}>
-          {isGodMode ? "// SYSTEM_STACK: ARCHITECTURAL_COMPETENCIES" : "Strategic Competencies & Expertise"}
+          {isGodMode ? "// SYSTEM_STACK: HARDWARE_&_ENGINEERING_COMPETENCIES" : "Technical Skills & Competencies"}
         </h2>
         <h3 className={`text-3xl sm:text-4xl font-black ${
           isGodMode ? "text-green-400 font-mono text-glow-green" : "text-slate-900 font-sans"
         }`}>
-          {isGodMode ? "CAPABILITY_REGISTRY_v2" : "Proven Value Delivery Engine"}
+          {isGodMode ? "CAPABILITY_REGISTRY_v2" : "Core Technical Capabilities"}
         </h3>
         <p className={`text-sm max-w-xl mx-auto opacity-70 ${
           isGodMode ? "font-mono text-green-400/70" : "font-normal text-slate-600"
         }`}>
           {isGodMode 
-            ? "Inspect verified low-level frameworks, high-throughput pipelines, and autonomous agent systems."
-            : "Explore tactical mastery in growth attribution, AI orchestration, and enterprise value scaling."}
+            ? "Inspect verified low-level circuit diagnostics, networking infrastructure, and real-time software systems."
+            : "Hands-on expertise across physical IT hardware, network infrastructure, operating systems, and web applications."}
         </p>
       </div>
 

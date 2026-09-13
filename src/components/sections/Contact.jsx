@@ -1,24 +1,27 @@
 import React, { useState } from 'react';
-import { Send, Terminal, ShieldCheck, AlertCircle, Copy, Check, Github, Linkedin, FileText, Sparkles, MessageSquare } from 'lucide-react';
+import { Send, Terminal, ShieldCheck, AlertCircle, Copy, Check, Github, Phone, MapPin, Globe } from 'lucide-react';
 import { playClick, playSuccess } from '../../utils/audio';
 
 export default function Contact({ isGodMode }) {
-  const [formData, setFormData] = useState({ name: '', email: '', topic: 'Strategic Growth & Advisory', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', topic: 'IT Support & Systems Engineering', message: '' });
   const [status, setStatus] = useState('IDLE');
   const [copiedEmail, setCopiedEmail] = useState(false);
 
-  const directEmail = "mobeen.strategic@gmail.com";
+  const directEmail = "muhammadmobeen20011@gmail.com";
+  const directPhone = "07351187884";
+  const location = "London, NW9 6EJ (Full Right to Work - Spouse Visa)";
+  const portfolioUrl = "https://my-project-portfolios-projects-ed15ad56.vercel.app/";
 
   const topics = isGodMode ? [
-    "// SYS_ORCHESTRATION_SWARMS",
-    "// ETL_STREAMING_CDC",
-    "// LOW_LATENCY_API_GW",
-    "// CONTRACT_CONSULTING"
+    "// HARDWARE_DIAGNOSTICS_&_BMS",
+    "// NETWORK_&_CCTV_SETUP",
+    "// FULL_STACK_DEV_FASTIFY",
+    "// IT_SUPPORT_ROLE_ENGAGEMENT"
   ] : [
-    "Strategic Growth & Advisory",
-    "Autonomous AI Agent Swarm",
-    "Revenue Pipeline Architecture",
-    "Enterprise Mentorship / CTO"
+    "IT Support & Systems Engineering",
+    "Hardware Diagnostics & Soldering",
+    "CCTV & Network Deployment",
+    "Full-Stack Web Development"
   ];
 
   const handleCopyEmail = () => {
@@ -33,7 +36,7 @@ export default function Contact({ isGodMode }) {
     setFormData(prev => ({
       ...prev,
       topic: topic,
-      message: prev.message ? prev.message : (isGodMode ? `Requesting technical review for ${topic}: ` : `I would like to discuss ${topic} for our organization: `)
+      message: prev.message ? prev.message : (isGodMode ? `Requesting technical review for ${topic}: ` : `I would like to discuss ${topic}: `)
     }));
   };
 
@@ -55,7 +58,7 @@ export default function Contact({ isGodMode }) {
       if (response.ok) {
         playSuccess();
         setStatus('SUCCESS');
-        setFormData({ name: '', email: '', topic: 'Strategic Growth & Advisory', message: '' });
+        setFormData({ name: '', email: '', topic: 'IT Support & Systems Engineering', message: '' });
       } else {
         setStatus('ERROR');
       }
@@ -86,18 +89,18 @@ export default function Contact({ isGodMode }) {
     <section id="contact" className="w-full py-16 md:py-24 max-w-4xl mx-auto px-4 sm:px-6 scroll-mt-24">
       <div className="text-center mb-12 space-y-3">
         <h2 className={`text-xs sm:text-sm font-bold tracking-[0.5em] uppercase ${theme.accent}`}>
-          {isGodMode ? "// PROTOCOL: INITIATE_TRANSMISSION" : "Executive Consultation & Inquiries"}
+          {isGodMode ? "// PROTOCOL: INITIATE_COMMUNICATION" : "Direct Transmission & Inquiries"}
         </h2>
         <h3 className={`text-3xl sm:text-4xl font-black ${theme.text} ${isGodMode ? "text-glow-green" : ""}`}>
-          {isGodMode ? "OPEN_DIRECT_SECURE_CHANNEL" : "Connect With Mobeen"}
+          {isGodMode ? "OPEN_SYSTEM_CHANNEL" : "Connect With Muhammad Mobeen"}
         </h3>
         <p className={`text-sm max-w-md mx-auto opacity-70 ${isGodMode ? "font-mono text-green-400/70" : "text-slate-600 font-normal"}`}>
           {isGodMode 
-            ? "Transmit architectural specifications or schedule low-latency technical diligence."
-            : "Available for high-stakes growth strategy, fractional leadership, or systems consulting."}
+            ? "Transmit hardware specifications, network deployments, or IT support inquiries."
+            : "Available for IT Support Technician, Hardware Specialist, and Systems Engineering roles."}
         </p>
 
-        {/* Quick Email Copy Button & Social Links */}
+        {/* Contact Badges & Social Links */}
         <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
           <button
             onClick={handleCopyEmail}
@@ -110,6 +113,29 @@ export default function Contact({ isGodMode }) {
             {copiedEmail ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5" />}
             <span>{copiedEmail ? "Copied to Clipboard!" : directEmail}</span>
           </button>
+
+          <a 
+            href={`tel:${directPhone}`}
+            className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold border transition-all ${
+              isGodMode 
+                ? "bg-black/60 border-green-500/30 text-green-400 hover:bg-green-500/10 font-mono" 
+                : "bg-white border-slate-200 text-slate-700 hover:bg-slate-50 font-sans"
+            }`}
+          >
+            <Phone className="w-3.5 h-3.5" />
+            <span>{directPhone}</span>
+          </a>
+
+          <div 
+            className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold border select-none ${
+              isGodMode 
+                ? "bg-black/60 border-green-500/20 text-green-400/80 font-mono" 
+                : "bg-slate-50 border-slate-200 text-slate-600 font-sans"
+            }`}
+          >
+            <MapPin className="w-3.5 h-3.5 text-red-500" />
+            <span>{location}</span>
+          </div>
 
           <a 
             href="https://github.com/Mobeen-2024" 
@@ -126,7 +152,7 @@ export default function Contact({ isGodMode }) {
           </a>
 
           <a 
-            href="https://github.com/Mobeen-2024/Portfolio" 
+            href={portfolioUrl} 
             target="_blank" 
             rel="noreferrer"
             className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold border transition-all ${
@@ -135,8 +161,8 @@ export default function Contact({ isGodMode }) {
                 : "bg-white border-slate-200 text-slate-700 hover:bg-slate-50 font-sans"
             }`}
           >
-            <FileText className="w-3.5 h-3.5" />
-            <span>Repo Docs</span>
+            <Globe className="w-3.5 h-3.5" />
+            <span>Live Portfolio</span>
           </a>
         </div>
       </div>
@@ -152,7 +178,7 @@ export default function Contact({ isGodMode }) {
             {/* Topic Preset Chips */}
             <div>
               <label className={`block text-[10px] uppercase tracking-widest font-bold mb-2.5 ${theme.label}`}>
-                {isGodMode ? "// SELECT_TRANSMISSION_DOMAIN:" : "Inquiry Category / Strategic Focus:"}
+                {isGodMode ? "// SELECT_TRANSMISSION_DOMAIN:" : "Inquiry Category / Technical Domain:"}
               </label>
               <div className="flex flex-wrap gap-2">
                 {topics.map((t, idx) => (
@@ -186,7 +212,7 @@ export default function Contact({ isGodMode }) {
                   required
                   type="text"
                   value={formData.name}
-                  placeholder={isGodMode ? '"Enter Name..."' : 'e.g. Sarah Connor'}
+                  placeholder={isGodMode ? '"Enter Name..."' : 'e.g. Hiring Manager / Team Lead'}
                   className={`w-full bg-transparent border-b-2 p-3 text-sm outline-none transition-all ${theme.border} ${theme.accent}`}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
                 />
@@ -194,13 +220,13 @@ export default function Contact({ isGodMode }) {
 
               <div className="group">
                 <label className={`block text-[10px] uppercase tracking-widest font-bold mb-2 ${theme.label}`}>
-                  {isGodMode ? '"return_address":' : 'Business Email'}
+                  {isGodMode ? '"return_address":' : 'Contact Email'}
                 </label>
                 <input
                   required
                   type="email"
                   value={formData.email}
-                  placeholder={isGodMode ? '"Enter Email..."' : 'sarah@enterprise.com'}
+                  placeholder={isGodMode ? '"Enter Email..."' : 'recruiter@company.com'}
                   className={`w-full bg-transparent border-b-2 p-3 text-sm outline-none transition-all ${theme.border} ${theme.accent}`}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                 />
@@ -210,13 +236,13 @@ export default function Contact({ isGodMode }) {
             {/* Message Area */}
             <div className="group">
               <label className={`block text-[10px] uppercase tracking-widest font-bold mb-2 ${theme.label}`}>
-                {isGodMode ? '"payload_body": {' : "Project Scope & Objectives"}
+                {isGodMode ? '"payload_body": {' : "Project or Opportunity Details"}
               </label>
               <textarea
                 required
                 rows="4"
                 value={formData.message}
-                placeholder={isGodMode ? '"Specify technical requirements, latency targets, and architecture stack..."' : "Tell me about your growth objectives, systems challenges, or timeline..."}
+                placeholder={isGodMode ? '"Specify hardware repair, network specs, or IT support requirements..."' : "Describe the role, project, or IT infrastructure requirements..."}
                 className={`w-full bg-transparent border-2 rounded-2xl p-4 text-sm outline-none transition-all ${theme.border} ${theme.accent}`}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
               />
@@ -233,7 +259,7 @@ export default function Contact({ isGodMode }) {
               ) : (
                 <>
                   {isGodMode ? <Terminal className="w-4 h-4" /> : <Send className="w-4 h-4" />}
-                  <span>{isGodMode ? "EXECUTE_ENCRYPTED_SEND" : "Schedule Strategic Consultation"}</span>
+                  <span>{isGodMode ? "EXECUTE_TRANSMISSION" : "Send Message to Mobeen"}</span>
                 </>
               )}
             </button>
@@ -241,7 +267,7 @@ export default function Contact({ isGodMode }) {
             {status === 'ERROR' && (
               <div className="flex items-center justify-center gap-2 text-red-500 text-xs font-mono animate-pulse">
                 <AlertCircle className="w-4 h-4" />
-                <span>CRITICAL_ERROR: TRANSMISSION_FAILED. PLEASE EMAIL DIRECTLY.</span>
+                <span>TRANSMISSION_FAILED. PLEASE CONTACT DIRECTLY: muhammadmobeen20011@gmail.com</span>
               </div>
             )}
           </form>
@@ -261,19 +287,19 @@ const SuccessState = ({ isGodMode, onReset, theme }) => (
     </div>
     <div className="space-y-2">
       <h4 className={`text-2xl sm:text-3xl font-black ${theme.text}`}>
-        {isGodMode ? "TRANSMISSION_VERIFIED_#7721" : "Strategic Brief Received"}
+        {isGodMode ? "TRANSMISSION_VERIFIED_#7721" : "Message Received"}
       </h4>
       <p className={`text-sm opacity-75 max-w-md mx-auto ${isGodMode ? "font-mono" : "font-normal"}`}>
         {isGodMode 
-          ? "> Handshake successful. Telemetry logged. Direct socket dispatched to Mobeen."
-          : "Thank you for reaching out. I personally review every transmission and will respond within 24 business hours."}
+          ? "> Handshake successful. Telemetry logged. Direct socket dispatched to Muhammad Mobeen."
+          : "Thank you for reaching out. Muhammad Mobeen will review your inquiry and respond promptly."}
       </p>
     </div>
     <button 
       onClick={onReset} 
       className={`mt-4 text-xs font-bold uppercase tracking-[0.25em] ${theme.accent} hover:underline underline-offset-8 transition-all cursor-pointer`}
     >
-      {isGodMode ? "[ RE_OPEN_SOCKET ]" : "Submit another briefing"}
+      {isGodMode ? "[ RE_OPEN_SOCKET ]" : "Submit another message"}
     </button>
   </div>
 );

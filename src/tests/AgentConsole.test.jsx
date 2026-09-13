@@ -4,10 +4,16 @@ import AgentConsole from '../components/layout/AgentConsole';
 import { processExecutiveQuery, executeCliCommand } from '../content/agent_knowledge';
 
 describe('Agent Knowledge & Command Engine', () => {
-  it('processes executive ROI query correctly', () => {
-    const res = processExecutiveQuery('What is the revenue ROI?');
-    expect(res.title).toContain('ROI');
-    expect(res.response).toContain('$2.4M');
+  it('processes executive CompTIA query correctly', () => {
+    const res = processExecutiveQuery('What is Mobeen\'s CompTIA qualification?');
+    expect(res.title).toContain('CompTIA');
+    expect(res.response).toContain('CompTIA A+');
+  });
+
+  it('processes hardware diagnostics query correctly', () => {
+    const res = processExecutiveQuery('What hardware repair and soldering experience does he have?');
+    expect(res.title).toContain('Hardware');
+    expect(res.response).toContain('BMS');
   });
 
   it('handles empty executive query with validation fallback', () => {
@@ -21,10 +27,10 @@ describe('Agent Knowledge & Command Engine', () => {
     expect(res.lines.some(l => l.includes('status'))).toBe(true);
   });
 
-  it('executes CLI eval_metrics command adhering to skill evaluation standards', () => {
-    const res = executeCliCommand('eval_metrics');
+  it('executes CLI hardware command', () => {
+    const res = executeCliCommand('hardware');
     expect(res.type).toBe('success');
-    expect(res.lines.some(l => l.includes('CONSTITUTIONAL CRITERIA MET'))).toBe(true);
+    expect(res.lines.some(l => l.includes('Lithium-ion'))).toBe(true);
   });
 
   it('returns error for unknown CLI command', () => {
@@ -47,14 +53,14 @@ describe('AgentConsole Component', () => {
 
   it('renders executive co-pilot interface when open in executive mode', () => {
     render(<AgentConsole isGodMode={false} isOpen={true} setIsOpen={() => {}} />);
-    expect(screen.getByText(/Strategic Executive Advisor/i)).toBeInTheDocument();
-    expect(screen.getByPlaceholderText(/ask a strategic question/i)).toBeInTheDocument();
+    expect(screen.getByText(/IT Systems & Support Advisor/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/ask about comptia a\+/i)).toBeInTheDocument();
   });
 
   it('executes a quick command chip when clicked in architect mode', () => {
     render(<AgentConsole isGodMode={true} isOpen={true} setIsOpen={() => {}} />);
     const statusChip = screen.getByRole('button', { name: '$status' });
     fireEvent.click(statusChip);
-    expect(screen.getByText(/RUNTIME TELEMETRY/i)).toBeInTheDocument();
+    expect(screen.getByText(/HARDWARE & SYSTEMS RUNTIME TELEMETRY/i)).toBeInTheDocument();
   });
 });

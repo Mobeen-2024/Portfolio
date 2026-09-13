@@ -10,25 +10,26 @@ describe('Dual-Reality Portfolio App', () => {
     expect(screen.getByText('MOBEEN')).toBeInTheDocument();
     
     // Check executive CTAs
-    expect(screen.getByText('Explore Strategic Outcomes')).toBeInTheDocument();
-    expect(screen.getByText('Consult Executive AI')).toBeInTheDocument();
+    expect(screen.getByText('Explore Technical Projects')).toBeInTheDocument();
+    expect(screen.getByText('Consult Systems AI')).toBeInTheDocument();
     
     // Check projects heading
     expect(screen.getByText('Featured Strategic Success')).toBeInTheDocument();
   });
 
-  it('renders all 5 portfolio projects', () => {
+  it('renders all 6 portfolio projects from CV', () => {
     render(<App />);
-    expect(screen.getByText('Revenue Growth Architecture')).toBeInTheDocument();
-    expect(screen.getByText('Strategic Attribution & Retention')).toBeInTheDocument();
-    expect(screen.getByText('Autonomous Workflow Intelligence')).toBeInTheDocument();
-    expect(screen.getByText('Real-Time Data Modernization')).toBeInTheDocument();
-    expect(screen.getByText('Enterprise Core Infrastructure')).toBeInTheDocument();
+    expect(screen.getByText('Hisaab-Kitaab Finance App')).toBeInTheDocument();
+    expect(screen.getByText('Gym Management Platform')).toBeInTheDocument();
+    expect(screen.getByText('Advanced Hardware Diagnostics & Repair')).toBeInTheDocument();
+    expect(screen.getByText('IoT Home Automation Framework')).toBeInTheDocument();
+    expect(screen.getByText('CryptoBot / TradeX Terminal')).toBeInTheDocument();
+    expect(screen.getByText('CCTV Network & Infrastructure')).toBeInTheDocument();
   });
 
   it('opens ProjectDetailModal when clicking a project card', () => {
     render(<App />);
-    const firstProject = screen.getByText('Revenue Growth Architecture');
+    const firstProject = screen.getByText('Hisaab-Kitaab Finance App');
     fireEvent.click(firstProject);
 
     // Modal should now be visible
@@ -38,17 +39,16 @@ describe('Dual-Reality Portfolio App', () => {
 
   it('renders the Skills Matrix and Career Timeline sections', () => {
     render(<App />);
-    expect(screen.getByText(/Proven Value Delivery Engine/i)).toBeInTheDocument();
-    expect(screen.getByText(/20\+ Years of Transformational Impact/i)).toBeInTheDocument();
+    expect(screen.getByText(/Core Technical Capabilities/i)).toBeInTheDocument();
+    expect(screen.getByText(/Practical Experience & Qualifications/i)).toBeInTheDocument();
   });
 
   it('filters projects using the search input', () => {
     render(<App />);
     const searchInput = screen.getByPlaceholderText(/filter by tool or skill/i);
-    fireEvent.change(searchInput, { target: { value: 'Kafka' } });
+    fireEvent.change(searchInput, { target: { value: 'Fastify' } });
     
-    // Should show Real-Time Data Modernization
-    expect(screen.getByText('Real-Time Data Modernization')).toBeInTheDocument();
+    // Should show CryptoBot / TradeX Terminal
+    expect(screen.getByText('CryptoBot / TradeX Terminal')).toBeInTheDocument();
   });
 });
-

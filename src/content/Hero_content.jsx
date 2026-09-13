@@ -1,18 +1,18 @@
 // src/content/Hero_content.jsx
 const HERO_CONTENT = {
   executive: {
-    label: "Growth Strategist & Systems Lead",
-    title: "Precision Data. Strategic Clarity. Compounded Growth.",
-    subtitle: "Synthesizing 20+ years of growth leadership and data architecture to transform complex market signals into predictable, boardroom-ready revenue engines.",
-    ctaPrimary: "Explore Strategic Outcomes",
-    ctaSecondary: "Consult Executive AI",
+    label: "IT Support Specialist & Hardware Technician",
+    title: "Physical Infrastructure. Resilient Networks. Intelligent Systems.",
+    subtitle: "Delivering hands-on expertise in motherboard diagnostics, component-level repair, structured network cabling, and full-stack software. CompTIA A+ aligned with full UK right to work.",
+    ctaPrimary: "Explore Technical Projects",
+    ctaSecondary: "Consult Systems AI",
   },
   architect: {
-    label: "// ROOT_SYSTEM_KERNEL::ARCHITECT_MODE",
-    title: "Autonomous Agent Orchestration & High-Throughput Pipelines.",
-    subtitle: "Architecting distributed Python ETL engines, C++ microservices, and multi-agent AI systems with zero data loss and sub-100ms latency guarantees.",
+    label: "// ROOT_SYSTEM_KERNEL::HARDWARE_&_SYSTEMS",
+    title: "Component-Level Diagnostics, Network Telemetry & Real-Time Stacks.",
+    subtitle: "Executing PCB circuit diagnostics, active BMS lithium-ion integration, LAN/WLAN & CCTV deployments, and sub-50ms Fastify & Vue 3 WebSocket architectures.",
     ctaPrimary: "Inspect Systems Architecture",
-    ctaSecondary: "Initialize CLI Agent",
+    ctaSecondary: "Initialize CLI Terminal",
   }
 };
 

@@ -23,8 +23,8 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
   // Terminal history for Architect mode
   const [terminalHistory, setTerminalHistory] = useState([
     { type: 'system', lines: [
-      '>> INITIALIZING SYS_ORCHESTRATOR v2.4...',
-      '>> KERNEL LOADED: React 19.2 / Vite / Agent-Orchestration-v1.1',
+      '>> INITIALIZING SYS_ORCHESTRATOR v2.4 (HARDWARE_&_SYSTEMS_KERNEL)...',
+      '>> KERNEL LOADED: React 19.2 / Vite / CompTIA-A+ Ready / Fastify / Vue 3',
       '>> TYPE "help" FOR AVAILABLE COMMANDS OR CLICK SUGGESTIONS BELOW.'
     ]}
   ]);
@@ -34,9 +34,9 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
   const [execConversation, setExecConversation] = useState([
     {
       role: 'assistant',
-      title: 'Strategic Briefing Ready',
-      thoughtTrace: 'Systems and leadership telemetry loaded.',
-      content: 'Welcome. I am Mobeen\'s Strategic Executive Copilot. You can explore verified revenue metrics, leadership methodologies, or ask questions regarding growth strategy.'
+      title: 'IT Systems Briefing Ready',
+      thoughtTrace: 'Hardware diagnostics and infrastructure credentials loaded.',
+      content: 'Welcome. I am Mobeen\'s IT Systems & Support Copilot. You can explore verified hardware competencies, CompTIA A+ progress, networking deployments, or ask questions regarding technical projects and UK availability.'
     }
   ]);
   const [execInput, setExecInput] = useState('');
@@ -160,11 +160,11 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
           </div>
           <div className="text-left hidden sm:block">
             <p className="text-xs font-bold leading-tight flex items-center gap-1.5">
-              <span>{isGodMode ? "SYS_ORCHESTRATOR v2.4" : "Strategic Executive AI"}</span>
+              <span>{isGodMode ? "SYS_ORCHESTRATOR v2.4" : "IT Systems & Support AI"}</span>
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping inline-block" />
             </p>
             <p className="text-[10px] opacity-60 uppercase tracking-wider font-semibold">
-              {isGodMode ? "CLI AGENT READY" : "ONLINE ADVISOR"}
+              {isGodMode ? "CLI KERNEL READY" : "SYSTEMS ADVISOR"}
             </p>
           </div>
           <ChevronUp className="w-4 h-4 opacity-60 group-hover:-translate-y-0.5 transition-transform" />
@@ -354,7 +354,7 @@ export default function AgentConsole({ isGodMode, isOpen, setIsOpen }) {
                   type="text"
                   value={execInput}
                   onChange={(e) => setExecInput(e.target.value)}
-                  placeholder="Ask a strategic question (e.g., ROI, leadership, case studies)..."
+                  placeholder="Ask about CompTIA A+, hardware repair, CCTV setup, projects, or contact info..."
                   className="flex-1 bg-slate-100 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-800 outline-none border border-transparent focus:border-blue-400 transition-all placeholder:text-slate-400"
                 />
                 <button

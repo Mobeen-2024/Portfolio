@@ -22,12 +22,12 @@ export default function TelemetryBar({ isGodMode }) {
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-1.5 text-green-400 font-bold">
           <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-          <span>SYS_KERNEL::ARCHITECT_MODE</span>
+          <span>SYS_KERNEL::HARDWARE_&_SYSTEMS</span>
         </div>
         <span className="opacity-30">|</span>
         <div className="flex items-center gap-1">
           <Activity className="w-3 h-3 text-green-500/70" />
-          <span>LATENCY: {latency}ms (P99)</span>
+          <span>WSS_LATENCY: {latency}ms</span>
         </div>
         <span className="opacity-30 hidden sm:inline">|</span>
         <div className="hidden sm:flex items-center gap-1">
@@ -39,7 +39,7 @@ export default function TelemetryBar({ isGodMode }) {
       <div className="flex items-center gap-4">
         <div className="hidden md:flex items-center gap-1 text-green-500/70">
           <Zap className="w-3 h-3 text-green-400" />
-          <span>NODES: 4 CLUSTERS ONLINE</span>
+          <span>BMS: 100% BOOST | NET: OK</span>
         </div>
         <span className="opacity-30 hidden md:inline">|</span>
         <div className="flex items-center gap-1">
