@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://your-portfolio-link.vercel.app/sitemap.xml
+Sitemap: https://my-project-portfolios-projects-ed15ad56.vercel.app/sitemap.xml
