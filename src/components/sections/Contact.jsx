@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { 
   Send, Terminal, ShieldCheck, AlertCircle, Copy, Check, Github, 
   Phone, MapPin, Globe, Clock, Mail, MessageSquare, RefreshCw, 
@@ -12,6 +13,13 @@ const RECIPIENT_PHONE = "07351187884";
 const LOCATION_STR = "London, NW9 6EJ (Full Right to Work - Spouse Visa)";
 const PORTFOLIO_URL = "https://my-project-portfolios-projects-ed15ad56.vercel.app/";
 const WHATSAPP_URL = "https://wa.me/447351187884";
+
+// Gateway Configurations
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID || "xkoonpjk";
+const CONTACT_API_ENDPOINT = import.meta.env.VITE_CONTACT_API_URL || `https://formspree.io/f/${FORMSPREE_ID}`;
 
 const getInitialFormData = () => {
   const defaultState = {
@@ -284,59 +292,86 @@ export default function Contact({ isGodMode, themeMode = 'dark' }) {
       if (!isMounted.current) return;
       setSendingStage(isGodMode ? 'DISPATCHING_SYSTEM_PACKET' : 'Transmitting to secure mailbox gateway...');
 
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 9000); // 9-second timeout safeguard
+      const randId = `MOBEEN-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
+      const timestamp = new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' });
+      const hash = Math.random().toString(16).substring(2, 10).toUpperCase();
 
-      const response = await fetch("https://formspree.io/f/xkoonpjk", {
-        method: "POST",
-        headers: { 
-          "Content-Type": "application/json", 
-          "Accept": "application/json" 
-        },
-        signal: controller.signal,
-        body: JSON.stringify({
-          name: formData.name.trim(),
-          email: formData.email.trim(),
-          topic: formData.topic,
-          urgency: formData.urgency,
-          message: formData.message.trim(),
-          reality_mode: isGodMode ? 'ARCHITECT_GOD_MODE' : 'EXECUTIVE_MODE',
-          theme_mode: themeMode,
-          client_timestamp: new Date().toISOString()
-        })
-      });
+      const useEmailJS = Boolean(EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY);
 
-      clearTimeout(timeoutId);
+      if (useEmailJS) {
+        await emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_TEMPLATE_ID,
+          {
+            from_name: formData.name.trim(),
+            name: formData.name.trim(),
+            from_email: formData.email.trim(),
+            email: formData.email.trim(),
+            topic: formData.topic,
+            urgency: formData.urgency,
+            message: formData.message.trim(),
+            mode: isGodMode ? 'ARCHITECT_GOD_MODE' : 'EXECUTIVE_MODE',
+            reality_mode: isGodMode ? 'ARCHITECT_GOD_MODE' : 'EXECUTIVE_MODE',
+            timestamp: `${timestamp} BST`,
+            token: randId,
+            hash: `0x${hash}`,
+            to_email: RECIPIENT_EMAIL
+          },
+          EMAILJS_PUBLIC_KEY
+        );
+      } else {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 9000); // 9-second timeout safeguard
 
-      if (response.ok) {
-        playSuccess();
-        const randId = `MOBEEN-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
-        const timestamp = new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' });
-        const hash = Math.random().toString(16).substring(2, 10).toUpperCase();
-
-        setReceipt({
-          id: randId,
-          timestamp: `${timestamp} BST`,
-          topic: formData.topic,
-          urgency: formData.urgency,
-          hash: `0x${hash}`
+        const response = await fetch(CONTACT_API_ENDPOINT, {
+          method: "POST",
+          headers: { 
+            "Content-Type": "application/json", 
+            "Accept": "application/json" 
+          },
+          signal: controller.signal,
+          body: JSON.stringify({
+            name: formData.name.trim(),
+            email: formData.email.trim(),
+            _replyto: formData.email.trim(),
+            _subject: `[Portfolio Inquiry] ${formData.topic} from ${formData.name.trim()}`,
+            topic: formData.topic,
+            urgency: formData.urgency,
+            message: formData.message.trim(),
+            reality_mode: isGodMode ? 'ARCHITECT_GOD_MODE' : 'EXECUTIVE_MODE',
+            theme_mode: themeMode,
+            client_timestamp: new Date().toISOString(),
+            reference_token: randId,
+            integrity_hash: `0x${hash}`
+          })
         });
 
-        setStatus('SUCCESS');
-        sessionStorage.removeItem(STORAGE_KEY);
-      } else {
-        const errorData = await response.json().catch(() => ({}));
-        playError();
-        setStatus('ERROR');
-        setErrorMessage(errorData.error || "Gateway reported transmission rejection.");
+        clearTimeout(timeoutId);
+
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          throw new Error(errorData.error || "Gateway reported transmission rejection.");
+        }
       }
+
+      playSuccess();
+      setReceipt({
+        id: randId,
+        timestamp: `${timestamp} BST`,
+        topic: formData.topic,
+        urgency: formData.urgency,
+        hash: `0x${hash}`
+      });
+
+      setStatus('SUCCESS');
+      sessionStorage.removeItem(STORAGE_KEY);
     } catch (err) {
       playError();
       setStatus('ERROR');
       if (err.name === 'AbortError') {
         setErrorMessage("Gateway response timed out after 9 seconds. Direct mail channel recommended.");
       } else {
-        setErrorMessage("Network error or ad-blocker blocked the form gateway. Direct mail client recommended.");
+        setErrorMessage(err.message || "Network error or ad-blocker blocked the form gateway. Direct mail client recommended.");
       }
     }
   };

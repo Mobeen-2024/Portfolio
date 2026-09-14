@@ -1,12 +1,178 @@
-<!-- 
-Subject Line: [Portfolio Lead] - {{from_name}} (via {{mode}})
--->
-<div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee;">
-  <h2 style="color: #2563eb;">New Portfolio Lead</h2>
-  <p><strong>Mode Captured:</strong> <span style="background: #f1f5f9; padding: 2px 8px; border-radius: 4px;">{{mode}}</span></p>
-  <hr />
-  <p><strong>Name:</strong> {{from_name}}</p>
-  <p><strong>Email:</strong> {{from_email}}</p>
-  <p><strong>Message:</strong></p>
-  <p style="background: #fafafa; padding: 15px; border-left: 4px solid #2563eb;">{{message}}</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transmission Logged - Muhammad Mobeen Portfolio</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #06090e; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; color: #e2e8f0;">
+  <!-- Container Table -->
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #06090e; padding: 30px 15px;">
+    <tr>
+      <td align="center">
+        <!-- Main Card -->
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 620px; background-color: #0d131f; border: 1px solid #1e293b; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);">
+          
+          <!-- Top Accent Bar -->
+          <tr>
+            <td height="4" style="background: linear-gradient(90deg, #2563eb 0%, #06b6d4 50%, #10b981 100%);"></td>
+          </tr>
+
+          <!-- Header Section -->
+          <tr>
+            <td style="padding: 32px 32px 20px 32px; border-bottom: 1px solid #1e293b;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td>
+                    <!-- Status Pill -->
+                    <div style="display: inline-block; background-color: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 9999px; padding: 4px 12px; margin-bottom: 14px;">
+                      <span style="display: inline-block; width: 7px; height: 7px; background-color: #10b981; border-radius: 50%; margin-right: 6px; vertical-align: middle;"></span>
+                      <span style="color: #34d399; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: middle; font-family: monospace;">
+                        TRANSMISSION LOGGED &bull; GATEWAY SECURE
+                      </span>
+                    </div>
+
+                    <h1 style="margin: 0 0 6px 0; font-size: 22px; font-weight: 800; color: #ffffff; letter-spacing: -0.02em;">
+                      New Direct Inquiry Received
+                    </h1>
+                    <p style="margin: 0; font-size: 13px; color: #94a3b8; line-height: 1.5;">
+                      A prospective client / recruiter dispatched a transmission via your <strong>Dual-Reality Portfolio</strong>.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Telemetry Metadata Grid -->
+          <tr>
+            <td style="padding: 24px 32px 10px 32px; background-color: #090e17;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="50%" valign="top" style="padding-bottom: 16px; padding-right: 12px;">
+                    <div style="font-size: 10px; font-family: monospace; text-transform: uppercase; color: #64748b; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 4px;">
+                      // SENDER NAME
+                    </div>
+                    <div style="font-size: 14px; font-weight: 700; color: #f8fafc;">
+                      {{from_name}}
+                    </div>
+                  </td>
+                  <td width="50%" valign="top" style="padding-bottom: 16px; padding-left: 12px;">
+                    <div style="font-size: 10px; font-family: monospace; text-transform: uppercase; color: #64748b; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 4px;">
+                      // RETURN ADDRESS (EMAIL)
+                    </div>
+                    <div style="font-size: 14px; font-weight: 600;">
+                      <a href="mailto:{{from_email}}" style="color: #38bdf8; text-decoration: none;">
+                        {{from_email}}
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td width="50%" valign="top" style="padding-bottom: 16px; padding-right: 12px;">
+                    <div style="font-size: 10px; font-family: monospace; text-transform: uppercase; color: #64748b; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 4px;">
+                      // TECHNICAL DOMAIN
+                    </div>
+                    <div style="display: inline-block; background: #1e293b; color: #e2e8f0; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 6px; border: 1px solid #334155;">
+                      {{topic}}
+                    </div>
+                  </td>
+                  <td width="50%" valign="top" style="padding-bottom: 16px; padding-left: 12px;">
+                    <div style="font-size: 10px; font-family: monospace; text-transform: uppercase; color: #64748b; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 4px;">
+                      // PRIORITY &amp; TIMEFRAME
+                    </div>
+                    <div style="display: inline-block; background: rgba(245, 158, 11, 0.15); color: #fbbf24; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 6px; border: 1px solid rgba(245, 158, 11, 0.3);">
+                      {{urgency}}
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td width="50%" valign="top" style="padding-bottom: 8px; padding-right: 12px;">
+                    <div style="font-size: 10px; font-family: monospace; text-transform: uppercase; color: #64748b; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 4px;">
+                      // CAPTURED REALITY
+                    </div>
+                    <div style="font-size: 12px; font-weight: 600; color: #cbd5e1; font-family: monospace;">
+                      {{mode}}
+                    </div>
+                  </td>
+                  <td width="50%" valign="top" style="padding-bottom: 8px; padding-left: 12px;">
+                    <div style="font-size: 10px; font-family: monospace; text-transform: uppercase; color: #64748b; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 4px;">
+                      // DISPATCH TIMESTAMP
+                    </div>
+                    <div style="font-size: 12px; color: #94a3b8; font-family: monospace;">
+                      {{timestamp}}
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Message Payload Box -->
+          <tr>
+            <td style="padding: 20px 32px 28px 32px;">
+              <div style="font-size: 11px; font-family: monospace; text-transform: uppercase; color: #94a3b8; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 8px;">
+                // TRANSMISSION PAYLOAD / MESSAGE CONTENT:
+              </div>
+              
+              <div style="background-color: #060a10; border: 1px solid #1e293b; border-left: 4px solid #38bdf8; border-radius: 8px; padding: 18px 20px; color: #f1f5f9; font-size: 14px; line-height: 1.65; white-space: pre-wrap; word-break: break-word;">
+{{message}}
+              </div>
+
+              <!-- Action Button: Reply Directly -->
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 24px;">
+                <tr>
+                  <td align="center">
+                    <a href="mailto:{{from_email}}?subject=Re:%20[Portfolio%20Inquiry]%20{{topic}}" 
+                       target="_blank" 
+                       style="display: inline-block; background: linear-gradient(135deg, #2563eb 0%, #0284c7 100%); color: #ffffff; text-decoration: none; font-size: 13px; font-weight: 700; padding: 12px 28px; border-radius: 10px; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4); text-transform: uppercase; letter-spacing: 0.04em;">
+                      &rarr; Reply Directly to {{from_name}}
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Security Verification & Footer -->
+          <tr>
+            <td style="background-color: #06080d; padding: 22px 32px; border-top: 1px solid #1e293b; font-size: 11px; color: #64748b; line-height: 1.6;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td>
+                    <div style="color: #94a3b8; font-weight: 700; margin-bottom: 2px;">
+                      Muhammad Mobeen &bull; IT Support Specialist &amp; Systems Engineer
+                    </div>
+                    <div>
+                      London, NW9 6EJ, UK &bull; Full UK Right to Work (Spouse Visa) &bull; CompTIA A+ Aligned
+                    </div>
+                    <div style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed #1e293b; font-family: monospace; font-size: 10px; color: #475569;">
+                      <span>TOKEN: {{token}}</span> &bull; 
+                      <span>HASH: {{hash}}</span> &bull; 
+                      <span>SECURITY_AUDIT: PASSED</span>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+        </table>
+        <!-- End Main Card -->
+
+        <!-- Bottom Sub-Footer -->
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 620px; margin-top: 14px;">
+          <tr>
+            <td align="center" style="font-size: 11px; color: #475569;">
+              Dispatched from <a href="https://my-project-portfolios-projects-ed15ad56.vercel.app/" style="color: #64748b; text-decoration: underline;">my-project-portfolios-projects-ed15ad56.vercel.app</a>
+            </td>
+          </tr>
+        </table>
+
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
