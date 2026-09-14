@@ -1,4 +1,4 @@
-# ⚡ Dual-Reality Portfolio
+# ⚡ Portfolio
 
 <div align="center">
 
