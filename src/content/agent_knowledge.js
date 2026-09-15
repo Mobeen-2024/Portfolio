@@ -187,6 +187,7 @@ export const CLI_COMMANDS = {
       "  EMAIL:         muhammadmobeen20011@gmail.com",
       "  LOCATION:      London, NW9 6EJ, United Kingdom",
       "  RIGHT TO WORK: Full Right to Work in the UK (Spouse Visa)",
+      "  LINKEDIN:      https://www.linkedin.com/in/muhammad-mobeen/",
       "  GITHUB:        https://github.com/Mobeen-2024",
       "  PORTFOLIO:     https://my-project-portfolios-projects-ed15ad56.vercel.app/"
     ]
@@ -217,12 +218,12 @@ export const EXECUTIVE_ANSWERS = {
   projects: {
     title: "Featured Software & Engineering Projects",
     thoughtTrace: "Summarizing practical project portfolio...",
-    response: "Mobeen's key projects include: (1) CryptoBot 1.0 institutional crypto terminal with sub-millisecond Master-Slave trade mirroring, Delta-Neutral hedging, and multi-kernel Gemini/Gemma AI pilot, (2) Hisaab-Kitaab offline digital ledger (Khata) PWA with Dexie.js and Gemini 3.1 Flash voice assistant, (3) RepX AI cybernetic fitness intelligence platform featuring 3D WebGL anatomy, 600k Kaggle dataset normalization, and deterministic recommendation algorithms, (4) Arduino IoT home automation with opto-isolated relays, and (5) Advanced Hardware BMS power modifications."
+    response: "Mobeen's key projects include: (1) CryptoBot 1.0 institutional crypto terminal with real-time Master-Slave trade mirroring, Delta-Neutral hedging, and multi-kernel Gemini/Gemma AI pilot, (2) Hisaab-Kitaab offline digital ledger (Khata) PWA with Dexie.js and Gemini 3.1 Flash voice assistant, (3) RepX AI cybernetic fitness intelligence platform featuring 3D WebGL anatomy, 600k Kaggle dataset normalization, and deterministic recommendation algorithms, (4) Arduino IoT home automation with opto-isolated relays, and (5) Advanced Hardware BMS power modifications."
   },
   cryptobot: {
     title: "CryptoBot 1.0 — High-Frequency Dual-Account Terminal & AI Bot Pilot",
     thoughtTrace: "Retrieving CryptoBot 1.0 multi-account trade mirroring, delta hedging, and Gemini AI pilot specs...",
-    response: "CryptoBot 1.0 is an institutional-grade cryptocurrency trading terminal styled after Binance Futures (#0B0E11). It provides sub-millisecond Master-to-Slave trade copying for up to 20 accounts using CCXT and Binance User Data Streams, automated Delta-Neutral hedging architectures (Delta Master with 5 USDT buffer and Voltron Straddle engines), multi-kernel AI intelligence powered by Google Gemini 3.1 Flash-Lite and Gemma 3 27B, high-performance TradingView Lightweight Charts canvas, and an isolated SQLite paper trading sandbox (Shadow Mode)."
+    response: "CryptoBot 1.0 is an institutional-grade cryptocurrency trading terminal styled after Binance Futures (#0B0E11). It provides high-speed real-time Master-to-Slave trade copying for up to 20 accounts using CCXT and Binance User Data Streams, automated Delta-Neutral hedging architectures (Delta Master with 5 USDT buffer and Voltron Straddle engines), multi-kernel AI intelligence powered by Google Gemini 3.1 Flash-Lite and Gemma 3 27B, high-performance TradingView Lightweight Charts canvas, and an isolated SQLite paper trading sandbox (Shadow Mode)."
   },
   hisaab: {
     title: "Hisaab-Kitaab — Digital Ledger & Business Management PWA",
@@ -237,7 +238,7 @@ export const EXECUTIVE_ANSWERS = {
   contact: {
     title: "Direct Contact Coordinates & UK Right to Work",
     thoughtTrace: "Retrieving verified contact details and visa status...",
-    response: "Muhammad Mobeen is based in London, NW9 6EJ, and holds Full Right to Work in the UK under a Spouse Visa. You can reach him directly at 07351187884 or via email at muhammadmobeen20011@gmail.com."
+    response: "Muhammad Mobeen is based in London, NW9 6EJ, and holds Full Right to Work in the UK under a Spouse Visa. You can reach him directly at 07351187884, via email at muhammadmobeen20011@gmail.com, or connect on LinkedIn at https://www.linkedin.com/in/muhammad-mobeen/."
   },
   languages: {
     title: "Multilingual Communication",

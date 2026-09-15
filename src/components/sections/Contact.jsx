@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser';
 import { 
   Send, Terminal, ShieldCheck, AlertCircle, Copy, Check, Github, 
   Phone, MapPin, Globe, Clock, Mail, MessageSquare, RefreshCw, 
-  Zap, CheckCircle2, RotateCcw, Code 
+  Zap, CheckCircle2, RotateCcw, Code, Linkedin 
 } from 'lucide-react';
 import { playClick, playSuccess, playError } from '../../utils/audio';
 
@@ -506,6 +506,23 @@ export default function Contact({ isGodMode, themeMode = 'dark' }) {
           >
             <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
             <span>WhatsApp</span>
+          </a>
+
+          <a 
+            href="www.linkedin.com/in/muhammad-mobeen-8120b3347" 
+            target="_blank" 
+            rel="noreferrer"
+            title="Connect on LinkedIn"
+            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all hover:scale-105 ${
+              isGodMode 
+                ? "bg-green-500/10 border border-green-500/30 text-green-300 font-mono"
+                : themeMode === "light"
+                ? "bg-blue-50 border border-blue-200 text-blue-700 shadow-sm"
+                : "bg-blue-950/40 border border-blue-500/40 text-cyan-300 shadow-sm"
+            }`}
+          >
+            <Linkedin className="w-3.5 h-3.5 text-blue-500" />
+            <span>LinkedIn</span>
           </a>
 
           <div 

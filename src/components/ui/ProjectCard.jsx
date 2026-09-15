@@ -175,7 +175,7 @@ export default function ProjectCard({ project, isGodMode, themeMode = 'dark', on
           <span className={`text-[10px] font-bold uppercase tracking-[0.18em] opacity-70 ${
             themeMode === "light" && !isGodMode ? "text-slate-500" : "text-slate-400"
           }`}>
-            {isGodMode ? "BENCHMARK:" : "BUSINESS ROI:"}
+            {isGodMode ? "BENCHMARK:" : "VERIFIED IMPACT:"}
           </span>
         </div>
         <span className={`text-xs sm:text-sm font-black ${

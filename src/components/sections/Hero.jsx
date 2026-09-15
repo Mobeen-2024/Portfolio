@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Terminal, Sparkles, ChevronRight, Activity } from 'lucide-react';
+import { ArrowRight, Terminal, Sparkles, ChevronRight, Activity, Linkedin, ShieldCheck } from 'lucide-react';
 import { playClick } from '../../utils/audio';
 
 export default function Hero({ title, subtitle, isGodMode, themeMode = 'dark', onOpenAgentConsole, ctaPrimary, ctaSecondary }) {
@@ -18,7 +18,7 @@ export default function Hero({ title, subtitle, isGodMode, themeMode = 'dark', o
 
   const kpis = isGodMode ? [
     { label: "HARDWARE DIAGNOSTICS", value: "Component-Level" },
-    { label: "EXECUTION LATENCY", value: "Sub-Millisecond" },
+    { label: "ORDER STREAMING", value: "Real-Time WS" },
     { label: "CABLING STANDARD", value: "Cat6 T568B" },
     { label: "EMBEDDED FIRMWARE", value: "Arduino / C++" }
   ] : [
@@ -117,6 +117,22 @@ export default function Hero({ title, subtitle, isGodMode, themeMode = 'dark', o
             {isGodMode ? <Terminal className="w-4 h-4 text-green-400" /> : <Sparkles className={`w-4 h-4 ${themeMode === "light" ? "text-blue-600" : "text-cyan-400"}`} />}
             <span>{secondaryBtnText}</span>
           </button>
+
+          <a
+            href="https://www.linkedin.com/in/muhammad-mobeen/"
+            target="_blank"
+            rel="noreferrer"
+            className={`px-6 py-4 rounded-2xl font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 flex items-center gap-2 border active:scale-95 cursor-pointer backdrop-blur-xl ${
+              isGodMode
+                ? "bg-black/70 border-green-500/50 text-green-400 hover:bg-green-500/15 hover:border-green-400 shadow-[0_0_20px_rgba(34,197,94,0.15)] font-mono"
+                : themeMode === "light"
+                ? "bg-white border-blue-200 text-blue-700 hover:bg-blue-50 hover:border-blue-400 shadow-md shadow-blue-100/50"
+                : "bg-[#0b162c]/80 border-blue-500/40 text-cyan-300 hover:bg-[#102142] hover:border-blue-400 hover:text-white shadow-lg shadow-black/40"
+            }`}
+          >
+            <Linkedin className="w-4 h-4 text-blue-500 shrink-0" />
+            <span>LinkedIn</span>
+          </a>
         </div>
 
         {/* Quick Credentials & KPI Glass Ribbon */}

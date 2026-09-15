@@ -45,8 +45,8 @@ export default function About({ title, bio, metrics, isGodMode, themeMode = 'dar
               isGodMode ? "border-green-500/20" : themeMode === "light" ? "border-slate-200" : "border-slate-800/80"
             }`}>
               {(isGodMode 
-                ? ["Distributed Consensus", "Lock-Free Systems", "Vector RAG", "Event Sourcing"] 
-                : ["Boardroom Presentation", "Enterprise CAC Optimization", "M&A Technical Diligence", "Cross-Functional Squads"]
+                ? ["SMD Micro-Soldering", "Cat6 T568B Standard", "Active BMS Engineering", "EventBus WebSocket Stacks"] 
+                : ["Component-Level Diagnostics", "Cat6 Cabling & Subnetting", "CompTIA A+ Core 1 & 2 Lab Ready", "Windows & Linux Administration"]
               ).map((tag, idx) => (
                 <span 
                   key={idx} 

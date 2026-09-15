@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import BiometricScanner from '../ui/BiometricScanner';
-import { Volume2, VolumeX, Menu, X, Sun, Moon } from 'lucide-react';
+import { Volume2, VolumeX, Menu, X, Sun, Moon, Linkedin } from 'lucide-react';
 import { isMuted, toggleMute, playClick } from '../../utils/audio';
 
 export default function Navigation({ isGodMode, isScanning, onScan, activeLabel, themeMode = 'dark', onToggleTheme }) {
@@ -85,7 +85,7 @@ export default function Navigation({ isGodMode, isScanning, onScan, activeLabel,
                 <span className={`text-[10px] font-bold uppercase tracking-[0.18em] ${
                   isGodMode ? "text-green-500/70 font-mono" : themeMode === "light" ? "text-slate-500 font-sans" : "text-slate-400 font-sans"
                 }`}>
-                  {isGodMode ? "KERNEL: ONLINE" : activeLabel || "Growth & Systems"}
+                  {isGodMode ? "KERNEL: ONLINE" : activeLabel || "IT Support & Systems"}
                 </span>
               </div>
             </div>
@@ -113,8 +113,26 @@ export default function Navigation({ isGodMode, isScanning, onScan, activeLabel,
             </ul>
           </div>
 
-          {/* Right Controls: Sound Toggle, Light/Dark Toggle, Scanner, Mobile Hamburger */}
-          <div className="flex items-center gap-2.5 md:gap-3.5">
+          {/* Right Controls: LinkedIn, Sound Toggle, Light/Dark Toggle, Scanner, Mobile Hamburger */}
+          <div className="flex items-center gap-2 md:gap-3">
+            {/* LinkedIn Quick Link */}
+            <a
+              href="https://www.linkedin.com/in/muhammad-mobeen/"
+              target="_blank"
+              rel="noreferrer"
+              title="Connect on LinkedIn"
+              aria-label="Connect on LinkedIn"
+              className={`p-2.5 rounded-xl border transition-all duration-300 cursor-pointer ${
+                isGodMode 
+                  ? "border-green-500/30 text-green-400/80 hover:text-green-300 hover:bg-green-500/10 hover:border-green-400/60 font-mono" 
+                  : themeMode === "light"
+                  ? "border-slate-200 text-blue-600 hover:text-blue-700 hover:bg-blue-50 hover:border-blue-300 shadow-sm"
+                  : "border-slate-800/80 text-cyan-400 hover:text-white hover:bg-blue-600/15 hover:border-blue-500/50 shadow-sm"
+              }`}
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
+
             {/* Audio Toggle */}
             <button
               onClick={handleMuteToggle}
@@ -199,8 +217,30 @@ export default function Navigation({ isGodMode, isScanning, onScan, activeLabel,
                 </li>
               ))}
 
-              {/* Mobile Light/Dark Mode Switch Row */}
+              {/* Mobile LinkedIn Link Row */}
               <li className="pt-2 border-t border-current/10">
+                <a
+                  href="https://www.linkedin.com/in/muhammad-mobeen/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-xs uppercase font-bold tracking-wider transition-colors ${
+                    isGodMode 
+                      ? "text-green-400 hover:bg-green-500/10 font-mono"
+                      : themeMode === "light" 
+                      ? "bg-blue-50 text-blue-700 border border-blue-200" 
+                      : "bg-[#0c182b] text-cyan-300 border border-blue-500/30"
+                  }`}
+                >
+                  <span className="flex items-center gap-2">
+                    <Linkedin className="w-4 h-4" />
+                    <span>Connect on LinkedIn</span>
+                  </span>
+                  <span className="text-[10px] opacity-70">Profile ↗</span>
+                </a>
+              </li>
+
+              {/* Mobile Light/Dark Mode Switch Row */}
+              <li className="pt-1">
                 <button
                   onClick={() => { onToggleTheme?.(); setMobileMenuOpen(false); }}
                   className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-xs uppercase font-bold tracking-wider transition-colors cursor-pointer ${

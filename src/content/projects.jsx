@@ -13,16 +13,16 @@ export const PROJECTS = [
     executive: {
       title: "CryptoBot 1.0 Terminal",
       tagline: "High-Frequency Dual-Account Terminal & AI Bot Pilot",
-      description: "Institutional-grade cryptocurrency trading terminal and algorithmic execution engine styled after Binance Futures (#0B0E11). Engineered with sub-millisecond Master-to-Slave trade mirroring (scalable up to 20 accounts via CCXT and User Data Stream WebSockets), automated Delta-Neutral hedging (Delta Master & Voltron Straddle bots), multi-kernel Google Gemini/Gemma AI intelligence, TradingView Lightweight Charts canvas, and a zero-risk virtual paper trading sandbox (Shadow Mode) backed by SQLite.",
-      impact: "Sub-Millisecond Mirroring & Delta Hedging",
+      description: "Institutional-grade cryptocurrency trading terminal and algorithmic execution engine styled after Binance Futures (#0B0E11). Engineered with real-time Master-to-Slave trade mirroring (scalable up to 20 accounts via CCXT and User Data Stream WebSockets), automated Delta-Neutral hedging (Delta Master & Voltron Straddle bots), multi-kernel Google Gemini/Gemma AI intelligence, TradingView Lightweight Charts canvas, and a zero-risk virtual paper trading sandbox (Shadow Mode) backed by SQLite.",
+      impact: "Real-Time WebSocket Mirroring & Delta Hedging",
       techStack: ["React 19", "Lightweight Charts", "Node.js / Express", "WebSockets / Socket.IO", "Google Gemini & Gemma", "CCXT", "Better-SQLite3", "Tailwind CSS 4"],
       keyMetrics: [
-        { label: "Execution Latency", value: "Sub-Millisecond Mirroring" },
+        { label: "Order Replication", value: "Real-Time WebSocket Sync" },
         { label: "AI Bot Matrix", value: "Gemini 3.1 + Gemma 3 27B" },
         { label: "Hedge Engine", value: "Delta-Neutral & Auto-Recovery" }
       ],
       strategicTakeaway: "Eliminates execution slippage, latency asymmetry, and unhedged drawdowns across multi-account portfolios by coupling automated delta-neutral position hedging with real-time AI market regime classification and zero-risk paper trading simulation.",
-      businessChallenges: "Maintaining microsecond order execution parity across up to 20 accounts while handling WebSocket reconnection packet drops, dynamic ATR spread friction, and exchange rate-limit constraints during extreme volatility."
+      businessChallenges: "Maintaining high-concurrency order execution parity across up to 20 accounts while handling WebSocket reconnection packet drops, dynamic ATR spread friction, and exchange rate-limit constraints during extreme volatility."
     },
     architect: {
       title: "CRYPTOBOT_MULTI_KERNEL_ENGINE",
@@ -40,10 +40,10 @@ export const PROJECTS = [
         "Binance WebSocket Ingestion: 1m–1M OHLCV klines, orderbook depth & User Data fill events",
         "Multi-Kernel AI Telemetry: Gemini 3.1 Flash news sentiment + Gemma 3 27B ATR buffer calibration",
         "EventBus Decision Engine: HedgeScore calculation, offset buffers & hard drawdown circuit breakers",
-        "CCXT Atomic Mirroring: Sub-millisecond order broadcast to slave accounts with HMAC validation",
+        "CCXT Atomic Mirroring: High-speed order broadcast to slave accounts with HMAC validation",
         "Shadow Mode Engine: Full margin/leverage matching against live Binance trade feeds in SQLite"
       ],
-      complexity: "Latency: Sub-millisecond trade mirroring | Risk: Delta-neutral dynamic ATR hedge | Storage: Synchronous SQLite"
+      complexity: "Latency: Event-driven WebSocket mirroring | Risk: Delta-neutral dynamic ATR hedge | Storage: Synchronous SQLite"
     }
   },
   {
@@ -257,47 +257,6 @@ export const PROJECTS = [
         "Router Firewall Rule Setup & Secure Remote Gateway Verification"
       ],
       complexity: "Physical: T568B standard | Network: Layer 2/3 IP Subnetting"
-    }
-  },
-  {
-    id: 7,
-    category: "Hardware & Diagnostics",
-    images: [
-      "/images/projects/diy/extractor.jpg"
-    ],
-    executive: {
-      title: "DIY Appliance Installation",
-      tagline: "Stove Extractor Hood Setup",
-      description: "Successfully executed a DIY installation of a kitchen stove extractor hood, managing physical mounting and structural modifications.",
-      impact: "Home Improvement",
-      techStack: ["Hardware Mounting", "Power Tools", "Structural Modification"],
-      keyMetrics: [
-        { label: "Project", value: "DIY Installation" },
-        { label: "Hardware", value: "Extractor Hood" },
-        { label: "Result", value: "Fully Operational" }
-      ],
-      strategicTakeaway: "Demonstrated hands-on hardware installation and structural modification skills in a practical environment.",
-      businessChallenges: "Physical appliance installation requires precision, proper structural support, and safe handling of power tools."
-    },
-    architect: {
-      title: "HARDWARE_INSTALL_DIY",
-      tagline: "Structural Mounting / Appliance Setup",
-      description: "Planned and executed the physical mounting and integration of a Stoves extractor hood, ensuring structural integrity and level alignment.",
-      impact: "Hardware Mounting",
-      techStack: ["Drill", "Wall Anchors", "Measurement Tools"],
-      keyMetrics: [
-        { label: "Alignment", value: "Level Check" },
-        { label: "Support", value: "Wall Mounting" },
-        { label: "Integration", value: "Appliance Setup" }
-      ],
-      architectureDetails: "Physical layer installation requiring precise measurement, drilling, and secure wall anchoring for heavy appliance support.",
-      pipelineSteps: [
-        "Site Measurement & Marking",
-        "Structural Drilling",
-        "Secure Wall Anchoring",
-        "Appliance Mounting & Alignment"
-      ],
-      complexity: "Physical Hardware Mounting"
     }
   }
 ];

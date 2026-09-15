@@ -224,7 +224,7 @@ function App() {
             }`}>
               {isGodMode 
                 ? "// CLICK ANY CASE STUDY TO INSPECT LOW-LEVEL PIPELINE EXECUTION & COMPLEXITY" 
-                : "Select any case study to explore full business impact, ARR growth, and strategic takeaways."}
+                : "Select any case study to explore technical architecture, operational reliability, and hands-on execution."}
             </p>
 
             {/* Filter and Search Controls */}
@@ -340,6 +340,17 @@ function App() {
               <ArrowUp className="w-3.5 h-3.5" />
               <span>Back to Top</span>
             </button>
+            <a 
+              href="https://www.linkedin.com/in/muhammad-mobeen/" 
+              target="_blank" 
+              rel="noreferrer"
+              className={`flex items-center gap-1 hover:underline ${
+                themeMode === "light" && !isGodMode ? "text-blue-600 hover:text-blue-800" : "text-cyan-400 hover:text-cyan-300"
+              }`}
+            >
+              <span>LinkedIn</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
             <a 
               href="https://github.com/Mobeen-2024/Portfolio" 
               target="_blank" 
