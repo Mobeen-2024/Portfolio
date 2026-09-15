@@ -13,6 +13,7 @@ const RECIPIENT_PHONE = "07351187884";
 const LOCATION_STR = "London, NW9 6EJ (Full Right to Work - Spouse Visa)";
 const PORTFOLIO_URL = "https://my-project-portfolios-projects-ed15ad56.vercel.app/";
 const WHATSAPP_URL = "https://wa.me/447351187884";
+const LINKEDIN_URL = "https://www.linkedin.com/in/muhammad-mobeen-8120b3347";
 
 // Gateway Configurations
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -509,7 +510,7 @@ export default function Contact({ isGodMode, themeMode = 'dark' }) {
           </a>
 
           <a 
-            href="www.linkedin.com/in/mobeen-8120b3347" 
+            href={LINKEDIN_URL} 
             target="_blank" 
             rel="noreferrer"
             title="Connect on LinkedIn"
