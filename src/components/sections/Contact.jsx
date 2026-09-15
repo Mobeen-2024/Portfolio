@@ -509,7 +509,7 @@ export default function Contact({ isGodMode, themeMode = 'dark' }) {
           </a>
 
           <a 
-            href="www.linkedin.com/in/muhammad-mobeen-8120b3347" 
+            href="www.linkedin.com/in/mobeen-8120b3347" 
             target="_blank" 
             rel="noreferrer"
             title="Connect on LinkedIn"
