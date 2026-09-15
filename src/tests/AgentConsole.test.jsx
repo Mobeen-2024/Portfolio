@@ -22,6 +22,14 @@ describe('Agent Knowledge & Command Engine', () => {
     expect(res.response).toContain('Delta-Neutral');
   });
 
+  it('processes executive timeline and education query correctly', () => {
+    const res = processExecutiveQuery('What is your career timeline and education?');
+    expect(res.title).toContain('Timeline');
+    expect(res.response).toContain('The Educators');
+    expect(res.response).toContain('Super Wings');
+    expect(res.response).toContain('CompTIA A+');
+  });
+
   it('handles empty executive query with validation fallback', () => {
     const res = processExecutiveQuery('   ');
     expect(res.title).toContain('Error');
@@ -44,6 +52,14 @@ describe('Agent Knowledge & Command Engine', () => {
     const res = executeCliCommand('hardware');
     expect(res.type).toBe('success');
     expect(res.lines.some(l => l.includes('Lithium-ion'))).toBe(true);
+  });
+
+  it('executes CLI timeline command', () => {
+    const res = executeCliCommand('timeline');
+    expect(res.type).toBe('success');
+    expect(res.lines.some(l => l.includes('CONSOLIDATED MASTER TIMELINE'))).toBe(true);
+    expect(res.lines.some(l => l.includes('Super Wings'))).toBe(true);
+    expect(res.lines.some(l => l.includes('IT Infrastructure & Hardware Technician'))).toBe(true);
   });
 
   it('returns error for unknown CLI command', () => {

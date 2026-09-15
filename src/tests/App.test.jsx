@@ -19,17 +19,17 @@ describe('Dual-Reality Portfolio App', () => {
 
   it('renders portfolio projects including RepX AI', () => {
     render(<App />);
-    expect(screen.getByText('Hisaab-Kitaab Finance App')).toBeInTheDocument();
+    expect(screen.getAllByText('Hisaab-Kitaab Finance App').length).toBeGreaterThan(0);
     expect(screen.getAllByText(/RepX AI/i).length).toBeGreaterThan(0);
     expect(screen.getByText('Advanced Hardware Diagnostics & Repair')).toBeInTheDocument();
     expect(screen.getByText('IoT Home Automation Framework')).toBeInTheDocument();
-    expect(screen.getByText(/CryptoBot/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/CryptoBot/i).length).toBeGreaterThan(0);
     expect(screen.getByText('CCTV Network & Infrastructure')).toBeInTheDocument();
   });
 
   it('opens ProjectDetailModal when clicking a project card', () => {
     render(<App />);
-    const firstProject = screen.getByText('Hisaab-Kitaab Finance App');
+    const firstProject = screen.getAllByText('Hisaab-Kitaab Finance App')[0];
     fireEvent.click(firstProject);
 
     // Modal should now be visible
@@ -41,6 +41,9 @@ describe('Dual-Reality Portfolio App', () => {
     render(<App />);
     expect(screen.getByText(/Core Technical Capabilities/i)).toBeInTheDocument();
     expect(screen.getByText(/Practical Experience & Qualifications/i)).toBeInTheDocument();
+    expect(screen.getByText(/Consolidated Master Timeline/i)).toBeInTheDocument();
+    expect(screen.getAllByText('Matriculation (GCSE Equivalent)').length).toBeGreaterThan(0);
+    expect(screen.getByText('Super Wings (I.C.S)')).toBeInTheDocument();
   });
 
   it('filters projects using the search input', () => {
@@ -49,6 +52,6 @@ describe('Dual-Reality Portfolio App', () => {
     fireEvent.change(searchInput, { target: { value: 'Lightweight Charts' } });
     
     // Should show CryptoBot
-    expect(screen.getByText(/CryptoBot/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/CryptoBot/i).length).toBeGreaterThan(0);
   });
 });

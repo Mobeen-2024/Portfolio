@@ -7,6 +7,7 @@ export const AGENT_ROLES = {
     badge: "IT_ADVISOR_v1.0",
     description: "An AI advisor providing verified insights into Muhammad Mobeen's IT support competencies, hardware repair capabilities, CompTIA A+ certification, and technical projects.",
     suggestedQueries: [
+      { id: "timeline", label: "⏱️ Career Timeline", query: "Can you provide Mobeen's complete career, education, and project timeline?" },
       { id: "comptia", label: "🛡️ CompTIA A+ Progress", query: "What is Mobeen's CompTIA A+ certification progress and competencies?" },
       { id: "hardware", label: "🔧 Hardware & Soldering", query: "What hands-on hardware and micro-soldering experience does Mobeen have?" },
       { id: "networking", label: "🌐 Networking & CCTV", query: "Can you summarize Mobeen's networking and CCTV deployment experience?" },
@@ -23,6 +24,7 @@ export const AGENT_ROLES = {
       "help",
       "status",
       "skills",
+      "timeline",
       "projects",
       "cryptobot",
       "repx",
@@ -43,6 +45,7 @@ export const CLI_COMMANDS = {
       "  help        - List all available terminal commands",
       "  status      - Print real-time system diagnostics, UK work rights, and environment",
       "  skills      - Display verified hardware, networking, and software competencies",
+      "  timeline    - Inspect Consolidated Master Timeline (Education, Projects, Experience)",
       "  projects    - List all practical engineering projects and architecture specs",
       "  cryptobot   - Inspect CryptoBot 1.0 dual-account terminal, delta hedging & AI matrix",
       "  repx        - Inspect RepX AI 3D WebGL, 600k Kaggle Polars pipeline & engine specs",
@@ -76,6 +79,22 @@ export const CLI_COMMANDS = {
       "  OS ADMINISTRATION: Windows 10/11 configuration & troubleshooting, Linux CLI basics, system recovery, hardware utilities",
       "  SOFTWARE STACK:    TypeScript, React 19, Express, WebSockets, Lightweight Charts, CCXT, SQLite, Tailwind CSS, REST APIs",
       "  AI WORKFLOWS:      AI-directed document parsing, receipt OCR, rapid prototyping, and automated testing"
+    ]
+  },
+  timeline: {
+    description: "Inspect Consolidated Master Timeline (Education, Projects, Experience)",
+    output: [
+      ">> CONSOLIDATED MASTER TIMELINE (CHRONOLOGICAL TELEMETRY RECORD):",
+      "  [01] [Education]   Matriculation (GCSE Equivalent)         :: Jan 2016 – Mar 2018 | Pakistan",
+      "  [02] [Education]   Super Wings (I.C.S)                     :: Jul 2018 – Apr 2020 | Pakistan",
+      "  [03] [Projects]    Digital Branding & 3D Motion Design     :: Jan 2021 – Dec 2023 | Independent",
+      "  [04] [Projects]    CryptoBot 1.0 Terminal Architecture     :: Feb 2021 – Present  | Independent",
+      "  [05] [Experience]  Physical Infrastructure & CCTV Setup    :: Sep 2022 – Dec 2023 | Pakistan",
+      "  [06] [Experience]  IT Infrastructure & Hardware Technician :: Jan 2024 – Present  | London, UK",
+      "  [07] [Projects]    Hisaab-Kitaab Finance App               :: Jul 2024 – Feb 2025 | Independent",
+      "  [08] [Education]   CompTIA A+ Certification Prep           :: Sep 2026 – Nov 2026 | London, UK",
+      "",
+      "Type 'hardware', 'network', 'cryptobot', or 'comptia' for deep-dive technical telemetry."
     ]
   },
   projects: {
@@ -175,6 +194,11 @@ export const CLI_COMMANDS = {
 };
 
 export const EXECUTIVE_ANSWERS = {
+  timeline: {
+    title: "Consolidated Master Timeline & Milestones",
+    thoughtTrace: "Retrieving verified chronological record across education, projects, and enterprise experience...",
+    response: "Muhammad Mobeen's verified non-overlapping chronological record spans: (1) Matriculation (GCSE Equivalent) — The Educators (Jan 2016 – Mar 2018, Pakistan), (2) Super Wings (Intermediate in Computer Science / I.C.S, Jul 2018 – Apr 2020, Pakistan), (3) Digital Branding & 3D Motion Design (Jan 2021 – Dec 2023, Independent), (4) CryptoBot 1.0 Terminal Architecture (Feb 2021 – Present, Independent), (5) Physical Infrastructure & CCTV Deployment (Sep 2022 – Dec 2023, Pakistan), (6) IT Infrastructure & Hardware Technician (Jan 2024 – Present, London, UK), (7) Hisaab-Kitaab Finance App (Jul 2024 – Feb 2025, Independent), and (8) CompTIA A+ Certification Prep (Sep 2026 – Nov 2026, London, UK)."
+  },
   comptia: {
     title: "CompTIA A+ Certification & Systems Mastery",
     thoughtTrace: "Retrieving certification progress and IT infrastructure syllabus...",
@@ -229,10 +253,13 @@ export function processExecutiveQuery(queryText) {
     return {
       title: "Query Error",
       thoughtTrace: "Sanitizing input...",
-      response: "Please provide a query regarding CompTIA A+, hardware diagnostics, networking, projects, or contact information."
+      response: "Please provide a query regarding CompTIA A+, hardware diagnostics, networking, projects, timeline, or contact information."
     };
   }
 
+  if (normalized.includes("timeline") || normalized.includes("career") || normalized.includes("education") || normalized.includes("history") || normalized.includes("journey") || normalized.includes("matric") || normalized.includes("gcse") || normalized.includes("super wings") || normalized.includes("chronolog")) {
+    return EXECUTIVE_ANSWERS.timeline;
+  }
   if (normalized.includes("crypto") || normalized.includes("tradex") || normalized.includes("trading") || normalized.includes("bot") || normalized.includes("binance") || normalized.includes("hedg")) {
     return EXECUTIVE_ANSWERS.cryptobot;
   }
@@ -296,6 +323,14 @@ export function executeCliCommand(rawCmd) {
   }
 
   // Fuzzy match or fallback
+  if (sanitized.startsWith("time") || sanitized.startsWith("chrono") || sanitized.startsWith("edu") || sanitized.startsWith("career") || sanitized.startsWith("matric")) {
+    return {
+      type: "success",
+      command: "timeline",
+      lines: CLI_COMMANDS.timeline.output
+    };
+  }
+
   if (sanitized.startsWith("crypto") || sanitized.startsWith("trade") || sanitized.startsWith("bot")) {
     return {
       type: "success",
